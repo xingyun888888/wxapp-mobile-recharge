@@ -1,0 +1,20 @@
+<view class="map-wrap">
+  <view class="search-wrap">
+    <view class="input-like" bindtap="chooseLocation">
+      <i class="iconfont icon-sousuo_sousuo"></i>
+      搜索位置查找附近充电宝
+    </view>
+    <view class="to-list">
+      <i class="iconfont icon-liebiao"></i>
+    </view>
+  </view>
+  <map 
+    id="map" 
+    longitude="{{lon}}" 
+    latitude="{{lat}}" 
+    scale="15" 
+    class="map"
+    markers="{{markers}}"
+    style="height: {{system.screenHeight}}"
+  ></map>
+</view>

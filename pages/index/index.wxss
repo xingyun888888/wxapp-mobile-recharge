@@ -1,0 +1,40 @@
+/* pages/map/map.wxss */
+.map-wrap{
+  height: 100%;
+}
+.map{
+  width: 100%;
+  height: 800px;
+}
+.search-wrap{
+  padding: 0 32rpx;
+  height: 96rpx;
+  background-color: #000;
+  display: flex;
+}
+.input-like{
+  background-color: #fff;
+  flex: 1;
+  margin-top: 20rpx;
+  height: 56rpx;
+  border-radius: 32rpx;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 56rpx;
+  color: #c0c0c0;
+}
+.iconfont{
+  font-size: 20px;
+}
+.icon-sousuo_sousuo{
+  position: relative;
+  margin-left: 16rpx;
+  top: 4rpx;
+}
+.to-list{
+  display: block;
+  width: 56rpx;
+  text-align: right;
+  color: #fff;
+  line-height: 96rpx;
+}
