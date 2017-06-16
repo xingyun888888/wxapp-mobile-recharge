@@ -1,0 +1,112 @@
+/* pages/list/list.wxss */
+.search-wrap{
+  padding: 0 32rpx;
+  height: 96rpx;
+  background-color: #000;
+  display: flex;
+}
+.input-like{
+  background-color: #fff;
+  flex: 1;
+  margin-top: 20rpx;
+  height: 56rpx;
+  border-radius: 32rpx;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 56rpx;
+  color: #c0c0c0;
+}
+.iconfont{
+  font-size: 20px;
+}
+.icon-sousuo_sousuo{
+  position: relative;
+  margin-left: 16rpx;
+  top: 4rpx;
+}
+.to-list{
+  display: block;
+  width: 56rpx;
+  text-align: right;
+  color: #fff;
+  line-height: 96rpx;
+}
+
+.shop-item{
+  padding: 16px;
+  background-color: #fff;
+  display: flex;
+  border-bottom: 1px solid #f7f7f7;
+}
+.logo{
+  width: 64px;
+  height: 64px;
+  background-color: #F2F2F2;
+  border-radius: 6px;
+ 
+}
+image{
+  width: 100%;
+  height: 100%;
+}
+.detail{
+  margin-left: 16px;
+  flex: 1;
+}
+.shop-name{
+  font-size: 14px;
+}
+.shop-status{
+  margin-top: 4px;
+}
+.dis{
+  float: right;
+  color: #757575;
+  font-size: 12px;
+}
+.borrow{
+  color: #0085EE;
+  margin-right: 16rpx;
+  font-size: 12px;
+}
+.return{
+  color: #00A282;
+  margin-right: 16rpx;
+  font-size: 12px;
+}
+.icon-borrow, .icon-return{
+  display: inline-block;
+  width: 28rpx;
+  height: 28rpx;
+  border: 1px solid;
+  text-align: center;
+  line-height: 28rpx;
+  font-style: normal;
+  margin-right: 4px;
+}
+.icon-borrow{
+  border-color: #0085EE;
+}
+.icon-return{
+  border-color: #00A282;
+}
+.state{
+  display: inline-block;
+  height: 32rpx;
+  line-height: 32rpx;
+  padding: 0 8rpx;
+  border-radius: 16rpx;
+  color: #fff;
+  font-size: 12px;
+}
+.state-on{
+  background-color: #FF9800;
+}
+.state-off{
+  background-color: #E44545;
+}
+.shop-address{
+  color: #999999;
+  font-size: 14px;
+  margin-top: 8rpx;
+}

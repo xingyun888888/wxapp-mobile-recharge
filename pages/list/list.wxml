@@ -1,0 +1,39 @@
+<!--pages/list/list.wxml-->
+<view class="list-wrap">
+  <view class="search-wrap">
+    <view class="input-like" bindtap="chooseLocation">
+      <i class="iconfont icon-sousuo_sousuo"></i>
+      搜索位置查找附近充电宝
+    </view>
+  </view>
+  <view class="shop-list">
+    <view class="shop-item" wx:for="{{shopList}}" wx:for-item="shop" bindtap="goDetail" data-id="{{shop.id}}">
+      <view class="logo">
+        <image src="/assets/logo.png" alt=""></image>
+      </view>
+      <view class="detail">
+        <view class="shop-name">
+          {{shop.name}}
+          <span class="dis">{{shop.distance}}</span>
+        </view>
+        <view class="shop-status">
+          <span class="borrow">
+            <i class="icon-borrow">借</i>{{shop.borrow}}
+          </span>
+          <span class="return">
+            <i class="icon-return">还</i>{{shop.back}}
+          </span>
+          <span class="state state-on" wx:if="{{shop.online == 1}}">
+            设备在线
+          </span>
+          <span class="state state-off" wx:else>
+            设备离线
+          </span>
+        </view>
+        <view class="shop-address">
+          {{shop.address}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

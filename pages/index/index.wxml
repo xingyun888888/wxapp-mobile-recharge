@@ -4,17 +4,21 @@
       <i class="iconfont icon-sousuo_sousuo"></i>
       搜索位置查找附近充电宝
     </view>
-    <view class="to-list">
+    <view class="to-list" bindtap="navigateTo">
       <i class="iconfont icon-liebiao"></i>
     </view>
   </view>
   <map 
     id="map" 
-    longitude="{{lon}}" 
+    longitude="{{lng}}" 
     latitude="{{lat}}" 
     scale="15" 
     class="map"
     markers="{{markers}}"
-    style="height: {{system.screenHeight}}"
+    controls="{{controls}}"
+    style="height: {{systemInfo.windowHeight - 48}}px"
+    show-location
+    bindcontroltap="clickControl"
+    bindmarkertap="clickMarker"
   ></map>
 </view>

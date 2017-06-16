@@ -3,8 +3,8 @@
  * http://byjiedian.com/index.php?m=byjie&a=get_pos 
  */
 const getNearShop = function (lat, lng) {
-  return wx.request({
-    url: 'https://byjiedian.com/index.php?m=byjie&a=get_pos',
+  wx.request({
+    url: 'https://byjiedian.com/index.php?m=byjie&a=get_posi',
     data: {
       lat,
       lng

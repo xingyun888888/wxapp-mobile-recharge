@@ -1,0 +1,42 @@
+<!--pages/shopdetail/shopdetail.wxml-->
+<view class="shop-detail-wrap"> 
+  <image src="/assets/default.png" class="header-img"></image>
+  <view class="borrow-back">
+    <image src="/assets/chongdian.png"></image>
+    <view class="borrow">
+      <i class="icon-borrow">借</i>可借 <b>{{shopInfo.borrow}}</b>
+    </view>
+    <view class="back">
+      <i class="icon-return">还</i>已还 <b>{{shopInfo.back}}</b>
+    </view>
+  </view>
+  <view class="name-section">
+    <span class="name-section-name">
+      {{shopInfo.name}}
+    </span>
+    <span class="name-section-contact" bindtap="makePhoneCall">联系我<i class="iconfont icon-phone"></i></span>
+  </view>
+
+  <view class="detail-section">
+    <view class="small-section">
+      <i class="iconfont icon-dingwei"></i>
+      <view class="content">{{shopInfo.address}}</view>
+      <span class="small-section-gothere">到这去<i class="iconfont icon-daohang"></i></span>
+    </view>
+    <view class="small-section">
+      <i class="iconfont icon-clock"></i>
+      <view class="content">营业时间：{{shopInfo.time}}</view>
+    </view>
+    <view class="small-section">
+      <i class="iconfont icon-money"></i>
+      <view class="content">人均消费：{{shopInfo.cost}}元 </view>
+    </view>
+    <view class="small-section">
+      <i class="iconfont icon-iconset0499"></i>
+      <view class="content">充电箱位置：{{shopInfo.position}}</view>
+    </view>
+  </view>
+  <view class="bottom-btn" bindtap="scanBorrow">
+    借充电宝
+  </view>
+</view>

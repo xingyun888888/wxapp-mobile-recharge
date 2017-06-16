@@ -34,8 +34,34 @@ App({
       }
     })
   },
+  getShopList () {
+    const self = this
+    wx.request({
+      url: 'https://byjiedian.com/index.php?m=byjie&a=get_posi',
+      data: {
+        lat,
+        lng
+      },
+      success (res) {
+        if (res.statusCode === 200) {
+          const shopList = res.data.map((item) => {
+            return {
+              id: 1,
+              latitude: item.lat,
+              longitude: item.lng,
+              iconPath: '/assets/dingwei.png',
+              width: 24,
+              height: 27
+            }
+          })
+          self.globalData.shopList = shopList
+        }
+      }
+    })
+  },
   globalData:{
     userInfo:null,
-    systemInfo: null
+    systemInfo: null,
+    shopList: []
   }
 })
