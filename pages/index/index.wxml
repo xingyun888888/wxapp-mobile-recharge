@@ -12,11 +12,11 @@
     id="map" 
     longitude="{{lng}}" 
     latitude="{{lat}}" 
-    scale="15" 
+    scale="{{scale}}" 
     class="map"
     markers="{{markers}}"
     controls="{{controls}}"
-    style="height: {{systemInfo.windowHeight - 48}}px"
+    style="height: {{mapHeight}}px"
     show-location
     bindcontroltap="clickControl"
     bindmarkertap="clickMarker"

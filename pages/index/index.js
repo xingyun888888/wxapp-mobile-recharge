@@ -11,9 +11,11 @@ Page({
     lng: '',
     lat: '',
     systemInfo: {},
+    mapHeight: '',
     shopList: [],
     markers: [],
-    controls: []
+    controls: [],
+    scale: 15
   },
   // 获取周边网点 
   getNearShop (lat, lng) {
@@ -68,14 +70,15 @@ Page({
   initControls () {
     const self = this
     const wWidth = self.data.systemInfo.windowWidth
+    const mapHeight = self.data.mapHeight
     const intval = (wWidth - 242) / 3
     const scanBorrow = {
       id: 1,
       position: {
         left: intval,
-        top: 500 - 20,
-        width: 121,
-        height: 52
+        top: mapHeight - 52 - 30,
+        width: 121 * 1.2,
+        height: 52 * 1.2
       },
       iconPath: '/assets/scan-borrow.png',
       clickable: true
@@ -84,25 +87,85 @@ Page({
       id: 2,
       position: {
         left: intval * 3/2 + 121,
-        top: 500 - 20,
-        width: 121,
-        height: 52
+        top: mapHeight - 52 - 30,
+        width: 121 * 1.2,
+        height: 52 * 1.2
       },
       iconPath: '/assets/scan-buy.png',
       clickable: true
     }
-    const controls = [scanBorrow, scanBuy]
+    const origin = {
+      id: 3,
+      position: {
+        left: wWidth - 30 - 30,
+        top: mapHeight - 120,
+        width: 30,
+        height: 30
+      },
+      iconPath: '/assets/origin.png',
+      clickable: true
+    }
+    const plus = {
+      id: 4,
+      position: {
+        left: wWidth - 30 - 30,
+        top: mapHeight - 180 - 30,
+        width: 30,
+        height: 30
+      },
+      iconPath: '/assets/mapplus.png',
+      clickable: true
+    }
+    const minus = {
+      id: 5,
+      position: {
+        left: wWidth - 30 - 30,
+        top: mapHeight - 150 - 30,
+        width: 30,
+        height: 30
+      },
+      iconPath: '/assets/mapminus.png',
+      clickable: true
+    }
+    const controls = [scanBorrow, scanBuy, origin, plus, minus]
     self.setData({
       controls: controls
     })
   },
   // 点击控件
   clickControl (e) {
+    const self =  this
     if (e.controlId === 1) {
       wx.scanCode()
     }
     if (e.controlId === 2) {
       wx.scanCode()
+    }
+    if (e.controlId === 3) {
+      const {lat, lng} = self.data
+      console.log(lat, lng)
+      self.setData({
+        lat,
+        lng
+      })
+    }
+    //plus
+    if (e.controlId === 4) {
+      const scale = self.data.scale
+      if (scale < 18) {
+        self.setData({
+          scale: scale + 1
+        })
+      } 
+    }
+    //minus
+    if (e.controlId === 5) {
+      const scale = self.data.scale
+      if (scale > 5) {
+        self.setData({
+          scale: scale - 1
+        })
+      }
     }
   },
   // 点击标注
@@ -131,7 +194,8 @@ Page({
    
     if (app.globalData.systemInfo) {
       self.setData({
-        systemInfo: app.globalData.systemInfo
+        systemInfo: app.globalData.systemInfo,
+        mapHeight: app.globalData.systemInfo.windowHeight - 48
       })
     } 
     self.initControls()
