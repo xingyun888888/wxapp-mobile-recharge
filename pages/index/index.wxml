@@ -20,5 +20,7 @@
     show-location
     bindcontroltap="clickControl"
     bindmarkertap="clickMarker"
+    bindregionchange="regionchange"
+    bindtap="clickMap"
   ></map>
 </view>

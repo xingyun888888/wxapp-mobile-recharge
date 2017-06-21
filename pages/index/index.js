@@ -20,6 +20,10 @@ Page({
   // 获取周边网点 
   getNearShop (lat, lng) {
     const self = this
+    wx.setNavigationBarTitle({
+      title: '搜索附近网点...'
+    })
+    wx.showNavigationBarLoading()
     wx.request({
       url: 'https://byjiedian.com/index.php?m=byjie&a=get_posi',
       data: {
@@ -39,6 +43,10 @@ Page({
               height: 27
             }
           })
+          wx.setNavigationBarTitle({
+            title: '附近网点'
+          })
+          wx.hideNavigationBarLoading()
           self.setData({
             markers: markers,
             shopList: shopList
@@ -97,10 +105,10 @@ Page({
     const origin = {
       id: 3,
       position: {
-        left: wWidth - 30 - 30,
+        left: wWidth - 36 - 30,
         top: mapHeight - 120,
-        width: 30,
-        height: 30
+        width: 36,
+        height: 36
       },
       iconPath: '/assets/origin.png',
       clickable: true
@@ -108,8 +116,8 @@ Page({
     const plus = {
       id: 4,
       position: {
-        left: wWidth - 30 - 30,
-        top: mapHeight - 180 - 30,
+        left: wWidth - 30 - 32,
+        top: mapHeight - 159 - 30,
         width: 30,
         height: 30
       },
@@ -119,8 +127,8 @@ Page({
     const minus = {
       id: 5,
       position: {
-        left: wWidth - 30 - 30,
-        top: mapHeight - 150 - 30,
+        left: wWidth - 30 - 32,
+        top: mapHeight - 130 - 30,
         width: 30,
         height: 30
       },
@@ -142,11 +150,18 @@ Page({
       wx.scanCode()
     }
     if (e.controlId === 3) {
-      const {lat, lng} = self.data
-      console.log(lat, lng)
-      self.setData({
-        lat,
-        lng
+      self.mapCtx.moveToLocation()
+      wx.getLocation({
+        type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+        success: function (res) {
+          var latitude = res.latitude
+          var longitude = res.longitude
+          self.setData({
+            lat: res.latitude,
+            lng: res.longitude,
+          })
+          self.getNearShop(latitude, longitude)
+        }
       })
     }
     //plus
@@ -176,18 +191,42 @@ Page({
     wx.showActionSheet({
       itemList: [shopInfo.name],
       success (res) {
-        wx.navigateTo({
-          url: `/pages/shopdetail/shopdetail?id=${id}`
-        })
+        if (res.tapIndex === 0) {
+          wx.navigateTo({
+            url: `/pages/shopdetail/shopdetail?id=${id}`
+          })
+        }
       }
     })
   },
+  regionchange (e) {
+    const self = this
+    if (e.type === 'end') {
+      self.mapCtx.getCenterLocation({
+        success (res) {
+          self.getNearShop(res.latitude, res.longitude)
+        }
+      })
+    }
+  },
+  returnOrigin () {
+    return new Promise((resolve, reject) => {
+      const deferred = [resolve, reject]
+
+    })
+  },
+  // clickMap (e) {
+  //   if (e === 'end') {
+  //     console.log('草你妈')
+  //   }
+  // },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     const self = this
-   
+    self.mapCtx = wx.createMapContext('map')
+    
     wx.setNavigationBarTitle({
       title: '附近网点'
     })
@@ -208,7 +247,6 @@ Page({
           lat: res.latitude,
           lng: res.longitude,
         })
-        
         self.getNearShop(latitude, longitude)
       }
     })
