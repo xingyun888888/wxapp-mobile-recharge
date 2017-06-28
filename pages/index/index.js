@@ -135,7 +135,7 @@ Page({
       iconPath: '/assets/mapminus.png',
       clickable: true
     }
-    const controls = [scanBorrow, scanBuy, origin, plus, minus]
+    const controls = [scanBorrow, scanBuy, origin]
     self.setData({
       controls: controls
     })
@@ -165,23 +165,23 @@ Page({
       })
     }
     //plus
-    if (e.controlId === 4) {
-      const scale = self.data.scale
-      if (scale < 18) {
-        self.setData({
-          scale: scale + 1
-        })
-      } 
-    }
+    // if (e.controlId === 4) {
+    //   const scale = self.data.scale
+    //   if (scale < 18) {
+    //     self.setData({
+    //       scale: scale + 1
+    //     })
+    //   } 
+    // }
     //minus
-    if (e.controlId === 5) {
-      const scale = self.data.scale
-      if (scale > 5) {
-        self.setData({
-          scale: scale - 1
-        })
-      }
-    }
+    // if (e.controlId === 5) {
+    //   const scale = self.data.scale
+    //   if (scale > 5) {
+    //     self.setData({
+    //       scale: scale - 1
+    //     })
+    //   }
+    // }
   },
   // 点击标注
   clickMarker (e) {
