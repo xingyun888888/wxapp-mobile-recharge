@@ -33,7 +33,14 @@
     </view>
     <view class="small-section">
       <i class="iconfont icon-iconset0499"></i>
-      <view class="content">充电箱位置：{{shopInfo.position}}</view>
+      <view class="content">充电箱位置：{{shopInfo.position}}
+        <span class="state state-on" wx:if="{{shopInfo.online == 1}}">
+          设备在线
+        </span>
+        <span class="state state-off" wx:else>
+          设备离线
+        </span>
+      </view>
     </view>
   </view>
   <view class="bottom-btn" bindtap="scanBorrow">

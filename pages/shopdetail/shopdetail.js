@@ -28,7 +28,7 @@ Page({
       title: '商铺详情'
     })
     wx.request({
-      url: 'https://byjiedian.com/index.php?m=byjie&a=get_shop&',
+      url: 'https://byjiedian.com/index.php/byjie/get_shop',
       data: {
         id: options.id
       },

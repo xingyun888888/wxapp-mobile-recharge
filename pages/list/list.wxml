@@ -14,7 +14,7 @@
       <view class="detail">
         <view class="shop-name">
           {{shop.name}}
-          <span class="dis">{{shop.distance}}</span>
+          <span class="dis">{{shop.distance}}m</span>
         </view>
         <view class="shop-status">
           <span class="borrow">

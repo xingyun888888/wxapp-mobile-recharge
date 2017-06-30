@@ -13,7 +13,7 @@ Page({
   getNearShop (lat, lng) {
     const self = this
     wx.request({
-      url: 'https://byjiedian.com/index.php?m=byjie&a=get_posi',
+      url: 'https://byjiedian.com/index.php/byjie/get_posi',
       data: {
         lat,
         lng

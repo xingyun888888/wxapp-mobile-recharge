@@ -25,7 +25,7 @@ Page({
     })
     wx.showNavigationBarLoading()
     wx.request({
-      url: 'https://byjiedian.com/index.php?m=byjie&a=get_posi',
+      url: 'https://byjiedian.com/index.php/byjie/get_posi',
       data: {
         lat,
         lng
@@ -105,10 +105,10 @@ Page({
     const origin = {
       id: 3,
       position: {
-        left: wWidth - 36 - 30,
-        top: mapHeight - 120,
-        width: 36,
-        height: 36
+        left: wWidth - 36 - 20,
+        top: mapHeight - 132,
+        width: 44,
+        height: 44
       },
       iconPath: '/assets/origin.png',
       clickable: true
