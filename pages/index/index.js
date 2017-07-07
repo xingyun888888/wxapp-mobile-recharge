@@ -135,7 +135,18 @@ Page({
       iconPath: '/assets/mapminus.png',
       clickable: true
     }
-    const controls = [scanBorrow, scanBuy, origin]
+    const recharge = {
+      id: 6,
+      position: {
+        left: 20,
+        top: 10,
+        width: wWidth - 40,
+        height: (wWidth - 40) * 120 / 888
+      },
+      iconPath: '/assets/recharge.tips.jpg',
+      clickable: true
+    }
+    const controls = [scanBorrow, scanBuy, origin, recharge]
     self.setData({
       controls: controls
     })
@@ -162,6 +173,12 @@ Page({
           })
           self.getNearShop(latitude, longitude)
         }
+      })
+    }
+    // recharge
+    if (e.controlId === 6) {
+      wx.navigateTo({
+        url: '/pages/recharge/recharge'
       })
     }
     //plus

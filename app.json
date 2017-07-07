@@ -2,7 +2,10 @@
   "pages":[
     "pages/index/index",
     "pages/list/list",
-    "pages/shopdetail/shopdetail"
+    "pages/shopdetail/shopdetail",
+    "pages/recharge/recharge",
+    "pages/scanborrow/scanborrow",
+    "pages/scanbuy/scanbuy"
   ],
   "window":{
     "backgroundTextStyle":"light",

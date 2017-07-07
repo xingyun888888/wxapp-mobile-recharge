@@ -1,0 +1,23 @@
+<!--pages/recharge/recharge.wxml-->
+<view class="recharge-wrap">
+  <view class="header">
+    <view class="big-sign">
+      <image src="/assets/ZHU.png" alt=""></image>
+      <!--<i class="iconfont icon-cunqianguan"></i>-->
+    </view>
+    <view class="msg">需支付押金</view>
+    <view class="amount">￥100.00</view>
+    <view class="reminds">充电宝自带充电线支持
+      <i class="iconfont icon-apple"></i>
+      <i class="iconfont icon-andriod"></i>
+      <i class="iconfont icon-shujuxian"></i>(Type-C)
+    </view>
+  </view>
+  <view class="button">确认支付</view>
+  <view class="recharge-tips">点击支付表示已阅读并同意<span>使用条款</span>和<span>充值协议</span></view>
+  <view class="vux-divider">温馨提示</view>
+  <view class="tips">
+    <view class="para">1. 归还充电宝之后，用户可以查看支付押金和使用扣费后剩余押金的信息；</view>
+    <view class="para">2. 充电宝借出后，15分钟后开始扣费，1小时收费1元，每天最高收费8元。</view>
+  </view>
+</view>
