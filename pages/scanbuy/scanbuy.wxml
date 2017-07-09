@@ -1,2 +1,11 @@
 <!--pages/scanbuy/scanbuy.wxml-->
-<text>pages/scanbuy/scanbuy.wxml</text>
+<view class="buy-wrap">
+  <view class="logo">
+    <image src="/assets/scanbuy.jpg" alt=""></image>
+  </view>
+  <view class="vux-divider">使用方法</view>
+  <view class="tips">1.点击<span>扫码购买充电宝</span>，扫描柜机上的二维码支付购买。</view>
+  <view class="tips">2.充电宝售价 ¥80/台 </view>
+  <view class="button" bindtap="scanBuy">扫码买充电宝</view>
+</view>
+

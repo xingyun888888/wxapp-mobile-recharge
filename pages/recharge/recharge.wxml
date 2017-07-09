@@ -13,7 +13,7 @@
       <i class="iconfont icon-shujuxian"></i>(Type-C)
     </view>
   </view>
-  <view class="button">确认支付</view>
+  <view class="button" bindtap="recharge">确认支付</view>
   <view class="recharge-tips">点击支付表示已阅读并同意<span>使用条款</span>和<span>充值协议</span></view>
   <view class="vux-divider">温馨提示</view>
   <view class="tips">

@@ -94,7 +94,7 @@ image{
   display: inline-block;
   height: 32rpx;
   line-height: 32rpx;
-  padding: 0 8rpx;
+  padding: 2rpx 8rpx;
   border-radius: 16rpx;
   color: #fff;
   font-size: 12px;

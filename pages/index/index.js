@@ -1,6 +1,5 @@
 // pages/map/map.js
 const app = getApp()
-import API from '../../api'
 
 Page({
 
@@ -39,8 +38,8 @@ Page({
               latitude: item.lat,
               longitude: item.lng,
               iconPath: '/assets/dingwei.png',
-              width: 24,
-              height: 27
+              width: 32,
+              height: 36
             }
           })
           wx.setNavigationBarTitle({
@@ -155,10 +154,16 @@ Page({
   clickControl (e) {
     const self =  this
     if (e.controlId === 1) {
-      wx.scanCode()
+      // wx.scanCode()
+      wx.navigateTo({
+        url: '/pages/scanborrow/scanborrow'
+      })
     }
     if (e.controlId === 2) {
-      wx.scanCode()
+      // wx.scanCode()
+      wx.navigateTo({
+        url: '/pages/scanbuy/scanbuy'
+      })
     }
     if (e.controlId === 3) {
       self.mapCtx.moveToLocation()
@@ -232,11 +237,6 @@ Page({
 
     })
   },
-  // clickMap (e) {
-  //   if (e === 'end') {
-  //     console.log('草你妈')
-  //   }
-  // },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -253,7 +253,7 @@ Page({
         systemInfo: app.globalData.systemInfo,
         mapHeight: app.globalData.systemInfo.windowHeight - 48
       })
-    } 
+    }
     self.initControls()
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度

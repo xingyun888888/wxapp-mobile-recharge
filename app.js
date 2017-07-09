@@ -1,4 +1,5 @@
 //app.js
+import config from './config.js'
 App({
   onLaunch: function () {
     //调用API从本地缓存中获取数据
@@ -7,6 +8,7 @@ App({
     // wx.setStorageSync('logs', logs)
     this.getUserInfo()
     this.getSystemInfo()
+    this.checkLogin()
   },
   getUserInfo:function(cb){
     var self = this
@@ -25,6 +27,39 @@ App({
         }
       })
     }
+  },
+  checkLogin () {
+    const self = this
+    try {
+      var openid = wx.getStorageSync('openid')
+      if (openid) {
+        self.globalData.openid = openid
+      } else {
+        self.getLogin()
+      }
+    } catch (e) {
+      self.getLogin()
+    }
+  },
+  getLogin () {
+    const self = this
+    wx.login({
+      success: function (res) {
+        var code = res.code
+        // console.log(code)
+        wx.request({
+          url: `https://byjiedian.com/index.php/byjie/get_openid?code=${code}&from=v`,
+          success: function (data) {
+            const openid = data.data.data
+            try {
+              self.globalData.openid = openid
+              wx.setStorageSync('openid', openid)
+            } catch (e) {    
+            }
+          }
+        })
+      }
+    })
   },
   getSystemInfo () {
     var self = this
@@ -62,6 +97,7 @@ App({
   globalData:{
     userInfo:null,
     systemInfo: null,
-    shopList: []
+    shopList: [],
+    openid: ''
   }
 })

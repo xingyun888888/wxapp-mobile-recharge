@@ -145,4 +145,7 @@
 }
 .state-off{
   background-color: #E44545;
+  padding: 2rpx 12rpx;
+  float: right;
+  margin-right: 16px;
 }

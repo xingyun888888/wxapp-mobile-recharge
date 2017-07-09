@@ -1,2 +1,9 @@
 <!--pages/scanborrow/scanborrow.wxml-->
-<text>pages/scanborrow/scanborrow.wxml</text>
+<view class="borrow-wrap">
+  <view class="logo">
+    <image src="/assets/chongdian__.png" alt=""></image>
+  </view>
+  <view class="vux-divider">使用方法</view>
+  <view class="tips">点击<span>扫码借充电宝</span>，然后扫描柜机上的二维码</view>
+  <view class="button" bindtap="scanBorrow">扫码借充电宝</view>
+</view>
