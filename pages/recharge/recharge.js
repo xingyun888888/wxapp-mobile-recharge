@@ -24,7 +24,7 @@ Page({
     const self = this
     const openid = app.globalData.openid
     wx.request({
-      url: `https://byjiedian.com/index.php/byjie/get_pay?openid=${openid}&from=v`,
+      url: `https://www.byjiedian.com/index.php/byjie/get_pay?openid=${openid}&from=v`,
       success: function (res) {
         self.setData({
           orderNo: res.data.out_trade_no
