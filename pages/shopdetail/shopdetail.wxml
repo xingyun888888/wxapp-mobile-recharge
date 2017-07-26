@@ -2,7 +2,7 @@
 <view class="shop-detail-wrap"> 
   <image src="/assets/default.png" class="header-img"></image>
   <view class="borrow-back">
-    <image src="/assets/chongdian.png"></image>
+    <image src="/assets/_chongdian.png"></image>
     <view class="borrow">
       <i class="icon-borrow">借</i>可借 <b>{{shopInfo.borrow}}</b>
     </view>
@@ -43,7 +43,14 @@
       </view>
     </view>
   </view>
-  <view class="bottom-btn" bindtap="scanBorrow">
-    借充电宝
+  
+  <view class="btn-group">
+    <view class="bottom-btn bottom-btn__borrow" bindtap="scanBorrow">
+      借充电宝
+    </view>
+    <view class="bottom-btn bottom-btn__buy" bindtap="scanBorrow">
+      买充电宝
+    </view>
   </view>
+  
 </view>

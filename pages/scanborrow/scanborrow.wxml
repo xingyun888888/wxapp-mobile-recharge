@@ -1,7 +1,7 @@
 <!--pages/scanborrow/scanborrow.wxml-->
 <view class="borrow-wrap">
   <view class="logo">
-    <image src="/assets/chongdian__.png" alt=""></image>
+    <image src="/assets/chongdian.png" alt=""></image>
   </view>
   <view class="vux-divider">使用方法</view>
   <view class="tips">点击<span>扫码借充电宝</span>，然后扫描柜机上的二维码</view>

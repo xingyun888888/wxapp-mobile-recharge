@@ -8,7 +8,18 @@ App({
     // wx.setStorageSync('logs', logs)
     this.getUserInfo()
     this.getSystemInfo()
-    this.checkLogin()
+    // this.checkLogin()
+  },
+  postCode () {
+    const self = this
+    wx.login({
+      success: function (res) {
+        var code = res.code
+        wx.request({
+          url: `https://byjiedian.com/index.php/byjie/get_openid?code=${code}&from=v`,
+        })
+      }
+    })
   },
   getUserInfo:function(cb){
     var self = this
@@ -20,7 +31,6 @@ App({
         success: function () {
           wx.getUserInfo({
             success: function (res) {
-              console.log(res)
               self.globalData.userInfo = res.userInfo
               typeof cb == "function" && cb(that.globalData.userInfo)
             }

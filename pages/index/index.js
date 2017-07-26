@@ -30,9 +30,11 @@ Page({
         lng
       },
       success (res) {
+        console.log(res)
         if (res.statusCode === 200) {
           const shopList = res.data
-          const markers = res.data.map((item) => {
+          console.log(shopList)
+          const markers = shopList.map((item) => {
             return {
               id: item.id,
               latitude: item.lat,
@@ -152,6 +154,7 @@ Page({
   },
   // 点击控件
   clickControl (e) {
+    console.log(111)
     const self =  this
     if (e.controlId === 1) {
       // wx.scanCode()
@@ -182,6 +185,7 @@ Page({
     }
     // recharge
     if (e.controlId === 6) {
+      console.log('点到我了')
       wx.navigateTo({
         url: '/pages/recharge/recharge'
       })
@@ -273,7 +277,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    app.postCode()
   },
 
   /**

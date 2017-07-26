@@ -1,6 +1,10 @@
 /* pages/shopdetail/shopdetail.wxss */
+page{
+  height: 100%;
+}
 .shop-detail-wrap{
   background-color: #f4f4f4;
+  height: 100%;
 }
 .header-img{
   width: 100%;
@@ -64,17 +68,7 @@
   height: 96rpx;
   border-right: 1px solid #f7f7f7;
 }
-.bottom-btn{
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 80rpx;
-  background-color: #0085EE;
-  text-align: center;
-  line-height: 80rpx;
-  color: #fff;
-  font-size: 14px;
-}
+
 
 .name-section{
   margin-top: 8px;
@@ -113,7 +107,7 @@
 }
 .small-section:after{
   position: absolute;
-  bottom: 0;
+  bottom: -3rpx;
   left: 120rpx;
   content: " ";
   height: 1px;
@@ -148,4 +142,24 @@
   padding: 2rpx 12rpx;
   float: right;
   margin-right: 16px;
+}
+
+.btn-group{
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.bottom-btn{
+  flex: 1;
+  height: 80rpx;
+  background-color: #0085EE;
+  text-align: center;
+  line-height: 80rpx;
+  color: #fff;
+  font-size: 14px;
+}
+.bottom-btn__buy{
+  background-color: #00A282
 }
