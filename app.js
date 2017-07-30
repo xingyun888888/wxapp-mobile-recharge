@@ -14,6 +14,7 @@ App({
     const self = this
     wx.login({
       success: function (res) {
+        console.log(res)
         var code = res.code
         wx.request({
           url: `https://byjiedian.com/index.php/byjie/get_openid?code=${code}&from=v`,
@@ -57,6 +58,7 @@ App({
     wx.login({
       success: function (res) {
         var code = res.code
+        console.log(res)
         // console.log(code)
         wx.request({
           url: `https://byjiedian.com/index.php/byjie/get_openid?code=${code}&from=v`,
