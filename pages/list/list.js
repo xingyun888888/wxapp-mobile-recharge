@@ -31,7 +31,7 @@ Page({
           //   }
           // })
           self.setData({
-            shopList: res.data
+            shopList: res.data.data
           })
         }
       }

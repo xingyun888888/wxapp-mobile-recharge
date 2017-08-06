@@ -32,7 +32,7 @@ Page({
       success (res) {
         console.log(res)
         if (res.statusCode === 200) {
-          const shopList = res.data
+          const shopList = res.data.data
           console.log(shopList)
           const markers = shopList.map((item) => {
             return {
@@ -277,14 +277,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    app.postCode()
+    // app.postCode()
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    app.getUserInfo()
   },
 
   /**
