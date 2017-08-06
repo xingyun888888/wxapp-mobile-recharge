@@ -32,8 +32,8 @@ Page({
       success (res) {
         console.log(res)
         if (res.statusCode === 200) {
-          const shopList = res.data
-          console.log(shopList)
+          const shopList = res.data.data
+          console.log(shopList, 'shopList')
           const markers = shopList.map((item) => {
             return {
               id: item.id,
