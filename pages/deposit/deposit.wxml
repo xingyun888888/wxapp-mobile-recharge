@@ -1,0 +1,27 @@
+<!--deposit.wxml-->
+ <view class="deposit-wrap">
+    
+    <view class="header">
+      <view class="big-sign">
+        <image src="../../assets/TIXIAN.png" alt="" />
+        <!--<i class="iconfont icon-jinbi"></i>-->
+      </view>
+      <text class="msg">可提现余额</text>
+      <text class="amount">￥{{balance}}</text>
+    </view>
+    
+    <view class="content">
+      <input title="提现金额" placeholder="请输入提现金额" class="input-cell-last" />
+    </view>
+    
+    <button :active="canClick">提现</button>
+    
+    <text>温馨提示</text>
+
+    <view class="tips">
+      <text>1. 可提现余额是租借充电宝支付的押金和使用扣费后剩余押金的信息；</text>
+      <text>2. 租借充电宝过程中无法提现；</text>
+      <text>3. 提现申请成功后，预计0-5个工作日退回充值账号；</text>
+      <text>4. 如有疑问，请点击“帮助中心”了解；</text>
+    </view>
+  </view>

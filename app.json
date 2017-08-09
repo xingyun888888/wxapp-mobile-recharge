@@ -1,5 +1,7 @@
 {
-  "pages":[
+  "pages": [
+    "pages/usercenter/usercenter",
+    "pages/deposit/deposit",
     "pages/index/index",
     "pages/list/list",
     "pages/shopdetail/shopdetail",
@@ -7,10 +9,10 @@
     "pages/scanborrow/scanborrow",
     "pages/scanbuy/scanbuy"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "附近网点",
-    "navigationBarTextStyle":"#fff"
+    "navigationBarTextStyle": "#fff"
   }
 }
