@@ -33,7 +33,11 @@ Page({
         console.log(res)
         if (res.statusCode === 200) {
           const shopList = res.data.data
+<<<<<<< HEAD
           console.log(shopList, 'shopList')
+=======
+          console.log(shopList)
+>>>>>>> 6cd0d437c9590c78b7f559a15a337d8458f9e3c4
           const markers = shopList.map((item) => {
             return {
               id: item.id,
@@ -277,14 +281,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    app.postCode()
+    // app.postCode()
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    app.getUserInfo()
   },
 
   /**

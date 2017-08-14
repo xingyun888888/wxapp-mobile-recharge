@@ -6,7 +6,7 @@ App({
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
-    this.getUserInfo()
+    // this.getUserInfo()
     this.getSystemInfo()
     // this.checkLogin()
   },
@@ -29,48 +29,32 @@ App({
     }else{
       //调用登录接口
       wx.login({
-        success: function () {
+        success: function (r) {
           wx.getUserInfo({
             success: function (res) {
+              self.getLogin({
+                code: r.code,
+                // iv: res.iv,
+                // encryptedData: encodeURIComponent(res.encryptedData)
+              })
               self.globalData.userInfo = res.userInfo
-              typeof cb == "function" && cb(that.globalData.userInfo)
             }
           })
         }
       })
     }
   },
-  checkLogin () {
+  getLogin (param) {
+    console.log(param)
     const self = this
-    try {
-      var openid = wx.getStorageSync('openid')
-      if (openid) {
-        self.globalData.openid = openid
-      } else {
-        self.getLogin()
-      }
-    } catch (e) {
-      self.getLogin()
-    }
-  },
-  getLogin () {
-    const self = this
-    wx.login({
+    wx.request({
+      url: 'https://www.byjiedian.com/index.php/byjie/wx_login',
+      data: param,
+      header: {
+        'Content-type': 'application/json'
+      },
       success: function (res) {
-        var code = res.code
         console.log(res)
-        // console.log(code)
-        wx.request({
-          url: `https://byjiedian.com/index.php/byjie/get_openid?code=${code}&from=v`,
-          success: function (data) {
-            const openid = data.data.data
-            try {
-              self.globalData.openid = openid
-              wx.setStorageSync('openid', openid)
-            } catch (e) {    
-            }
-          }
-        })
       }
     })
   },
