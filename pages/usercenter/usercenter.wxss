@@ -1,0 +1,144 @@
+/* usercenter.wxss */
+.my-wrap {
+	background: #f1f1f1;
+}
+
+.header {
+	position: relative;
+	height: 480rpx;
+	overflow: hidden;
+}
+
+.bg-header {
+	width:960rpx;
+	height:522rpx;
+	display:inline-block;
+	overflow:hidden;
+	position:;
+	position:absolute;
+	top:0;
+	margin-left:50%;
+	transform:translateX(-50%);
+}
+
+.avatar{
+	position:absolute;
+	top:82rpx;
+	left:50%;
+	transform:translateX(-50%);
+	width:260rpx;
+	height:260rpx;
+	border-radius:50%;
+	overflow:hidden;
+}
+
+.user-name{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
+	font-size: 32rpx;
+	color: #333;
+	top: 360rpx;
+}
+
+.remainder{
+	text-align:center;
+	background-color:#fff;
+	color:#999;
+	font-size:28rpx;
+	top:410rpx;
+	position:absolute;
+	width:100%;
+}
+
+.remainder .money{
+  color: #FF8400;
+}
+
+.ctrl-money{
+	display: flex;
+	padding: 4rpx 0;
+	background-color: #fff;
+	font-size: 14rpx;
+	border-top: 1px solid #f4f4f4;
+	border-bottom: 1px solid #f4f4f4;
+}
+
+.ctrl-money .item{
+  display: block;
+  flex: 1;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+}
+
+.ctrl-money .deposit{
+  border-right: 1px solid #f4f4f4;
+}
+
+.ctrl-money	.iconfont{
+  color: #0085EE;
+  margin-right: 12rpx;
+}
+
+.group {
+	margin-top: 15rpx;
+	background: #fff;
+}
+
+.group .my-nav {
+	padding: 0 30rpx;
+}
+
+.group .iconfont-wrap{
+	color: #666;
+	display: -webkit-flex;
+	font-size: 28rpx;
+	line-height: 2.75;
+}
+
+.group .iconfont-wrap .iconfont {
+	width: 50rpx;
+	text-align: left;
+}
+
+.group .iconfont-wrap .word {
+	-webkit-flex: 1;
+	border-bottom: 1px solid #f1f1f1;
+	font-size: 28rpx;
+	line-height: 2.75;
+	line-height: 77rpx;
+	display: block;
+	width: 100%;
+}
+
+.group .iconfont-wrap .next {
+	width: 40rpx;
+	text-align: right;
+	border-bottom: 1px solid #f1f1f1;
+	line-height: 77rpx;
+}
+
+.vux-no-group-title{
+	margin-top: 8px;
+}
+
+.vux-label{
+	font-size: 14rpx;
+}
+
+.contact{
+	font-size: 26rpx;
+	line-height: 2.75;
+	color: #999;
+	text-align: center;
+}
+.tel{
+	color: #0085EE;
+}
+.weui-cell{
+	padding: 10px 15rpx;
+}

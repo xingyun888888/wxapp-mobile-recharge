@@ -1,0 +1,41 @@
+<!--usercenter.wxml-->
+<view class="my-wrap">
+    <view class="header">
+      <image class="bg-header" mode="aspectFill" src="../../assets/artboard.png"></image>
+      <image src="{{user.headimgurl}}" class="avatar"></image>
+      <text class="user-name">{{user.username}}</text>
+      <view class="remainder">余额 <span class="money">￥{{user.amount}}</span></view>
+    </view>
+    
+    <view class="ctrl-money">
+      <navigator url="/pages/deposit/deposit" class="item deposit" tag="div">
+        <i class="iconfont icon-tixian"></i>提现
+      </navigator>
+      <navigator url="/pages/recharge/recharge" class="item recharge">
+        <i class="iconfont icon-chongzhi1"></i>充值
+      </navigator>
+    </view>
+
+    <view class="group">
+      <navigator class="my-nav" title="交易明细" url="/pages/tradelist/tradelist">
+        <view class="iconfont-wrap"><span class="iconfont icon-jiaoyimingxi"></span><span class="word">交易明细</span><span class="next">></span></view>
+      </navigator>      
+      <navigator class="my-nav" title="租借记录" url="/pages/borrowlist/borrowlist">
+        <view class="iconfont-wrap"><span class="iconfont icon-dingdangdaijiekuanjilu"></span><span class="word">租借记录</span><span class="next">></span></view>
+      </navigator>
+    </view>
+
+    <view class="group">
+      <navigator class="my-nav" title="优惠商城" url="/pages/borrowlist/borrowlist">
+        <view class="iconfont-wrap"><span class="iconfont icon-youhuishangcheng"></span><span class="word">优惠商城</span><span class="next">></span></view>
+      </navigator>        
+      <navigator class="my-nav" title="帮助中心" url="/pages/help/help">
+        <view class="iconfont-wrap"><span class="iconfont icon-information"></span><span class="word">帮助中心</span><span class="next">></span></view>
+      </navigator> 
+      <navigator class="my-nav" title="推荐好友赚提成" url="/pages/help/help">
+        <view class="iconfont-wrap"><span class="iconfont icon-elite"></span><span class="word">推荐好友赚提成</span><span class="next">></span></view>
+      </navigator>        
+    </view>
+
+    <view class="contact">客服电话：<a href="tel:4000805985" class="tel">400-0805-985</a></view>
+  </view>

@@ -1,5 +1,9 @@
 //app.js
+<<<<<<< HEAD
 //import config from './config.js'
+=======
+// import config from './config.js'
+>>>>>>> e4ac0d461bb8494f102be7f50fbb1f4817b22ace
 App({
   onLaunch: function () {
     //调用API从本地缓存中获取数据
@@ -110,6 +114,7 @@ App({
     })
   },
   globalData:{
+    rootUrl: 'https://www.byjiedian.com/index.php/byjie/',
     userInfo:null,
     systemInfo: null,
     shopList: [],

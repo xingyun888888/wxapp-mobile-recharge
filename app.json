@@ -1,16 +1,21 @@
 {
-  "pages":[
+  "pages": [
+    "pages/usercenter/usercenter",
+    "pages/tradelist/tradelist",
+    "pages/borrowlist/borrowlist",
+    "pages/deposit/deposit",
     "pages/index/index",
     "pages/list/list",
     "pages/shopdetail/shopdetail",
     "pages/recharge/recharge",
     "pages/scanborrow/scanborrow",
-    "pages/scanbuy/scanbuy"
+    "pages/scanbuy/scanbuy",
+    "pages/help/help"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000",
-    "navigationBarTitleText": "附近网点",
-    "navigationBarTextStyle":"#fff"
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "#fff"
   }
 }

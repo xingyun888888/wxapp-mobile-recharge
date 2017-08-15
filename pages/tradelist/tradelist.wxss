@@ -1,0 +1,91 @@
+.trade-list-wrap {
+    overflow: hidden;
+}
+
+.trade-list-wrap .content {
+    margin-top: 104rpx;
+}
+
+
+.trade-list-wrap .header {
+    position: fixed;
+    width: 100%;
+    height: 96rpx;
+    line-height: 96rpx;
+    background-color: #f6f6f6;
+    padding: 0 44rpx;
+    font-size: 28rpx;
+    border-bottom: 1rpx solid #e6e6e6;
+}
+
+.trade-list-wrap .header span {
+    margin-right: 25rpx;
+}
+
+.trade-list-wrap .header .iconfont {
+    float: right;
+    font-size: 20rpx;
+}
+
+
+
+
+/* item area start*/
+
+.trade-list-item {
+    margin-top: 8rpx;
+    background-color: #fff;
+    padding: 16rpx 30rpx 16rpx 0;
+    box-sizing: border-box;
+    display: flex;
+    border: solid #e6e6e6;
+    border-width: 1rpx 0;
+}
+
+.trade-list-item .section {
+    width: 150rpx;
+    text-align: center;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 32rpx;
+    color: #0085EE;
+    border-right: 1px solid #E6E6E6;
+}
+
+.trade-list-item .detail {
+    flex: 1;
+    padding: 0 16rpx;
+    line-height: 48rpx;
+}
+
+.trade-list-item .order-code {
+    font-size: 24rpx;
+    white-space: nowrap;
+    color: #212121;
+}
+
+.trade-list-item .order-time {
+    font-size: 24rpx;
+    color: #757575;
+}
+
+.trade-list-item .amount {
+    width: 80rpx;
+    text-align: center;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 32rpx;
+}
+
+
+.trade-status-0  .amount, .trade-status-0  .section {
+    color: #0085EE;
+}
+
+.trade-status-1  .amount, .trade-status-1  .section {
+    color: #FF9800;
+}
+
+/* item area end*/
+
+

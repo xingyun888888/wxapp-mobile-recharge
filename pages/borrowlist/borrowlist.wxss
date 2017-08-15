@@ -1,0 +1,129 @@
+/* tabs start */
+.select-wrap {
+    display: flex;
+    margin-bottom: 15rpx;
+    background: #fff;
+    border-bottom: 1px solid #ececec;
+}
+.select-item {
+    flex: 1;
+    color: #666;
+    font-size: .8em;
+    line-height: 2.75;
+    border-bottom: 2px solid transparent;
+    text-align: center;
+}
+.select-item.active {
+    color: #0085EE;
+    border-color: #0085EE;
+}
+/* tabs end */
+
+/* borrowlist.wxss */
+.borrow-list-wrap {
+    background: #f8f8f8;   
+    min-height: 100vh;
+}
+
+.borrowing-item-wrap {
+    margin-top: 8rpx;
+    background: #fff;
+}
+
+.borrowing-item-wrap .header {
+    border-top: 1px solid #f5f5f5;
+    padding: 0 30rpx;
+    height: 90rpx;
+    box-sizing: border-box;
+    display: flex;
+    border-bottom: 1px solid #f5f5f5;
+    font-size: 20rpx;
+}
+
+.borrowing-item-wrap .header .code {
+    flex: 1;
+    color: #757575;
+    line-height: 90rpx;
+}
+
+.borrowing-item-wrap .header .sign {
+    border-radius: 2rpx;
+    background-color: #0085ee;
+    color: #fff;
+    text-align: center;
+    padding: 0 12rpx;
+    display: block;
+    height: 40rpx;
+    line-height: 40rpx;
+    margin-top: 25rpx;
+}
+
+.borrowing-item-wrap .content {
+    display: flex;
+    height: 160rpx;
+}
+
+.borrowing-item-wrap .content .money {
+    padding: 0 36rpx;
+    text-align: center;
+}
+
+.borrowing-item-wrap .content .amount {
+    color: #0085ee;
+    font-size: 32rpx;
+    line-height: 36rpx;
+    margin-top: 40rpx;
+}
+
+.borrowing-item-wrap .content small {
+    font-size: 16rpx;
+}
+
+.borrowing-item-wrap .content .tips {
+    font-size: 24rpx;
+    line-height: 44rpx;
+    color: #999;
+}
+
+.borrowing-item-wrap .content .detail {
+    flex: 1;
+}
+
+.borrowing-item-wrap .content .borrow-detail {
+    line-height: 80rpx;
+    height: 80rpx;
+    box-sizing: border-box;
+    font-size: 20rpx;
+    display: flex;
+    padding-right: 30rpx;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.borrowing-item-wrap .content label {
+    color: #757575;
+}
+
+.borrowing-item-wrap .content span {
+    flex: 1;
+    color: #212121;
+    text-align: right;
+}
+
+.borrowed-item-wrap .header .sign {
+    background: #bdbdbd;
+}
+
+.borrowed-item-wrap .content {
+    height: 320rpx;
+}
+
+.borrowed-item-wrap .content .amount {
+    margin-top: 120rpx;
+}
+
+.no-more {
+    color: #bbb;
+    font-size: 24rpx;
+    line-height: 4;
+    text-align: center;
+}
