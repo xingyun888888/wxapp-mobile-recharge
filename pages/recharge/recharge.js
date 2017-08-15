@@ -22,25 +22,29 @@ Page({
   //https://www.byjiedian.com/index.php/byjie/check_pay
   recharge: function () {
     const self = this
-    const openid = app.globalData.openid
+    const openid = app.globalData.openid;
+    console.log(openid, "openid in recharge")
     wx.request({
       url: `https://www.byjiedian.com/index.php/byjie/get_pay?openid=${openid}&from=v`,
       success: function (res) {
-        self.setData({
-          orderNo: res.data.out_trade_no
-        })
-        wx.requestPayment({
-          timestamp: res.jsApiParameters.timeStamp,
-          nonceStr: res.jsApiParameters.nonceStr,
-          package: res.jsApiParameters.package,
-          signType: res.jsApiParameters.signType,
-          paySign: res.jsApiParameters.paySign,
-          success: function(res){
-            self.checkPay(res.data.out_trade_no)
-          },
-          fail:function(res){
-          }
-        })
+        if(res.jsApiParameters) {
+          self.setData({
+            orderNo: res.data.out_trade_no
+          })
+          wx.requestPayment({
+            timestamp: res.jsApiParameters.timeStamp,
+            nonceStr: res.jsApiParameters.nonceStr,
+            package: res.jsApiParameters.package,
+            signType: res.jsApiParameters.signType,
+            paySign: res.jsApiParameters.paySign,
+            success: function(res){
+              self.checkPay(res.data.out_trade_no)
+            },
+            fail:function(res){
+            }
+          })          
+        }
+
       }
     })
   },

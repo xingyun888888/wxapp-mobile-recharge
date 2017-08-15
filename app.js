@@ -6,23 +6,38 @@ App({
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
-    // this.getUserInfo()
+    this.getUserInfo()
     this.getSystemInfo()
+    this.getUserInfoByApi();
     // this.checkLogin()
   },
   postCode () {
     const self = this
     wx.login({
       success: function (res) {
-        console.log(res)
         var code = res.code
+        console.log(code, "code in app.js")
         wx.request({
           url: `https://byjiedian.com/index.php/byjie/get_openid?code=${code}&from=v`,
         })
       }
     })
   },
+  getUserInfoByApi() {
+    wx.request({
+      url: 'https://www.byjiedian.com/index.php/byjie/info',
+      data: {},
+      header: {
+        'Content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res, "user info by api in app.js");
+        // self.globalData.openid = res.openid;
+      }
+    })
+  },
   getUserInfo:function(cb){
+    console.log('==================');
     var self = this
     if(this.globalData.userInfo){
       typeof cb == "function" && cb(this.globalData.userInfo)
@@ -38,6 +53,8 @@ App({
                 // encryptedData: encodeURIComponent(res.encryptedData)
               })
               self.globalData.userInfo = res.userInfo
+              console.log(res.userInfo, "userinfo in app.js");
+              typeof cb == "function" && cb(this.globalData.userInfo)
             }
           })
         }
@@ -54,7 +71,8 @@ App({
         'Content-type': 'application/json'
       },
       success: function (res) {
-        console.log(res)
+        console.log(res, "login info in app.js");
+        self.globalData.openid = res.data.data.openid;
       }
     })
   },

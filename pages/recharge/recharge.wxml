@@ -6,7 +6,7 @@
       <!--<i class="iconfont icon-cunqianguan"></i>-->
     </view>
     <view class="msg">需支付押金</view>
-    <view class="amount">￥100.00</view>
+    <view class="amount">￥0.00</view>
     <view class="reminds">充电宝自带充电线支持
       <i class="iconfont icon-apple"></i>
       <i class="iconfont icon-andriod"></i>
