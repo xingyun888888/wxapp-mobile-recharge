@@ -108,6 +108,7 @@ App({
     })
   },
   globalData:{
+    rootUrl: 'https://www.byjiedian.com/index.php/byjie/',
     userInfo:null,
     systemInfo: null,
     shopList: [],

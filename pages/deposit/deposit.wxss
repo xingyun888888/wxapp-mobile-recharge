@@ -34,10 +34,10 @@
   .tips{
     padding: 0 16px;
     color: #999999;
-    p{
+  }
+  .tips p{
       margin-top: 4px;
     }
-  }
   /*
     vux
   */

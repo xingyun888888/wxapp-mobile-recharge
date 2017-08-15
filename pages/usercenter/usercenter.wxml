@@ -29,15 +29,12 @@
       <navigator class="my-nav" title="优惠商城" url="/pages/borrowlist/borrowlist">
         <view class="iconfont-wrap"><span class="iconfont icon-youhuishangcheng"></span><span class="word">优惠商城</span><span class="next">></span></view>
       </navigator>        
-      <navigator class="my-nav" title="推荐好友" url="/pages/help/help">
-        <view class="iconfont-wrap"><span class="iconfont icon-elite"></span><span class="word">推荐好友</span><span class="next">></span></view>
-      </navigator>      
-      <navigator class="my-nav" title="邀请好友" url="/pages/help/help">
-        <view class="iconfont-wrap"><span class="iconfont icon-liwu"></span><span class="word">邀请好友</span><span class="next">></span></view>
-      </navigator>
       <navigator class="my-nav" title="帮助中心" url="/pages/help/help">
         <view class="iconfont-wrap"><span class="iconfont icon-information"></span><span class="word">帮助中心</span><span class="next">></span></view>
-      </navigator>    
+      </navigator> 
+      <navigator class="my-nav" title="推荐好友赚提成" url="/pages/help/help">
+        <view class="iconfont-wrap"><span class="iconfont icon-elite"></span><span class="word">推荐好友赚提成</span><span class="next">></span></view>
+      </navigator>        
     </view>
 
     <view class="contact">客服电话：<a href="tel:4000805985" class="tel">400-0805-985</a></view>
