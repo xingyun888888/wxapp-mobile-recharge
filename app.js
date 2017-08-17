@@ -1,45 +1,54 @@
 //app.js
-<<<<<<< HEAD
 //import config from './config.js'
-=======
-// import config from './config.js'
->>>>>>> e4ac0d461bb8494f102be7f50fbb1f4817b22ace
+
 App({
   onLaunch: function () {
     //调用API从本地缓存中获取数据
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
-    this.getUserInfo()
+    this.getUserInfo();
     this.getSystemInfo()
-    this.getUserInfoByApi();
-    // this.checkLogin()
   },
-  postCode () {
-    const self = this
-    wx.login({
-      success: function (res) {
-        var code = res.code
-        console.log(code, "code in app.js")
-        wx.request({
-          url: `https://byjiedian.com/index.php/byjie/get_openid?code=${code}&from=v`,
-        })
-      }
-    })
-  },
+  // postCode () {
+  //   const self = this
+  //   wx.login({
+  //     success: function (res) {
+  //       var code = res.code
+  //       console.log(code, "code in app.js")
+  //       wx.request({
+  //         url: `https://byjiedian.com/index.php/byjie/get_openid?code=${code}&from=v`,
+  //       })
+  //     }
+  //   })
+  // },
   getUserInfoByApi() {
+    const self = this
     wx.request({
-      url: 'https://www.byjiedian.com/index.php/byjie/info',
+      url: 'https://www.byjiedian.com/index.php/byjie/info?uid=' + this.globalData.unionid,
       data: {},
       header: {
         'Content-type': 'application/json'
       },
       success: function (res) {
         console.log(res, "user info by api in app.js");
+        let data = res.data.data;
         // self.globalData.openid = res.openid;
+        self.globalData.userInfo.amount = data.amount;
+        // console.log(self.globalData.userinfoCallback)
+        //数据更新
+        self.globalData.userinfoCallback.forEach((item)=>{
+          // console.log(item)
+          (typeof item === 'function') && item();
+        })
       }
     })
   },
+
+  userinfoChanged(callback) {
+    this.globalData.userinfoCallback.push(callback);
+  },
+
   getUserInfo:function(cb){
     console.log('==================');
     var self = this
@@ -56,8 +65,12 @@ App({
                 // iv: res.iv,
                 // encryptedData: encodeURIComponent(res.encryptedData)
               })
-              self.globalData.userInfo = res.userInfo
-              console.log(res.userInfo, "userinfo in app.js");
+              self.globalData.userInfo = {
+                avatarUrl: res.userInfo.avatarUrl,
+                nickName: res.userInfo.nickName,
+                amount: 0
+              }
+              console.log(res.userInfo, self.globalData.userInfo, "userinfo in app.js");
               typeof cb == "function" && cb(this.globalData.userInfo)
             }
           })
@@ -66,7 +79,6 @@ App({
     }
   },
   getLogin (param) {
-    console.log(param)
     const self = this
     wx.request({
       url: 'https://www.byjiedian.com/index.php/byjie/wx_login',
@@ -77,6 +89,8 @@ App({
       success: function (res) {
         console.log(res, "login info in app.js");
         self.globalData.openid = res.data.data.openid;
+        self.globalData.unionid = res.data.data.unionid;
+        self.getUserInfoByApi();
       }
     })
   },
@@ -115,9 +129,11 @@ App({
   },
   globalData:{
     rootUrl: 'https://www.byjiedian.com/index.php/byjie/',
+    userinfoCallback: [],
     userInfo:null,
     systemInfo: null,
     shopList: [],
-    openid: ''
+    openid: '',
+    unionid: ''
   }
 })

@@ -1,15 +1,12 @@
 // usercenter.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    user: {
-      headimgurl: "../../assets/logo.png",
-      username: "test",
-      amount: "20"
-    }
+    user: {}
   },
 
   /**
@@ -19,6 +16,13 @@ Page({
     wx.setNavigationBarTitle({
       title: '个人中心'
     })
+    console.log("Enter page usercenter");
+    //app中数据更新后，执行此函数
+    app.userinfoChanged(() => {
+        this.setData({
+            user: app.globalData.userInfo
+        });
+    });
   },
 
   /**

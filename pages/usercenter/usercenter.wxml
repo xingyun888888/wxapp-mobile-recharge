@@ -2,8 +2,8 @@
 <view class="my-wrap">
     <view class="header">
       <image class="bg-header" mode="aspectFill" src="../../assets/artboard.png"></image>
-      <image src="{{user.headimgurl}}" class="avatar"></image>
-      <text class="user-name">{{user.username}}</text>
+      <image src="{{user.avatarUrl}}" class="avatar"></image>
+      <text class="user-name">{{user.nickName}}</text>
       <view class="remainder">余额 <span class="money">￥{{user.amount}}</span></view>
     </view>
     
