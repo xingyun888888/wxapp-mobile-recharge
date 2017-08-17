@@ -58,6 +58,7 @@ App({
       //调用登录接口
       wx.login({
         success: function (r) {
+          // console.log(r, "wx login return")
           wx.getUserInfo({
             success: function (res) {
               self.getLogin({
@@ -71,6 +72,7 @@ App({
                 amount: 0
               }
               console.log(res.userInfo, self.globalData.userInfo, "userinfo in app.js");
+              // console.log(res, "res in wx login");
               typeof cb == "function" && cb(this.globalData.userInfo)
             }
           })
