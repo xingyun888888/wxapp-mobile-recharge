@@ -1,73 +1,89 @@
 /* deposit.wxss */
+.deposit-wrap {
+  background: #efeef3;
+  min-height: 100vh;
+}
+
 
 .header {
     width: 100%;
-    height: 196px;
     background-color: #fff;
     overflow: hidden;
 }
 
 .big-sign {
-    margin: 32px auto 0;
+    margin: 64rpx auto 0;
     text-align: center;
-    width: 64px;
-    height: 64px;
+    width: 150rpx;
+    height: 150rpx;
 }
 
-.big-sign .iconfont {
-    font-size: 48rpx;
+.big-sign image {
+  width: 100%;
+  height: 100%;
 }
 
-.msg {
-    margin-top: 8px;
+.header .msg {
+    margin-top: 40rpx;
     text-align: center;
-    color: #212121;
-    font-size: 16rpx;
+    color: #666;
+    font-size: .8em;
+    line-height: 1.75;
 }
 
-.amount {
-    margin-top: 12px;
+.header .amount {
+    margin-top: 24rpx;
     text-align: center;
     color: #0085EE;
-    font-size: 32rpx;
+    font-size: 2em;
+    padding-bottom: 60rpx;
 }
 
-.content {
-    padding-left: 15px;
-    margin-top: 8px;
-    background-color: #fff;
+.desc-area {
+  background: #efeef3;
+  padding: 45rpx 30rpx 0;
+}
+
+.deposit-btn {
+  background: #0085EE;
+  color: #61b2f3;
+  margin-bottom: 20rpx;
+}
+
+.tip-title {
+  color: #a6a6a6;
+  position: relative;
+  text-align: center;
+}
+
+.tip-title .tip-title-word {
+  position:relative;
+  font-size:.8em;
+  line-height:1.75;
+  display:inline-block;
+  padding:20rpx 40rpx;
+  z-index:9999;
+  background: #efeef3;
+}
+
+.tip-title .border {
+  position: absolute;
+  bottom: 44rpx;
+  z-index: 9999;
+  width: 100%;
+  height: 1px;
+  background: #a6a6a6;
+  z-index: 1;
 }
 
 .tips {
-    padding: 0 16px;
-    color: #999999;
+  color: #a6a6a6;
+  font-size: .8em;
+  line-height: 1.5;
+
 }
 
-.tips p {
-    margin-top: 4px;
+.tips .text {
+  padding: 10rpx 0;  
 }
 
-
-/*
-    vux
-  */
-
-.weui-dialog__title,
-.weui-dialog__btn {
-    font-size: 16rpx;
-}
-
-.weui-dialog__ft {
-    line-height: 1.2rem;
-}
-
-.weui-dialog__bd {
-    font-size: 16rpx;
-    padding: 0.2em 1.6em;
-}
-
-.vux-divider {
-    margin-top: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-}

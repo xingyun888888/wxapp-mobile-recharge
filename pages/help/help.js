@@ -142,10 +142,28 @@ Page({
   },
 
   transferPage(e) {
-    let index = e.dataset.index,
-        link = this.data.links[index].link;
+    console.log(e)
+    let index = e.currentTarget.dataset.index;
+    //切换switch
+    // let data = [].slice.call(this.data.links);
+    let data = this.data.links;
 
+    if(data[index].switch === true) {
+      data[index].switch = false;
+    } else {
+      for(let i = 0, len = data.length; i < len; i++) {
+        let item = data[i];
+         if(index === i) {
+            item.switch = true;
+          } else {
+            item.switch = false;
+          }     
+      }      
+    }
 
+    this.setData({
+      links: data
+    });
   },
 
   /**

@@ -1,6 +1,7 @@
 /* usercenter.wxss */
 .my-wrap {
 	background: #f1f1f1;
+	min-height: 100vh;
 }
 
 .header {
@@ -97,7 +98,8 @@
 	color: #666;
 	display: -webkit-flex;
 	font-size: 28rpx;
-	line-height: 2.75;
+	line-height: 84rpx;
+	height: 84rpx;
 }
 
 .group .iconfont-wrap .iconfont {
@@ -109,17 +111,17 @@
 	-webkit-flex: 1;
 	border-bottom: 1px solid #f1f1f1;
 	font-size: 28rpx;
-	line-height: 2.75;
-	line-height: 77rpx;
+	line-height: 84rpx;
+	height: 84rpx;
 	display: block;
 	width: 100%;
 }
 
-.group .iconfont-wrap .next {
+.group .iconfont-wrap .more {
 	width: 40rpx;
+	display: block;
 	text-align: right;
-	border-bottom: 1px solid #f1f1f1;
-	line-height: 77rpx;
+	margin-right: -10rpx;
 }
 
 .vux-no-group-title{
@@ -132,7 +134,8 @@
 
 .contact{
 	font-size: 26rpx;
-	line-height: 2.75;
+	line-height: 2;
+	padding-top: 30rpx;
 	color: #999;
 	text-align: center;
 }

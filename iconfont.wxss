@@ -1,11 +1,11 @@
 
 @font-face {
-  font-family: 'iconfont';  /* project id 301545 */
-  src: url('//at.alicdn.com/t/font_qrlccm91ahvyrpb9.eot');
-  src: url('//at.alicdn.com/t/font_qrlccm91ahvyrpb9.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_qrlccm91ahvyrpb9.woff') format('woff'),
-  url('//at.alicdn.com/t/font_qrlccm91ahvyrpb9.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_qrlccm91ahvyrpb9.svg#iconfont') format('svg');
+  font-family: 'iconfont';  /* project id 378571 */
+  src: url('//at.alicdn.com/t/font_378571_ma8ezejqjk7yzaor.eot');
+  src: url('//at.alicdn.com/t/font_378571_ma8ezejqjk7yzaor.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_378571_ma8ezejqjk7yzaor.woff') format('woff'),
+  url('//at.alicdn.com/t/font_378571_ma8ezejqjk7yzaor.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_378571_ma8ezejqjk7yzaor.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -86,3 +86,4 @@
 
 .icon-jinbi:before { content: "\e6c7"; }
 
+.icon-more:before { content: "\e6a7"; }

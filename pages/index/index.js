@@ -39,7 +39,7 @@ Page({
               id: item.id,
               latitude: item.lat,
               longitude: item.lng,
-              iconPath: '/assets/dingwei.png',
+              iconPath: 'http:../../assets/dingwei.png',
               width: 32,
               height: 36
             }
@@ -89,7 +89,7 @@ Page({
         width: 121 * 1.2,
         height: 52 * 1.2
       },
-      iconPath: '/assets/scan-borrow.png',
+      iconPath: '../../assets/scan-borrow.png',
       clickable: true
     }
     const scanBuy = {
@@ -100,7 +100,7 @@ Page({
         width: 121 * 1.2,
         height: 52 * 1.2
       },
-      iconPath: '/assets/scan-buy.png',
+      iconPath: '../../assets/scan-buy.png',
       clickable: true
     }
     const origin = {
@@ -111,7 +111,7 @@ Page({
         width: 44,
         height: 44
       },
-      iconPath: '/assets/origin.png',
+      iconPath: '../../assets/origin.png',
       clickable: true
     }
     const plus = {
@@ -122,7 +122,7 @@ Page({
         width: 30,
         height: 30
       },
-      iconPath: '/assets/mapplus.png',
+      iconPath: '../../assets/mapminus.png',
       clickable: true
     }
     const minus = {
@@ -133,7 +133,7 @@ Page({
         width: 30,
         height: 30
       },
-      iconPath: '/assets/mapminus.png',
+      iconPath: '../../assets/mapminus.png',
       clickable: true
     }
     const recharge = {
@@ -144,7 +144,7 @@ Page({
         width: wWidth - 40,
         height: (wWidth - 40) * 120 / 888
       },
-      iconPath: '/assets/recharge.tips.jpg',
+      iconPath: '../../assets/recharge.tips.jpg',
       clickable: true
     }
     const controls = [scanBorrow, scanBuy, origin, recharge]

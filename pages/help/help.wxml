@@ -4,7 +4,7 @@
       热门问题
     </view>
     <view class="links-wrap">
-    	<view class="links" wx:for="{{links}}" wx:for-index="index" data-index="index" bindtap="transferPage">
+    	<view class="links" wx:for="{{links}}" wx:for-index="index" data-index="{{index}}" bindtap="transferPage">
     		<view class="link-title"><text class="title">{{item.title}}</text></view>
     		<block wx:if="{{item.switch}}" class="item-block">
     			<view class="content-item" wx:for="{{item.contents}}" wx:for-item="content">

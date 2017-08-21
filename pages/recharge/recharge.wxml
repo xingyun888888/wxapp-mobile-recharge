@@ -2,7 +2,7 @@
 <view class="recharge-wrap">
   <view class="header">
     <view class="big-sign">
-      <image src="/assets/ZHU.png" alt=""></image>
+      <image src="http://7xpceu.com1.z0.glb.clouddn.com/ZHU.png" alt=""></image>
       <!--<i class="iconfont icon-cunqianguan"></i>-->
     </view>
     <view class="msg">需支付押金</view>

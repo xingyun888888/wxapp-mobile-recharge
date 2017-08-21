@@ -1,0 +1,32 @@
+<!--friendslist.wxml-->
+  <view class="more-friends-wrap">
+    <header>
+      <view>可兑换金额</view>
+      <view class="amount">&yen;{{balance}}</view>
+      <view class="data-asy">
+        <span>累计(人) {{friendsNum}}</span>
+        <span>累计 &yen;{{friendsMoney}}</span>
+      </view>
+      <navigator url="/pages/deposit/deposit">
+        <button>提现</button>
+      </navigator>
+    </header>
+    <view class="section">
+      <view class="content">
+        <ul class="friends">
+          <li class="friend" wx:for="friendList" wx:for-item="friend">
+            <i class="avatar">
+              <image src="{{friend.head}}" alt=""></image>
+            </i>
+            <view class="detail">
+              <view class="name">{{friend.username}}</view>
+              <view class="time">{{friend.time}}</view>
+            </view>
+            <view class="amount">
+              &yen;{{friend.amount}}
+            </view>
+          </li>
+        </ul>
+      </view>
+    </view>
+  </view>

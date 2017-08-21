@@ -34,7 +34,7 @@
     	</view>
 	    <view class="nodata-wrap" wx:else>
 	        <view class="img-wrap">
-	            <image class="img-inner" src="https://www.byjiedian.com/static/img/nodata.png" alt="" mode="aspectFill"></image>
+	            <image class="img-inner" src="http://7xpceu.com1.z0.glb.clouddn.com/nodata.png" alt="" mode="aspectFill"></image>
 	        </view>
 	    </view>
 	</view>
@@ -74,7 +74,7 @@
 		</view>
 	    <view class="nodata-wrap" wx:else>
 	        <view class="img-wrap">
-	            <image class="img-inner" src="https://www.byjiedian.com/static/img/nodata.png" alt="" mode="aspectFill"></image>
+	            <image class="img-inner" src="http://7xpceu.com1.z0.glb.clouddn.com/nodata.png" alt="" mode="aspectFill"></image>
 	        </view>
 	    </view>		
 	</view>
