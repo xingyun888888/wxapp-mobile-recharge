@@ -9,6 +9,8 @@ Page({
   data: {
     lng: '',
     lat: '',
+    logo: "http://about:blank",
+    amount: 0.00,
     systemInfo: {},
     mapHeight: '',
     shopList: [],
@@ -122,7 +124,7 @@ Page({
         width: 30,
         height: 30
       },
-      iconPath: '../../assets/mapminus.png',
+      iconPath: '../../assets/mapplus.png',
       clickable: true
     }
     const minus = {
@@ -147,7 +149,7 @@ Page({
       iconPath: '../../assets/recharge.tips.jpg',
       clickable: true
     }
-    const controls = [scanBorrow, scanBuy, origin, recharge]
+    let controls = [scanBorrow, scanBuy, origin]
     self.setData({
       controls: controls
     })
@@ -270,7 +272,16 @@ Page({
         })
         self.getNearShop(latitude, longitude)
       }
-    })
+    });
+
+    app.userinfoChanged(() => {
+      console.log("app info changed");
+      console.log(app.globalData.userInfo)
+        self.setData({
+            logo: app.globalData.userInfo.avatarUrl,
+            amount: app.globalData.userInfo.amount
+        });
+    });
   },
 
   /**
