@@ -1,11 +1,11 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/usercenter/usercenter",
     "pages/tradelist/tradelist",
     "pages/borrowlist/borrowlist",
     "pages/deposit/deposit",
     "pages/list/list",
+    "pages/usercenter/usercenter",
     "pages/shopdetail/shopdetail",
     "pages/recharge/recharge",
     "pages/scanborrow/scanborrow",

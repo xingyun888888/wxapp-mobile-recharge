@@ -11,6 +11,7 @@
   height: 96rpx;
   background-color: #000;
   display: flex;
+  position: relative;
 }
 .no-recharge {
   position: absolute;
@@ -20,24 +21,60 @@
   width: 90%;
   box-shadow: 2px 2px 1px #ccc;
   display: flex;
+  background: #fff;
+  font-size: 24rpx;
+  height: 60rpx;
+  line-height: 60rpx;
 }
 .no-recharge .tips {
   color: #df342a;
+  flex: 1;
+}
+.no-recharge .circle {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: #df342a;
+  margin: 22rpx 25rpx;
 }
 .no-recharge .recharge {
   color: #191919;
 }
 .user-info {
-  width: 60rpx;
-  height: 60rpx;
+  width: 42rpx;
+  height: 42rpx;
+  border-radius: 50%;
+  padding: 9rpx 15rpx;
 }
 .user-info image {
   width: 100%;
   height: 100%;
 }
+.line {
+  width: 1px;
+  height: 36rpx;
+  margin: 12rpx 10rpx;
+  background: #dbdbdb;
+}
+.search-btn {
+  line-height: 60rpx;
+  font-size: 24rpx;
+  flex: 1;
+}
+.search-btn span {
+  line-height:60rpx;
+  display:inline-block;
+  margin-top:-14rpx;
+  font-size:24rpx;
+  position:relative;
+  top:-4rpx;
+  left:10rpx;
+
+}
 .input-like{
   background-color: #fff;
-  flex: 1;
+  display: flex;
+  width: 100%;
   margin-top: 20rpx;
   height: 56rpx;
   border-radius: 32rpx;
@@ -52,7 +89,6 @@
 .icon-sousuo_sousuo{
   position: relative;
   margin-left: 16rpx;
-  top: 4rpx;
 }
 .to-list{
   display: block;

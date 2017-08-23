@@ -138,7 +138,7 @@ Page({
       iconPath: '../../assets/mapminus.png',
       clickable: true
     }
-    const recharge = {
+    let recharge = {
       id: 6,
       position: {
         left: 20,
@@ -149,10 +149,31 @@ Page({
       iconPath: '../../assets/recharge.tips.jpg',
       clickable: true
     }
-    let controls = [scanBorrow, scanBuy, origin]
-    self.setData({
-      controls: controls
-    })
+    let controls = [scanBorrow, scanBuy, origin, recharge];
+    if(app.globalData.userInfo) {
+      this.setControls(controls);
+    } else {
+      app.userinfoChanged(()=>{
+        this.setControls(controls);
+      });
+    }
+  },
+  setControls(controls) {
+    console.log(app.globalData.userInfo.amount, "amount")
+    if(app.globalData.userInfo.amount > 80.0) {
+      this.setData({
+        controls: controls.slice(0, 3)
+      })        
+    } else {
+      if(app.globalData.userInfo.amount < 0.001) {
+
+      } else {
+        controls[3].iconPath = '../assets/recharge_not_enough.jpg';
+      }
+      this.setData({
+        controls: controls
+      })    
+    }
   },
   // 点击控件
   clickControl (e) {
@@ -274,14 +295,22 @@ Page({
       }
     });
 
-    app.userinfoChanged(() => {
-      console.log("app info changed");
-      console.log(app.globalData.userInfo)
+    if(app.globalData.userInfo) {
         self.setData({
             logo: app.globalData.userInfo.avatarUrl,
             amount: app.globalData.userInfo.amount
         });
-    });
+    } else {
+      app.userinfoChanged(() => {
+        console.log("app info changed");
+        console.log(app.globalData.userInfo)
+        self.setData({
+            logo: app.globalData.userInfo.avatarUrl,
+            amount: app.globalData.userInfo.amount
+        });
+      });      
+    }
+
   },
 
   /**

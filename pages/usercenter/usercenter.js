@@ -18,11 +18,18 @@ Page({
     })
     console.log("Enter page usercenter");
     //app中数据更新后，执行此函数
-    app.userinfoChanged(() => {
+    if(app.globalData.userInfo) {
         this.setData({
             user: app.globalData.userInfo
-        });
-    });
+        });    
+    } else {
+      app.userinfoChanged(() => {
+          this.setData({
+              user: app.globalData.userInfo
+          });
+      });      
+    }
+
   },
 
   call: function() {

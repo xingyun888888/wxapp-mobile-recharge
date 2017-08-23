@@ -1,24 +1,29 @@
 <view class="map-wrap">
   <view class="search-wrap">
-    <navigator url="/pages/usercenter/usercenter" class="user-info">
-      <image src="{{logo}}"></image>
-    </navigator>
-    <view class="input-like" bindtap="chooseLocation">
-      <i class="iconfont icon-sousuo_sousuo"></i>
-      搜索位置查找附近充电宝
+    <view class="input-like">
+      <navigator url="/pages/usercenter/usercenter" class="user-info">
+        <image src="{{logo}}"></image>
+      </navigator>
+      <view class="line"></view>
+      <view class="search-btn" bindtap="chooseLocation">
+        <i class="iconfont icon-sousuo_sousuo"></i>
+        <span>搜索位置查找附近充电宝</span>
+      </view>
     </view>
     <view class="to-list" bindtap="navigateTo">
       <i class="iconfont icon-liebiao"></i>
     </view>
   </view>
 
-  <view class="no-recharge" wx:if="{{amount<80}}">
-    <view class="tips">您尚未缴纳押金</view>
+  <navigator style="display:none;" class="no-recharge" url="pages/recharge/charge" wx:if="{{amount<80}}">
+    <view class="circle"></view>
+    <view class="tips" wx:if="{{amount<0.001}}">您尚未缴纳押金</view>
+    <view class="tips" wx:else>您押金不足，请点此充值</view>
     <view class="recharge">充押金</view>
     <i class="iconfont icon-more"></i>
-  </view>
+  </navigator>
 
-  <map 
+  <map
     id="map" 
     longitude="{{lng}}" 
     latitude="{{lat}}" 
