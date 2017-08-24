@@ -70,11 +70,11 @@
 }
 
 .trade-list-item .amount {
-    width: 80rpx;
     text-align: center;
     height: 80rpx;
     line-height: 80rpx;
     font-size: 32rpx;
+    white-space: nowrap;
 }
 
 

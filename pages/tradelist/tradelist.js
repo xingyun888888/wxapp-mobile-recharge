@@ -23,58 +23,60 @@ Page({
   },
 
   getTradeList() {
-    let recharge = 20,
-        take = 1,
-        list = [
-          {
-            type: 0,
-            out_trade_no: "D323sdve32m3",
-            createime: "2016年4月9日",
-            total_fee: "20"
-          },          
-          {
-            type: 0,
-            out_trade_no: "D323sdve32m3",
-            createime: "2016年4月9日",
-            total_fee: "20"
-          },          
-          {
-            type: 1,
-            out_trade_no: "D323sdve32m3",
-            createime: "2016年4月9日",
-            total_fee: "20"
-          },          
-          {
-            type: 1,
-            out_trade_no: "D323sdve32m3",
-            createime: "2016年4月9日",
-            total_fee: "20"
-          }
-        ];
-
-    this.setData({
-      list: list,
-      recharge: recharge,
-      take: take
-    })
-
-    // wx.request({
-    //   url: app.globalData.rootUrl + 'trade_list',
-    //   data: {
-    //   },
-    //   success (res) {
-    //     if (res.statusCode === 200) {
-    //       let data = res.data;
-    //       if(data.errorCode === 0 && data.data) {
-    //         this.setData({
-    //           list: data.data,
-    //           recharge: data.recharge,
-    //           take: data.take
-    //         })
+    // let recharge = 20,
+    //     take = 1,
+    //     list = [
+    //       {
+    //         type: 0,
+    //         out_trade_no: "D323sdve32m3",
+    //         createime: "2016年4月9日",
+    //         total_fee: "20"
+    //       },          
+    //       {
+    //         type: 0,
+    //         out_trade_no: "D323sdve32m3",
+    //         createime: "2016年4月9日",
+    //         total_fee: "20"
+    //       },          
+    //       {
+    //         type: 1,
+    //         out_trade_no: "D323sdve32m3",
+    //         createime: "2016年4月9日",
+    //         total_fee: "20"
+    //       },          
+    //       {
+    //         type: 1,
+    //         out_trade_no: "D323sdve32m3",
+    //         createime: "2016年4月9日",
+    //         total_fee: "20"
     //       }
-    //     }
-    //   }
+    //     ];
+
+    // this.setData({
+    //   list: list,
+    //   recharge: recharge,
+    //   take: take
     // })
+    const self = this
+    wx.request({
+      url: app.globalData.rootUrl + 'trade_list',
+      data: {
+      },
+      success (res) {
+        console.log(res, "trade_list")
+        if (res.statusCode === 200) {
+          let data = res.data;
+          console.log(data.errcode, data.data)
+          if(data.errcode === 0 && data.data) {
+            self.setData({
+              list: data.data,
+              recharge: data.recharge,
+              take: data.take
+            })
+          }
+        }
+      }
+    })
   },
 
   /**
