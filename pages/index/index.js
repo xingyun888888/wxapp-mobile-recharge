@@ -120,7 +120,7 @@ Page({
       id: 4,
       position: {
         left: wWidth - 30 - 32,
-        top: mapHeight - 159 - 30,
+        top: mapHeight - 159 - 40,
         width: 30,
         height: 30
       },
@@ -131,7 +131,7 @@ Page({
       id: 5,
       position: {
         left: wWidth - 30 - 32,
-        top: mapHeight - 130 - 30,
+        top: mapHeight - 130 - 40,
         width: 30,
         height: 30
       },
@@ -142,42 +142,102 @@ Page({
       id: 6,
       position: {
         left: 20,
-        top: 10,
+        top: 50,
         width: wWidth - 40,
         height: (wWidth - 40) * 120 / 888
       },
       iconPath: '../../assets/recharge.tips.jpg',
       clickable: true
     }
-    let controls = [scanBorrow, scanBuy, origin, recharge];
-    if(app.globalData.userInfo) {
-      this.setControls(controls);
-    } else {
-      app.userinfoChanged(()=>{
-        this.setControls(controls);
-      });
+    const neighbor = {
+      id: 7,
+      position: {
+        left: wWidth - 17 - 276/2.5 - 40,
+        top: 11,
+        width: 276 / 2.1,
+        height: 56 / 2.1
+      },
+      iconPath: '../../assets/neighbor.png',
+      clickable: true
     }
+    const logo = {
+      id: 8,
+      position: {
+        left: 50,
+        top: 15,
+        width: 149 / 3,
+        height: 45 / 3
+      },
+      iconPath: '../../assets/logo@3x.png',
+      clickable: true
+    }
+
+    const menu = {
+      id: 9,
+      position: {
+        left: wWidth - 35,
+        top: 15,
+        width: 71 / 3,
+        height: 51 / 3
+      },
+      iconPath: '../../assets/icon-list@3x.png',
+      clickable: true
+    }
+
+    const avatar = {
+      id: 10,
+      position: {
+        left: 10,
+        top: 6,
+        width: 137 / 4,
+        height: 139 / 4
+      },
+      iconPath: '../../assets/company.png',
+      clickable: true
+    }
+
+    let controls = [scanBorrow, scanBuy, origin, neighbor, menu, logo, avatar];
+    // this.setControls(controls);
+    this.setData({
+      controls: controls
+    })     
   },
   setControls(controls) {
     console.log(app.globalData.userInfo.amount, "amount")
+    const wWidth = this.data.systemInfo.windowWidth
+    let recharge = {
+      id: 6,
+      position: {
+        left: 20,
+        top: 50,
+        width: wWidth - 40,
+        height: (wWidth - 40) * 120 / 888
+      },
+      iconPath: '../../assets/recharge.tips.jpg',
+      clickable: true
+    },
+    flag = true;
     if(app.globalData.userInfo.amount > 80.0) {
-      this.setData({
-        controls: controls.slice(0, 3)
-      })        
+      flag = false;
     } else {
       if(app.globalData.userInfo.amount < 0.001) {
 
       } else {
-        controls[3].iconPath = '../assets/recharge_not_enough.jpg';
+        recharge.iconPath = '../assets/recharge_not_enough.jpg';
       }
+    }
+    if(flag) {
+      console.log(this.data.controls, '--------')
+      let controls = this.data.controls.push(recharge);
+      console.log(this.data.controls, '%%%%%%%%%')
+      console.log(controls, '********')
       this.setData({
-        controls: controls
-      })    
+        controls: this.data.controls.push(recharge)
+      })
     }
   },
   // 点击控件
   clickControl (e) {
-    console.log(111)
     const self =  this
     if (e.controlId === 1) {
       // wx.scanCode()
@@ -212,7 +272,29 @@ Page({
       wx.navigateTo({
         url: '/pages/recharge/recharge'
       })
+    }    
+
+    // 搜索
+    if (e.controlId === 7) {
+      this.chooseLocation();
     }
+    // 用户头像
+    if (e.controlId === 10) {
+      console.log('点到我了')
+      wx.navigateTo({
+        url: '/pages/usercenter/usercenter'
+      })
+    }
+
+    // 进入附近门店
+    if (e.controlId === 9) {
+      console.log('点到我了')
+      wx.navigateTo({
+        url: '/pages/list/list'
+      })
+    }    
+
+
     //plus
     // if (e.controlId === 4) {
     //   const scale = self.data.scale
@@ -278,10 +360,11 @@ Page({
     if (app.globalData.systemInfo) {
       self.setData({
         systemInfo: app.globalData.systemInfo,
-        mapHeight: app.globalData.systemInfo.windowHeight - 48
+        mapHeight: app.globalData.systemInfo.windowHeight
       })
     }
     self.initControls()
+
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
       success: function (res) {
@@ -295,19 +378,23 @@ Page({
       }
     });
 
+    console.log("start setting map info")
     if(app.globalData.userInfo) {
         self.setData({
             logo: app.globalData.userInfo.avatarUrl,
             amount: app.globalData.userInfo.amount
         });
+        console.log("You have user info already");
+        self.setControls();
     } else {
       app.userinfoChanged(() => {
-        console.log("app info changed");
+        console.log("user info changed");
         console.log(app.globalData.userInfo)
         self.setData({
             logo: app.globalData.userInfo.avatarUrl,
             amount: app.globalData.userInfo.amount
         });
+        self.setControls();
       });      
     }
 

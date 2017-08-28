@@ -61,6 +61,8 @@ Page({
     wx.request({
       url: app.globalData.rootUrl + 'trade_list',
       data: {
+        uid: app.globalData.unionid,
+        from: 'v'
       },
       success (res) {
         console.log(res, "trade_list")
