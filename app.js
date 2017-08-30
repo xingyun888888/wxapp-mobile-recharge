@@ -25,7 +25,7 @@ App({
   getUserInfoByApi() {
     const self = this
     wx.request({
-      url: 'https://www.byjiedian.com/index.php/byjie/info?uid=' + this.globalData.unionid,
+      url: 'https://www.byjiedian.com/index.php/byjie/info?from=v&uid=' + this.globalData.unionid,
       data: {},
       header: {
         'Content-type': 'application/json'
@@ -34,13 +34,13 @@ App({
         console.log(res, "user info by api in app.js");
         let data = res.data.data;
         // self.globalData.openid = res.openid;
+        self.globalData.userInfo.already = true;
         self.globalData.userInfo.amount = data.amount;
         // console.log(self.globalData.userinfoCallback)
         //数据更新
-        self.globalData.userinfoCallback.forEach((item)=>{
-          // console.log(item)
-          (typeof item === 'function') && item();
-        })
+        for(let i = 0, callbackList = self.globalData.userinfoCallback, len = self.globalData.userinfoCallback.length; i < len; i++) {
+          (typeof callbackList[i] === 'function') && callbackList[i]();
+        }
       }
     })
   },
@@ -61,16 +61,18 @@ App({
           // console.log(r, "wx login return")
           wx.getUserInfo({
             success: function (res) {
-              self.getLogin({
-                code: r.code,
-                // iv: res.iv,
-                // encryptedData: encodeURIComponent(res.encryptedData)
-              })
               self.globalData.userInfo = {
                 avatarUrl: res.userInfo.avatarUrl,
                 nickName: res.userInfo.nickName,
-                amount: 0
+                amount: 0,
+                already: false
               }
+              self.getLogin({
+                code: r.code,
+                from: "v"
+                // iv: res.iv,
+                // encryptedData: encodeURIComponent(res.encryptedData)
+              })
               console.log(res.userInfo, self.globalData.userInfo, "userinfo in app.js");
               // console.log(res, "res in wx login");
               typeof cb == "function" && cb(this.globalData.userInfo)
@@ -83,7 +85,7 @@ App({
   getLogin (param) {
     const self = this
     wx.request({
-      url: 'https://www.byjiedian.com/index.php/byjie/wx_login',
+      url: 'https://www.byjiedian.com/index.php/byjie/wx_login?from=v',
       data: param,
       header: {
         'Content-type': 'application/json'
@@ -107,7 +109,7 @@ App({
   getShopList () {
     const self = this
     wx.request({
-      url: 'https://byjiedian.com/index.php?m=byjie&a=get_posi',
+      url: 'https://byjiedian.com/index.php?m=byjie&a=get_posi&from=v',
       data: {
         lat,
         lng

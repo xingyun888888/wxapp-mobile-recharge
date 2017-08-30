@@ -41,7 +41,7 @@ Page({
               id: item.id,
               latitude: item.lat,
               longitude: item.lng,
-              iconPath: 'http:../../assets/dingwei.png',
+              iconPath: '../../assets/dingwei.png',
               width: 32,
               height: 36
             }
@@ -113,59 +113,26 @@ Page({
         width: 44,
         height: 44
       },
-      iconPath: '../../assets/origin.png',
-      clickable: true
-    }
-    const plus = {
-      id: 4,
-      position: {
-        left: wWidth - 30 - 32,
-        top: mapHeight - 159 - 40,
-        width: 30,
-        height: 30
-      },
-      iconPath: '../../assets/mapplus.png',
-      clickable: true
-    }
-    const minus = {
-      id: 5,
-      position: {
-        left: wWidth - 30 - 32,
-        top: mapHeight - 130 - 40,
-        width: 30,
-        height: 30
-      },
-      iconPath: '../../assets/mapminus.png',
-      clickable: true
-    }
-    let recharge = {
-      id: 6,
-      position: {
-        left: 20,
-        top: 50,
-        width: wWidth - 40,
-        height: (wWidth - 40) * 120 / 888
-      },
-      iconPath: '../../assets/recharge.tips.jpg',
+      iconPath: '../../assets/origin@3x.png',
       clickable: true
     }
     const neighbor = {
       id: 7,
       position: {
-        left: wWidth - 17 - 276/2.5 - 40,
-        top: 11,
-        width: 276 / 2.1,
-        height: 56 / 2.1
+        left: wWidth  - 378 / 3 - 40 - 15,
+        top: 16,
+        width: 378 / 3,
+        height: 108 / 3
       },
-      iconPath: '../../assets/neighbor.png',
+      iconPath: '../../assets/neighbour@3x.png',
       clickable: true
     }
     const logo = {
       id: 8,
       position: {
-        left: 50,
-        top: 15,
-        width: 149 / 3,
+        left: 56,
+        top: 26,
+        width: 147 / 3,
         height: 45 / 3
       },
       iconPath: '../../assets/logo@3x.png',
@@ -175,22 +142,22 @@ Page({
     const menu = {
       id: 9,
       position: {
-        left: wWidth - 35,
-        top: 15,
-        width: 71 / 3,
-        height: 51 / 3
+        left: wWidth - 50,
+        top: 14,
+        width: 40,
+        height: 40
       },
-      iconPath: '../../assets/icon-list@3x.png',
+      iconPath: '../../assets/menu@3x.png',
       clickable: true
     }
 
     const avatar = {
       id: 10,
       position: {
-        left: 10,
-        top: 6,
-        width: 137 / 4,
-        height: 139 / 4
+        left: 16,
+        top: 16,
+        width: 36,
+        height: 36
       },
       iconPath: '../../assets/company.png',
       clickable: true
@@ -200,7 +167,7 @@ Page({
     // this.setControls(controls);
     this.setData({
       controls: controls
-    })     
+    })    
   },
   setControls(controls) {
     console.log(app.globalData.userInfo.amount, "amount")
@@ -208,12 +175,12 @@ Page({
     let recharge = {
       id: 6,
       position: {
-        left: 20,
-        top: 50,
-        width: wWidth - 40,
-        height: (wWidth - 40) * 120 / 888
+        left: wWidth / 2,
+        top: 70,
+        width: wWidth / 2,
+        height: wWidth / 2 * 126 / 477
       },
-      iconPath: '../../assets/recharge.tips.jpg',
+      iconPath: '../../assets/nomoney@3x.png',
       clickable: true
     },
     flag = true;
@@ -223,17 +190,21 @@ Page({
       if(app.globalData.userInfo.amount < 0.001) {
 
       } else {
-        recharge.iconPath = '../assets/recharge_not_enough.jpg';
+        recharge.iconPath = '../../assets/notenoughmoney@3x.png';
       }
     }
+
     if(flag) {
       console.log(this.data.controls, '--------')
-      let controls = this.data.controls.push(recharge);
-      console.log(this.data.controls, '%%%%%%%%%')
-      console.log(controls, '********')
+      // let controls = this.data.controls.push(recharge);
+      // this.setData({
+      //   controls: this.data.controls.push(recharge)
+      // })
+      let controls = this.data.controls.concat(recharge);
       this.setData({
-        controls: this.data.controls.push(recharge)
+        controls: controls
       })
+      console.log(this.data.controls, "After controls...")
     }
   },
   // 点击控件
@@ -379,7 +350,8 @@ Page({
     });
 
     console.log("start setting map info")
-    if(app.globalData.userInfo) {
+
+    if(app.globalData.userInfo && app.globalData.userInfo.already) {
         self.setData({
             logo: app.globalData.userInfo.avatarUrl,
             amount: app.globalData.userInfo.amount
