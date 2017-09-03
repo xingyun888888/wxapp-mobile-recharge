@@ -64,7 +64,7 @@ App({
               self.globalData.userInfo = {
                 avatarUrl: res.userInfo.avatarUrl,
                 nickName: res.userInfo.nickName,
-                amount: 0,
+                amount: 0.00,
                 already: false
               }
               self.getLogin({

@@ -8,29 +8,32 @@
 	position: relative;
 	height: 480rpx;
 	overflow: hidden;
+	background: #fff;
 }
 
 .bg-header {
-	width:960rpx;
-	height:522rpx;
-	display:inline-block;
+	width: 100%;
+	height: 174px;
+	display: block;
 	overflow:hidden;
 	position:;
 	position:absolute;
 	top:0;
-	margin-left:50%;
-	transform:translateX(-50%);
+	left: 0;
+	background: url(http://7xpceu.com1.z0.glb.clouddn.com/artboard.png) 0 0 no-repeat;
+	background-size: 100% auto;
 }
 
-.avatar{
+.avatar {
 	position:absolute;
 	top:82rpx;
 	left:50%;
 	transform:translateX(-50%);
-	width:260rpx;
-	height:260rpx;
+	width:164rpx;
+	height:164rpx;
 	border-radius:50%;
 	overflow:hidden;
+	text-align: center;
 }
 
 .user-name{
@@ -40,8 +43,11 @@
 	text-align: center;
 	font-weight: bold;
 	font-size: 32rpx;
+	line-height: 40rpx;
+	height: 40rpx;
+	z-index: 9999;
 	color: #333;
-	top: 360rpx;
+	top: 280rpx;
 }
 
 .remainder{
@@ -49,7 +55,7 @@
 	background-color:#fff;
 	color:#999;
 	font-size:28rpx;
-	top:410rpx;
+	top:330rpx;
 	position:absolute;
 	width:100%;
 }
@@ -64,16 +70,24 @@
 	background-color: #fff;
 	font-size: 14rpx;
 	border-top: 1px solid #f4f4f4;
-	border-bottom: 1px solid #f4f4f4;
+	margin-top: -90rpx;
+	position: relative;
+	z-index: 9999;
+}
+
+.border {
+	border-bottom: 20rpx solid #f4f4f4;
 }
 
 .ctrl-money .item{
   display: block;
   flex: 1;
   text-align: center;
-  height: 80rpx;
-  line-height: 80rpx;
-  font-size: 32rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  font-size: 36rpx;
+  color: #333;
+  margin: 24rpx 0;
 }
 
 .ctrl-money .deposit{
@@ -86,33 +100,33 @@
 }
 
 .group {
-	margin-top: 15rpx;
 	background: #fff;
 }
 
 .group .my-nav {
-	padding: 0 30rpx;
+	padding-left: 30rpx;
 }
 
 .group .iconfont-wrap{
 	color: #666;
 	display: -webkit-flex;
-	font-size: 28rpx;
-	line-height: 84rpx;
-	height: 84rpx;
+	font-size: 14px;
+	line-height: 42px;
+	height: 42px;
+	position: relative;
 }
 
 .group .iconfont-wrap .iconfont {
-	width: 50rpx;
+	width: 60rpx;
+	color: #999;
 	text-align: left;
+	line-height: 42px;
+	height: 42px;
 }
 
 .group .iconfont-wrap .word {
 	-webkit-flex: 1;
 	border-bottom: 1px solid #f1f1f1;
-	font-size: 28rpx;
-	line-height: 84rpx;
-	height: 84rpx;
 	display: block;
 	width: 100%;
 }
@@ -121,7 +135,8 @@
 	width: 40rpx;
 	display: block;
 	text-align: right;
-	margin-right: -10rpx;
+	position: absolute;
+	right: 20rpx;
 }
 
 .vux-no-group-title{

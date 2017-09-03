@@ -37,7 +37,7 @@
     box-sizing: border-box;
     display: flex;
     border-bottom: 1px solid #f5f5f5;
-    font-size: 20rpx;
+    font-size: 28rpx;
 }
 
 .borrowing-item-wrap .header .code {
@@ -70,13 +70,13 @@
 
 .borrowing-item-wrap .content .amount {
     color: #0085ee;
-    font-size: 32rpx;
-    line-height: 36rpx;
+    font-size: 48rpx;
+    line-height: 48rpx;
     margin-top: 40rpx;
 }
 
 .borrowing-item-wrap .content small {
-    font-size: 16rpx;
+    font-size: 24rpx;
 }
 
 .borrowing-item-wrap .content .tips {
@@ -93,7 +93,7 @@
     line-height: 80rpx;
     height: 80rpx;
     box-sizing: border-box;
-    font-size: 20rpx;
+    font-size: 28rpx;
     display: flex;
     padding-right: 30rpx;
     border-bottom: 1px solid #f5f5f5;

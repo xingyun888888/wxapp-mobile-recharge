@@ -8,7 +8,6 @@
 
 .logo{
   text-align: center;
-  margin-top: 32px;
 }
 
 .logo image{
@@ -37,14 +36,15 @@
 }
 
 .button{
-  margin: 16px auto;
+  margin: 32px auto 0;
   width: 86%;
   text-align: center;
   color: #fff;
   background-color: #0085EE;
   border-radius: 6px;
-  font-size: 14px;
-  padding: 18px 0;
+  font-size: 16px;
+  height: 44px;
+  line-height: 44px;
 }
 
 /*

@@ -36,7 +36,7 @@
     text-align: center;
     color: #0085EE;
     font-size: 2em;
-    padding-bottom: 60rpx;
+    padding-bottom: 80rpx;
 }
 
 .desc-area {
@@ -78,7 +78,7 @@
 
 .tips {
   color: #a6a6a6;
-  font-size: .8em;
+  font-size: 24rpx;
   line-height: 1.5;
 
 }

@@ -18,7 +18,7 @@ Page({
     })
     console.log("Enter page usercenter");
     //app中数据更新后，执行此函数
-    if(app.globalData.userInfo) {
+    if(app.globalData.userInfo.already) {
         this.setData({
             user: app.globalData.userInfo
         });    

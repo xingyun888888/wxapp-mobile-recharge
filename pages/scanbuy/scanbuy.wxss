@@ -8,7 +8,6 @@
 
 .logo{
   text-align: center;
-  margin-top: 32px;
 }
 
 .logo image{
@@ -23,10 +22,10 @@
 }
 
 .tips{
-  padding: 0 28px;
-  margin-top: 16px;
+  padding: 5px 28px;
   text-align: left;
   font-size: 14px;
+  line-height: 20px;
 }
 
 .tips span{
@@ -38,14 +37,15 @@
 }
 
 .button{
-  margin: 16px auto;
+  margin: 28px auto 0;
   width: 86%;
   text-align: center;
   color: #fff;
   background-color: #00A282;
   border-radius: 6px;
-  font-size: 14px;
-  padding: 18px 0;
+  font-size: 16px;
+  height: 44px;
+  line-height: 44px;
 }
 
 /*
@@ -55,6 +55,7 @@
   margin: 8px auto 0;
   padding-left: 16px;
   padding-right: 16px;
+  margin-bottom: 8px;
   font-size: 14px;
   width: 86%;
 }
@@ -71,7 +72,7 @@
   color: #666;
 }
 
-.vux-divider:after,.vux-divider:before {
+..-divider:after,.vux-divider:before {
   content: '';
   display: table-cell;
   position: relative;

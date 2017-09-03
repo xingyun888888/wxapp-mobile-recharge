@@ -9,19 +9,27 @@
   background-color: #fff;
   flex: 1;
   margin-top: 20rpx;
-  height: 56rpx;
+  height: 64rpx;
   border-radius: 32rpx;
   overflow: hidden;
-  font-size: 14px;
-  line-height: 56rpx;
   color: #c0c0c0;
+}
+
+.input-like span {
+  font-size: 28rpx;
+  line-height: 64rpx;
+  display: inline-block;
+  height: 64rpx;
+  vertical-align: middle;
+  color: #999;
 }
 .iconfont{
   font-size: 20px;
 }
 .icon-sousuo_sousuo{
   position: relative;
-  margin-left: 16rpx;
+  margin-left: 20rpx;
+  margin-right: 6rpx;
   top: 4rpx;
 }
 .to-list{
@@ -55,14 +63,18 @@ image{
 }
 .shop-name{
   font-size: 14px;
+  color: #212121;
+  padding-top: 10rpx;
 }
 .shop-status{
-  margin-top: 4px;
+  margin-top: 20rpx;
+  font-size: 14px;
 }
 .dis{
   float: right;
   color: #757575;
   font-size: 12px;
+  padding-top: 10rpx;
 }
 .borrow{
   color: #0085EE;
@@ -107,6 +119,7 @@ image{
 }
 .shop-address{
   color: #999999;
-  font-size: 14px;
-  margin-top: 8rpx;
+  font-size: 12px;
+  line-height:17px;
+  margin-top: 20rpx;
 }

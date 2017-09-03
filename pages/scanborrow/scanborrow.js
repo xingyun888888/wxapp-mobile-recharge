@@ -1,4 +1,6 @@
 // pages/scanborrow/scanborrow.js
+const app = getApp()
+
 Page({
 
   /**
@@ -12,10 +14,55 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    if(!app.globalData.openid) {
+      wx.navigateBack({
+        delta: 1
+      });
+      return false;
+    }
+
+    wx.setNavigationBarTitle({
+      title: '借充电宝'
+    });  
   },
   scanBorrow: function () {
-    wx.scanCode()
+    let self = this;
+    const uid = app.globalData.unionid;
+    const openid = app.globalData.openid;
+    wx.scanCode({
+      success: function(res) {
+        console.log(res);
+        let result = res.result;
+        wx.request({
+          url: `https://www.byjiedian.com/index.php/byjie/borrow?shopid=${result}&uid=${uid}&from=v`,
+          success: function(d) {
+            let data = d.data;
+            if(data.errcode === 0) {
+              wx.showToast({
+                title: '恭喜您借充电宝成功！',
+                icon: 'success',
+                duration: 3000,
+                mask: true,
+                complete: function() {
+                  setTimeout(()=>{
+                    wx.navigateTo({
+                      url: `../borrowlist/borrowlist`
+                    })                    
+                  }, 3000)
+                }
+              })             
+            } else {
+              wx.showToast({
+                title: data.msg,
+                icon: 'error',
+                duration: 3000,
+                mask: true
+              })                           
+            }
+          } 
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

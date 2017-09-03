@@ -3,7 +3,7 @@
   <view class="search-wrap">
     <view class="input-like" bindtap="chooseLocation">
       <i class="iconfont icon-sousuo_sousuo"></i>
-      搜索位置查找附近充电宝
+      <span>搜索位置查找附近充电宝</span>
     </view>
   </view>
   <view class="shop-list">
@@ -14,7 +14,7 @@
       <view class="detail">
         <view class="shop-name">
           {{shop.name}}
-          <span class="dis">{{shop.distance}}m</span>
+          <span class="dis">{{shop.distance}} m</span>
         </view>
         <view class="shop-status">
           <span class="borrow">

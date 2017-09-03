@@ -33,13 +33,14 @@ image{
   margin-top: 16px;
   text-align: center;
   color: #212121;
+  font-size: 24rpx;
 }
 
 .amount{
   margin: 16px 0;
   text-align: center;
   color: #0085EE;
-  font-size: 32px;
+  font-size: 28px;
 }
 
 .reminds{
@@ -47,7 +48,7 @@ image{
   text-align: center;
   height: 64px;
   line-height: 64px;
-  font-size: 12px;
+  font-size: 28rpx;
   color: #757575;
 }
 
@@ -72,9 +73,10 @@ image{
 
 .recharge-tips{
   margin-top: 8px;
+  margin-bottom: 24px;
   text-align: center;
   color: #999;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .recharge-tips span{
@@ -82,24 +84,26 @@ image{
 }
 
 .button{
-  margin: 16px auto;
+  margin: 24px auto 10px;
   width: 86%;
   text-align: center;
   color: #fff;
   background-color: #0085EE;
   border-radius: 6px;
-  font-size: 14px;
-  padding: 18px 0;
+  font-size: 16px;
+  height: 44px;
+  line-height: 44px;
 }
 
 .tips{
   padding: 0 16px;
   color: #999999;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .tips .para{
   margin-top: 12px;
+  line-height: 1.5;
 }
 
 /*
@@ -122,7 +126,8 @@ image{
   line-height: 1;
   text-align: center;
   padding: 10px 0;
-  color: #666;
+  color: #999;
+  font-size: 12px;
 }
 
 .vux-divider:after,.vux-divider:before {
