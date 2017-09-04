@@ -22,7 +22,7 @@ App({
   //     }
   //   })
   // },
-  getUserInfoByApi() {
+  getUserInfoByApi(callback) {
     const self = this
     wx.request({
       url: 'https://www.byjiedian.com/index.php/byjie/info?from=v&uid=' + this.globalData.unionid,
@@ -41,6 +41,8 @@ App({
         for(let i = 0, callbackList = self.globalData.userinfoCallback, len = self.globalData.userinfoCallback.length; i < len; i++) {
           (typeof callbackList[i] === 'function') && callbackList[i]();
         }
+        callback && callback();
+        console.log(self.globalData.userinfoCallback.length)
       }
     })
   },

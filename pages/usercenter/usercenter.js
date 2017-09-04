@@ -57,7 +57,12 @@ Page({
   onShow: function () {
     if(app.globalData.openid) {
       console.log("进入个人中心，刷新用户信息");
-      app.getUserInfoByApi();
+      app.getUserInfoByApi(()=>{
+          console.log("用户信息已更新！！！");
+          this.setData({
+              user: app.globalData.userInfo
+          });
+      });
     }
   },
 
