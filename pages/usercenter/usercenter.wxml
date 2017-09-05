@@ -34,9 +34,6 @@
                 <span class="iconfont icon-more more"></span>
             </view>
         </navigator>
-        <navigator class="my-nav" hover-class="none" title="推荐好友赚提成" url="/pages/recommend/recommend">
-            <view class="iconfont-wrap"><span class="iconfont icon-elite"></span><span class="word">推荐好友赚提成</span><span class="iconfont icon-more more"></span></view>
-        </navigator>
     </view>
     <view class="contact" bindtap="call">客服电话：<a href="tel:4000805985" class="tel">400-0805-985</a></view>
 </view>

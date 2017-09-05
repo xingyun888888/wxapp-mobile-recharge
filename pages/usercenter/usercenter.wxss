@@ -85,7 +85,7 @@
   text-align: center;
   height: 48rpx;
   line-height: 48rpx;
-  font-size: 36rpx;
+  font-size: 32rpx;
   color: #333;
   margin: 24rpx 0;
 }
@@ -107,6 +107,7 @@
 	padding-left: 30rpx;
 }
 
+
 .group .iconfont-wrap{
 	color: #666;
 	display: -webkit-flex;
@@ -115,6 +116,8 @@
 	height: 42px;
 	position: relative;
 }
+
+
 
 .group .iconfont-wrap .iconfont {
 	width: 60rpx;
@@ -126,9 +129,13 @@
 
 .group .iconfont-wrap .word {
 	-webkit-flex: 1;
-	border-bottom: 1px solid #f1f1f1;
+	border-bottom: 1px solid #e1e1e1;
 	display: block;
 	width: 100%;
+}
+
+.my-nav:last-child .iconfont-wrap .word {
+	border: none;
 }
 
 .group .iconfont-wrap .more {

@@ -3,7 +3,7 @@
 }
 
 .trade-list-wrap .content {
-    margin-top: 104rpx;
+    margin-top: 96rpx;
 }
 
 
@@ -33,39 +33,40 @@
 /* item area start*/
 
 .trade-list-item {
-    margin-top: 8rpx;
     background-color: #fff;
-    padding: 16rpx 30rpx 16rpx 0;
+    padding: 24rpx 0;
     box-sizing: border-box;
-    display: flex;
-    border: solid #e6e6e6;
-    border-width: 1rpx 0;
+    overflow: hidden;
+    border-top: 12rpx solid #ececec;
 }
 
 .trade-list-item .section {
     width: 150rpx;
     text-align: center;
-    height: 80rpx;
-    line-height: 80rpx;
-    font-size: 32rpx;
+    height: 96rpx;
+    line-height: 96rpx;
+    font-size: 36rpx;
     color: #0085EE;
     border-right: 1px solid #E6E6E6;
+    float: left;
 }
 
 .trade-list-item .detail {
-    flex: 1;
     padding: 0 16rpx;
     line-height: 48rpx;
+    float: left;
+    width: 399rpx;
+    box-sizing: border-box;
 }
 
 .trade-list-item .order-code {
-    font-size: 24rpx;
+    font-size: 28rpx;
     white-space: nowrap;
     color: #212121;
 }
 
 .trade-list-item .order-time {
-    font-size: 24rpx;
+    font-size: 20rpx;
     color: #757575;
 }
 
@@ -75,6 +76,8 @@
     line-height: 80rpx;
     font-size: 32rpx;
     white-space: nowrap;
+    width: 200rpx;
+    float: left;
 }
 
 

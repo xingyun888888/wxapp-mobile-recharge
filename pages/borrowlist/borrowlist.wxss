@@ -1,7 +1,6 @@
 /* tabs start */
 .select-wrap {
     display: flex;
-    margin-bottom: 15rpx;
     background: #fff;
     border-bottom: 1px solid #ececec;
 }
@@ -26,7 +25,7 @@
 }
 
 .borrowing-item-wrap {
-    margin-top: 8rpx;
+    margin-top: 12rpx;
     background: #fff;
 }
 

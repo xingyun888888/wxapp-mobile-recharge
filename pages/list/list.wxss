@@ -1,14 +1,13 @@
 /* pages/list/list.wxss */
 .search-wrap{
   padding: 0 32rpx;
-  height: 96rpx;
+  height: 80rpx;
   background-color: #000;
   display: flex;
 }
 .input-like{
   background-color: #fff;
   flex: 1;
-  margin-top: 20rpx;
   height: 64rpx;
   border-radius: 32rpx;
   overflow: hidden;

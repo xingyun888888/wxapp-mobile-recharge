@@ -13,11 +13,21 @@
       <i class="iconfont icon-shujuxian"></i>(Type-C)
     </view>
   </view>
-  <view class="button" bindtap="recharge">确认支付</view>
-  <view class="recharge-tips">点击支付表示已阅读并同意<span>使用条款</span>和<span>充值协议</span></view>
-  <view class="vux-divider">温馨提示</view>
-  <view class="tips">
-    <view class="para">1. 归还充电宝之后，用户可以查看支付押金和使用扣费后剩余押金的信息；</view>
-    <view class="para">2. 充电宝借出后，15分钟后开始扣费，1小时收费1元，每天最高收费8元。</view>
+
+  <view class="desc-area">
+    <button class="deposit-btn" bindtap="recharge">确认支付</button>
+    <view class="recharge-tips">点击支付表示已阅读并同意<span>使用条款</span>和<span>充值协议</span></view>
+
+    
+    <view class="tip-title">
+      <view class="border"></view>
+      <view class="tip-title-word">温馨提示</view>
+    </view>
+
+    <view class="tips">
+      <view class="text">1. 归还充电宝之后，用户可以查看支付押金和使用扣费后剩余押金的信息；</view>
+      <view class="text">2. 充电宝借出后，15分钟后开始扣费，1小时收费1元，每天最高收费8元。</view>
+    </view>   
   </view>
+
 </view>

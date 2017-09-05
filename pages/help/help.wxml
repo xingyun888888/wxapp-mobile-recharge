@@ -9,7 +9,7 @@
     		<block wx:if="{{item.switch}}" class="item-block">
     			<view class="content-item" wx:for="{{item.contents}}" wx:for-item="content">
     				<text wx:if="{{content.title !== ''}}" class="content-title">{{content.title}}</text>
-    				<view wx:for="{{content.content}}" wx:for-item="content_item">
+    				<view class="content-item-inner" wx:for="{{content.content}}" wx:for-item="content_item">
     					<text>{{content_item}}</text>
     				</view>
     			</view>

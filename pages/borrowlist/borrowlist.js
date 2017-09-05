@@ -72,6 +72,7 @@ Page({
     //   borrowingList: borrowingList,
     //   borrowedList: borrowedList
     // });
+    // return false;
 
     wx.request({
       url: app.globalData.rootUrl + 'rent_list',
