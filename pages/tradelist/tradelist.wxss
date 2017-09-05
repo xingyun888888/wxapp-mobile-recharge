@@ -14,7 +14,7 @@
     line-height: 96rpx;
     background-color: #f6f6f6;
     padding: 0 44rpx;
-    font-size: 28rpx;
+    font-size: 30rpx;
     border-bottom: 1rpx solid #e6e6e6;
 }
 
@@ -43,8 +43,9 @@
 .trade-list-item .section {
     width: 150rpx;
     text-align: center;
-    height: 96rpx;
-    line-height: 96rpx;
+    height: 84rpx;
+    line-height: 84rpx;
+    padding-top: 6rpx;
     font-size: 36rpx;
     color: #0085EE;
     border-right: 1px solid #E6E6E6;
@@ -55,13 +56,15 @@
     padding: 0 16rpx;
     line-height: 48rpx;
     float: left;
-    width: 399rpx;
+    width: 459rpx;
     box-sizing: border-box;
 }
 
 .trade-list-item .order-code {
     font-size: 28rpx;
     white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
     color: #212121;
 }
 
@@ -71,12 +74,12 @@
 }
 
 .trade-list-item .amount {
-    text-align: center;
     height: 80rpx;
     line-height: 80rpx;
     font-size: 32rpx;
     white-space: nowrap;
-    width: 200rpx;
+    width: 140rpx;
+    text-align: left;
     float: left;
 }
 
