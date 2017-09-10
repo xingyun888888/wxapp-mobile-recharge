@@ -34,7 +34,7 @@ Page({
 
   call: function() {
     wx.makePhoneCall({
-      phoneNumber: '13423940669', //此号码并非真实电话号码，仅用于测试
+      phoneNumber: '4000805985', //此号码并非真实电话号码，仅用于测试
       success:function(){
         console.log("拨打电话成功！")
       },

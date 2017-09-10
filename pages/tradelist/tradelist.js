@@ -71,7 +71,7 @@ Page({
           console.log(data.errcode, data.data)
           if(data.errcode === 0 && data.data) {
             self.setData({
-              list: data.data,
+              list: data.data.slice(0,1),
               recharge: data.recharge,
               take: data.take
             })

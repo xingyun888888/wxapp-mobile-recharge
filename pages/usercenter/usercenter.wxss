@@ -129,7 +129,7 @@
 
 .group .iconfont-wrap .word {
 	-webkit-flex: 1;
-	border-bottom: 1px solid #e1e1e1;
+	border-bottom: 1rpx solid #ececec;
 	display: block;
 	width: 100%;
 }

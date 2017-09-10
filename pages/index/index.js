@@ -212,15 +212,28 @@ Page({
     const self =  this
     if (e.controlId === 1) {
       // wx.scanCode()
-      wx.navigateTo({
-        url: '/pages/scanborrow/scanborrow'
-      })
-    }
+      if(app.globalData.userInfo.amount < 80.00) {
+        wx.navigateTo({
+          url: '/pages/recharge/recharge'
+        })
+      } else {
+        wx.navigateTo({
+          url: '/pages/scanborrow/scanborrow'
+        })      
+      }
+     }
     if (e.controlId === 2) {
-      // wx.scanCode()
-      wx.navigateTo({
-        url: '/pages/scanbuy/scanbuy'
-      })
+      //如果余额不足，则直接进入充值页面
+      if(app.globalData.userInfo.amount < 80.00) {
+        wx.navigateTo({
+          url: '/pages/recharge/recharge'
+        })
+      } else {
+        // wx.scanCode()
+        wx.navigateTo({
+          url: '/pages/scanbuy/scanbuy'
+        })        
+      }
     }
     if (e.controlId === 3) {
       self.mapCtx.moveToLocation()
@@ -229,6 +242,7 @@ Page({
         success: function (res) {
           var latitude = res.latitude
           var longitude = res.longitude
+          console.log(latitude, longitude, "您的当前位置")
           self.setData({
             lat: res.latitude,
             lng: res.longitude,

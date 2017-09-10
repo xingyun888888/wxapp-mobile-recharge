@@ -22,7 +22,7 @@
     <view class="small-section">
       <i class="iconfont icon-dingwei"></i>
       <view class="content">{{shopInfo.address}}</view>
-      <span class="small-section-gothere">到这去<i class="iconfont icon-daohang"></i></span>
+      <span class="small-section-gothere" bindtap="goThere">到这去<i class="iconfont icon-daohang"></i></span>
     </view>
     <view class="small-section">
       <i class="iconfont icon-clock"></i>

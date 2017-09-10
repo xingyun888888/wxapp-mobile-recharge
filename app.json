@@ -12,7 +12,8 @@
     "pages/scanbuy/scanbuy",
     "pages/help/help",
     "pages/recommend/recommend",
-    "pages/friendslist/friendslist"
+    "pages/friendslist/friendslist",
+    "pages/depositresult/depositresult"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -11,6 +11,7 @@
             </view>
             <view class="amount">{{item.type === '0' ? '+' : '-'}}{{item.total_fee}}元</view>
         </view>
+        <view class="no-more">——  没有更多数据了  ——</view>
     </view>
     <view class="nodata-wrap" wx:else>
         <view class="img-wrap">

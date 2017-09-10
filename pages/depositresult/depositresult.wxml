@@ -1,0 +1,29 @@
+<view class="deposit-result">
+	<view class="top-tips">
+		<image class="top-tips-bg" src="http://7xpceu.com1.z0.glb.clouddn.com/deposit_bg.png" mode="aspectFill"></image>
+		<view class="amount">￥{{amount}}</view>
+		<p class="tip-first">提现申请已提交</p>
+		<p class="tip-second">预计0-5个工作日退回充值账号</p>
+	</view>
+	<view class="deposit-order">提现单号：{{orderno}}</view>
+	<view class="deposit-result-area">
+		<image class="image-area" src="http://7xpceu.com1.z0.glb.clouddn.com/process.png" class="image-area" mode="aspectFill"></image>
+		<view class="word-area">
+			<view class="word-process">
+				<view class="word-process-first active">提交成功{{amount}}元</view>
+				<view class="word-process-second">{{time}}</view>
+			</view>			
+			<view class="word-process">
+				<view class="word-process-first active">处理中</view>
+				<view class="word-process-second">预计0-5个工作日退回充值账号</view>
+			</view>			
+			<view class="word-process">
+				<view class="word-process-first">提现成功</view>
+				<view class="word-process-second">申请提现成功，请去交易明细查看</view>
+			</view>
+		</view>
+	</view>
+	<view class="button-area">
+		<view class="deposit-button" bindtap="goback">完成</view>
+	</view>
+</view>

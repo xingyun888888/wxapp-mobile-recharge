@@ -73,23 +73,25 @@ Page({
     //   borrowedList: borrowedList
     // });
     // return false;
-
+    let self = this
     wx.request({
       url: app.globalData.rootUrl + 'rent_list',
       data: {
+        uid: app.globalData.unionid,
+        from: 'v'
       },
       success (res) {
         if (res.statusCode === 200) {
           let data = res.data;
-          if(data.errorCode === 0 ) {
+          console.log(data)
+          if(data.errcode === 0 ) {
             let borrowingList = data.data.filter((item) => {
               return item.status === 1
             }),
-              borrowedList = data.data.filter((item) => {
-                return item.status === 2
-              });
-
-            this.setData({
+            borrowedList = data.data.filter((item) => {
+              return item.status === 2
+            });
+            self.setData({
               borrowingList: borrowingList,
               borrowedList: borrowedList
             })

@@ -46,10 +46,10 @@
   border-bottom: 1px solid #f7f7f7;
 }
 .logo{
-  width: 64px;
-  height: 64px;
+  width: 128rpx;
+  height: 128rpx;
   background-color: #F2F2F2;
-  border-radius: 6px;
+  border-radius: 12rpx;
  
 }
 image{
@@ -57,16 +57,17 @@ image{
   height: 100%;
 }
 .detail{
-  margin-left: 16px;
+  margin-left: 32rpx;
   flex: 1;
 }
 .shop-name{
   font-size: 14px;
   color: #212121;
-  padding-top: 10rpx;
+  padding-top: 4rpx;
+  margin-left: -2rpx;
 }
 .shop-status{
-  margin-top: 20rpx;
+  margin-top: 8rpx;
   font-size: 14px;
 }
 .dis{
@@ -119,6 +120,9 @@ image{
 .shop-address{
   color: #999999;
   font-size: 12px;
-  line-height:17px;
-  margin-top: 20rpx;
+  margin-top: 8rpx;
+  margin-left: -2rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

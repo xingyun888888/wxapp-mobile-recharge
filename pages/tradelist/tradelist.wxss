@@ -1,5 +1,7 @@
 .trade-list-wrap {
     overflow: hidden;
+    background: #f1f1f1;
+    min-height: 100vh;
 }
 
 .trade-list-wrap .content {
@@ -15,7 +17,7 @@
     background-color: #f6f6f6;
     padding: 0 44rpx;
     font-size: 30rpx;
-    border-bottom: 1rpx solid #e6e6e6;
+    /*border-bottom: 1rpx solid #e6e6e6;*/
 }
 
 .trade-list-wrap .header span {
@@ -27,7 +29,12 @@
     font-size: 20rpx;
 }
 
-
+.no-more {
+    color: #bbb;
+    font-size: 24rpx;
+    line-height: 4;
+    text-align: center;
+}
 
 
 /* item area start*/
@@ -37,7 +44,7 @@
     padding: 24rpx 0;
     box-sizing: border-box;
     overflow: hidden;
-    border-top: 12rpx solid #ececec;
+    border-top: 14rpx solid #ececec;
 }
 
 .trade-list-item .section {
@@ -84,11 +91,11 @@
 }
 
 
-.trade-status-0  .amount, .trade-status-0  .section {
+.trade-status-1  .amount, .trade-status-1 .section {
     color: #0085EE;
 }
 
-.trade-status-1  .amount, .trade-status-1  .section {
+.trade-status-0  .amount, .trade-status-0  .section {
     color: #FF9800;
 }
 

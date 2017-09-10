@@ -26,12 +26,24 @@ Page({
     })
   },
 
+  getTime(time) {
+    time = time * 1000 || Date.now();
+    let now = new Date(time);
+    let year = now.getFullYear(),
+        month = ('00' + (now.getMonth() + 1)).slice(-2),
+        day = ('00' + (now.getDate())).slice(-2),
+        hour =  ('00' + (now.getHours())).slice(-2),
+        minute =  ('00' + (now.getMinutes())).slice(-2),
+        second =  ('00' + (now.getSeconds())).slice(-2);
+    return year + '年' + month + '月' + day + '日' + ' ' + [hour,minute, second].join(':');
+  },
+
   doDeposit: function() {
     var self = this;
     const uid = app.globalData.unionid;
     const openid = app.globalData.openid;
     const amount = app.globalData.userInfo.amount;
-    // const amount = 20;
+    // const amount = .01;
 
     if(amount < .001) {
       wx.showModal({
@@ -58,11 +70,16 @@ Page({
             success: function(res) {
               console.log(res);
               var data = res.data;
+              console.log(data)
               if(data.errcode == 0) {
-                self.setData({
-                  amount: 0,
-                  balance: 0
-                });
+                //进入提现结果页
+                wx.navigateTo({
+                  url: '/pages/depositresult/depositresult?amount=' + amount + '&orderno=' + data.data.out_trade_no + '&time=' + self.getTime(res.data.create_time)
+                }) 
+                // self.setData({
+                //   amount: 0,
+                //   balance: 0
+                // });
               } else {
                 //显示出错原因
                 wx.showToast({

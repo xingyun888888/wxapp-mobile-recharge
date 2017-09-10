@@ -40,6 +40,27 @@ Page({
     })
   },
 
+  goThere() {
+    let shopInfo = this.data.shopInfo;
+    let lat = shopInfo.lat,
+        lng = shopInfo.lng;
+    console.log("即将打开位置", lat, lng);
+    console.log(parseFloat(lat), parseFloat(lng),shopInfo.name, shopInfo.address)
+    wx.openLocation({
+      latitude: parseFloat(lat),
+      longitude: parseFloat(lng),
+      scale: 28,
+      name: shopInfo.name,
+      address: shopInfo.address,
+      success: function(res) {
+        console.log("您已成功打开位置", res);
+      },
+      fail: function(err) {
+        console.log(err,"打开位置失败")
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

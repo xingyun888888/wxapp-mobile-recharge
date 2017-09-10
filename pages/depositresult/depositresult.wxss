@@ -1,0 +1,103 @@
+.top-tips {
+	position: relative;
+	height: 169px;
+}
+
+.top-tips-bg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	top: 0;
+	left: 0;
+}
+
+.amount {
+	line-height: 45px;
+	font-size: 32px;
+	color: #0085EE;
+	top: 40px;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	z-index: 10;
+}
+
+.tip-first {
+	font-size: 14px;
+	line-height: 20px;
+	color: #212121;
+	top: 85px;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	z-index: 10;
+}
+
+.tip-second {
+	font-size: 10px;
+	line-height: 14px;
+	top: 108px;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	z-index: 10;
+	color: #999;
+}
+
+.deposit-order {
+	font-size: 12px;
+	color: #616161;
+	margin: 0 15px;
+	line-height: 40px;
+	height: 40px;
+	border-bottom: 1rpx solid #ececec;
+}
+
+.deposit-result-area {
+	overflow: hidden;
+	padding: 12px 15px;
+}
+.deposit-result-area .image-area {
+	float: left;
+	width: 14px;
+	height: 112px;
+}
+
+.deposit-result-area .word-area {
+	float: left;
+	margin-left: 20px;
+	margin-top: -4px;
+}
+
+.word-process {
+	padding-bottom: 10px;
+}
+
+.word-process-first {
+	color: #212121;
+	font-size: 15px;
+	line-height: 21px;
+}
+
+.active {
+	color: #0085ee;
+}
+
+.word-process-second {
+	font-size: 12px;
+	color: #616161;
+	margin-top: 6px;
+}
+
+.deposit-button {
+	background: #0085EE;
+	color: #fff;
+	border-radius: 4px;
+	font-size: 16px;
+	margin: 0 15px;
+	height: 44px;
+	line-height: 44px;
+	text-align: center;
+	margin-top: 10px;
+}
