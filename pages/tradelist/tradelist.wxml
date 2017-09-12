@@ -2,6 +2,35 @@
     <view class="header" wx:if="{{list.length}}">
         <span class="">充值 ￥{{recharge}}</span> <span>提现 ￥{{take}}</span>
     </view>
+    <view class="content">
+        <view class="trade-list-view">
+            <view class="trade-info">
+                <view class="trade-amount">提现金额：￥88</view>
+                <view class="status">处理中</view>
+            </view>
+            <view class="deposit-result-area">
+                <image class="image-area" src="http://7xpceu.com1.z0.glb.clouddn.com/process.png" class="image-area" mode="aspectFill"></image>
+                <view class="word-area">
+                    <view class="word-process">
+                        <view class="word-process-first active">提交成功88元</view>
+                        <view class="word-process-second">19:02:02 2007年1月1日</view>
+                    </view>         
+                    <view class="word-process">
+                        <view class="word-process-first active">处理中</view>
+                        <view class="word-process-second">预计0-5个工作日退回充值账号</view>
+                    </view>         
+                    <view class="word-process">
+                        <view class="word-process-first">提现成功</view>
+                        <view class="word-process-second">申请提现成功，请去交易明细查看</view>
+                    </view>
+                </view>
+            </view>
+            <view class="deposit-status">
+                <view class="deposit-orderno">订单号：28390</view>
+                <view class="deposit-time">17.01.01 23:09:01</view>
+            </view>
+        </view>
+    </view>
     <view class="content" wx:if="{{list.length}}">
         <view class="trade-list-item trade-status-{{item.type}}" wx:for="{{list}}" wx:for-item="item">
             <view class="section">{{item.type === '0' ? '充值' : '提现'}}</view>

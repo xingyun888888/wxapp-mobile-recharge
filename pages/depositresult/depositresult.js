@@ -24,9 +24,7 @@ Page({
   },
 
   goback: function() {
-    wx.navigateTo({
-      url: '/pages/tradelist/tradelist'
-    })
+    wx.navigateBack();
   },
 
   /**

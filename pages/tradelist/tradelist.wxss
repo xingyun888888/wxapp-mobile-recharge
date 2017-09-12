@@ -101,4 +101,47 @@
 
 /* item area end*/
 
+/* 提现条目 */
+.trade-list-view {
+    border-top: 10rpx solid #ececec;
+}
+/* 提现条目结束 */
 
+/* 提现详情 */
+.deposit-result-area {
+    overflow: hidden;
+    padding: 12px 15px;
+}
+.deposit-result-area .image-area {
+    float: left;
+    width: 14px;
+    height: 112px;
+}
+
+.deposit-result-area .word-area {
+    float: left;
+    margin-left: 20px;
+    margin-top: -4px;
+}
+
+.word-process {
+    padding-bottom: 10px;
+}
+
+.word-process-first {
+    color: #212121;
+    font-size: 15px;
+    line-height: 21px;
+}
+
+.active {
+    color: #0085ee;
+}
+
+.word-process-second {
+    font-size: 12px;
+    color: #616161;
+    margin-top: 6px;
+}
+
+/* 提现详情结束 */
