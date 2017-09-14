@@ -8,8 +8,13 @@ Page({
     shopInfo: {}
   },
   scanBorrow () {
-    wx.scanCode({
-      success () {}
+    wx.navigateTo({
+      url: '../scanborrow/scanborrow'
+    })
+  },  
+  scanBuy () {
+    wx.navigateTo({
+      url: '../scanbuy/scanbuy'
     })
   },
   // 拨打电话

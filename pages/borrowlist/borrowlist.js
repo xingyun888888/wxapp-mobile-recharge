@@ -86,10 +86,10 @@ Page({
           console.log(data)
           if(data.errcode === 0 ) {
             let borrowingList = data.data.filter((item) => {
-              return item.status === 1
+              return item.status == 1
             }),
             borrowedList = data.data.filter((item) => {
-              return item.status === 2
+              return item.status == 2
             });
             self.setData({
               borrowingList: borrowingList,

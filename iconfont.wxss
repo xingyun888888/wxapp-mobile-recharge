@@ -1,11 +1,10 @@
-
 @font-face {
   font-family: 'iconfont';  /* project id 378571 */
-  src: url('//at.alicdn.com/t/font_378571_ma8ezejqjk7yzaor.eot');
-  src: url('//at.alicdn.com/t/font_378571_ma8ezejqjk7yzaor.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_378571_ma8ezejqjk7yzaor.woff') format('woff'),
-  url('//at.alicdn.com/t/font_378571_ma8ezejqjk7yzaor.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_378571_ma8ezejqjk7yzaor.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_378571_siz1136dysy5vcxr.eot');
+  src: url('//at.alicdn.com/t/font_378571_siz1136dysy5vcxr.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_378571_siz1136dysy5vcxr.woff') format('woff'),
+  url('//at.alicdn.com/t/font_378571_siz1136dysy5vcxr.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_378571_siz1136dysy5vcxr.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -15,6 +14,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.icon-fold:before { content: "\eb6f"; }
+
+.icon-unfold:before { content: "\e6ff"; }
 
 .icon-xinxi:before { content: "\e600"; }
 

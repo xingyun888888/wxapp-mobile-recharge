@@ -43,6 +43,10 @@ page{
   color: #00A282;
   font-weight: bold;
 }
+.borrow-back b {
+  display: inline-block;
+  vertical-align: middle;
+}
 .icon-borrow, .icon-return{
   display: inline-block;
   width: 28rpx;
@@ -53,6 +57,7 @@ page{
   font-style: normal;
   margin-right: 4px;
   font-size: 12px;
+  vertical-align: middle;
 }
 .icon-borrow{
   border-color: #0085EE;
@@ -75,12 +80,14 @@ page{
 
 
 .name-section{
-  margin-top: 8px;
+  margin-top: 16rpx;
   display: flex;
-  padding: 8px 16px;
+  padding: 0 32rpx;
   background-color: #fff;
   font-size: 14px;
-  padding-left: 18px;
+  padding-left: 42rpx;
+  height: 64rpx;
+  line-height: 64rpx;
 }
 .name-section-name{
   flex: 1;
@@ -96,11 +103,10 @@ page{
 }
 
 .small-section{
-  padding: 12px 0;
   display: flex;
   position: relative;
-  height: 32rpx;
-  line-height: 32rpx;
+  height: 80rpx;
+  line-height: 80rpx;
 }
 .small-section .iconfont{
   width: 120rpx;
@@ -120,7 +126,7 @@ page{
   content: " ";
   height: 1px;
   width: 100%;
-  border-top: 1px solid #E5E5E5;
+  border-top: 1px solid #f1f1f1;
 }
 
 .icon-daohang, .icon-phone{
@@ -142,8 +148,9 @@ page{
   color: #fff;
   font-size: 12px;
   float: right;
-    padding: 2rpx 12rpx;
+  padding: 2rpx 12rpx;
   margin-right: 16px;
+  margin-top: 24rpx;
 }
 .state-on{
   background-color: #FF9800;

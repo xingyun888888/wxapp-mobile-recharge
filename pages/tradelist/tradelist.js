@@ -68,16 +68,27 @@ Page({
         console.log(res, "trade_list")
         if (res.statusCode === 200) {
           let data = res.data;
+          for(let i = 0, len = data.data.length; i < len; i++) {
+            data.data[i].flag = false;
+          }
           console.log(data.errcode, data.data)
           if(data.errcode === 0 && data.data) {
             self.setData({
-              list: data.data.slice(0,1),
+              list: data.data,
               recharge: data.recharge,
               take: data.take
             })
           }
         }
       }
+    })
+  },
+
+  toggleDisplay: function(e) {
+    let index = e.target.dataset.index;
+    this.data.list[index].flag = !this.data.list[index].flag;
+    this.setData({
+      list: this.data.list
     })
   },
 

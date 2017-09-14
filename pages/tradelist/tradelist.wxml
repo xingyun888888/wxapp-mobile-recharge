@@ -2,49 +2,54 @@
     <view class="header" wx:if="{{list.length}}">
         <span class="">充值 ￥{{recharge}}</span> <span>提现 ￥{{take}}</span>
     </view>
-    <view class="content">
-        <view class="trade-list-view">
+    <view class="content" wx:if="{{list.length}}">
+    <view class="trade-list-view trade-status-{{item.type}}" wx:for="{{list}}" wx:for-item="item" wx:for-index="index">
             <view class="trade-info">
-                <view class="trade-amount">提现金额：￥88</view>
-                <view class="status">处理中</view>
+                <view class="trade-amount {{item.type==1?'deposit-style':'recharge-style'}}">{{item.type==1?'提现':'充值'}}金额：￥{{item.total_fee}}</view>
+                <view class="status status-recharge" wx:if="{{item.type==0}}">充值成功</view>
+                <view class="status status-success" wx:if="{{item.type==1&&!item.refund_status}}">已提现</view>
+                <view class="status status-processing" wx:if="{{item.type==1&&item.refund_status==2}}">处理中</view>
+                <view class="status status-close" wx:if="{{item.type==1&&item.refund_status==1}}">已关闭</view>
+                <view class="status status-error" wx:if="{{item.type==1&&item.refund_status==3}}">退款异常</view>
             </view>
-            <view class="deposit-result-area">
-                <image class="image-area" src="http://7xpceu.com1.z0.glb.clouddn.com/process.png" class="image-area" mode="aspectFill"></image>
-                <view class="word-area">
-                    <view class="word-process">
-                        <view class="word-process-first active">提交成功88元</view>
-                        <view class="word-process-second">19:02:02 2007年1月1日</view>
-                    </view>         
-                    <view class="word-process">
-                        <view class="word-process-first active">处理中</view>
-                        <view class="word-process-second">预计0-5个工作日退回充值账号</view>
-                    </view>         
-                    <view class="word-process">
-                        <view class="word-process-first">提现成功</view>
-                        <view class="word-process-second">申请提现成功，请去交易明细查看</view>
+            <view class="deposit-detail">
+                <view class="deposit-result-area" wx:if="{{item.flag&&item.type==1}}">
+                    <image class="image-area" wx:if="{{item.refund_status==1||item.refund_status==3}}" src="http://7xpceu.com1.z0.glb.clouddn.com/process-1.png" class="image-area" mode="aspectFill"></image>
+                    <image class="image-area" wx:elif="{{item.refund_status==2}}" src="http://7xpceu.com1.z0.glb.clouddn.com/process-2.png" class="image-area" mode="aspectFill"></image>
+                    <image class="image-area" wx:else src="http://7xpceu.com1.z0.glb.clouddn.com/process-3.png" class="image-area" mode="aspectFill"></image>
+                    <view class="word-area">
+                        <view class="word-process">
+                            <view class="word-process-first active">提交成功{{item.total_fee}}元</view>
+                            <view class="word-process-second">{{item.createtime}}</view>
+                        </view>         
+                        <view class="word-process">
+                            <view class="word-process-first active">处理中</view>
+                            <view class="word-process-second">预计0-5个工作日退回充值账号</view>
+                        </view>         
+                        <view class="word-process">
+                            <view class="word-process-first">提现成功</view>
+                            <view class="word-process-second">申请提现成功，请去交易明细查看</view>
+                        </view>
                     </view>
                 </view>
+                <view class="deposit-status">
+                    <view class="deposit-orderno">订单号：{{item.out_trade_no}}</view>
+                    <view class="deposit-time">申请时间：{{item.createtime}}</view>
+                </view>
             </view>
-            <view class="deposit-status">
-                <view class="deposit-orderno">订单号：28390</view>
-                <view class="deposit-time">17.01.01 23:09:01</view>
+            <view class="display-btn" bindtap="toggleDisplay" data-index="{{index}}" wx:if="{{!item.flag&&item.type==1}}">
+                <i class="iconfont icon-unfold"></i>
+                展开
+            </view>
+            <view class="display-btn" bindtap="toggleDisplay" data-index="{{index}}" wx:elif="{{item.type==1}}">
+                <i class="iconfont icon-fold"></i>
+                收起
             </view>
         </view>
-    </view>
-    <view class="content" wx:if="{{list.length}}">
-        <view class="trade-list-item trade-status-{{item.type}}" wx:for="{{list}}" wx:for-item="item">
-            <view class="section">{{item.type === '0' ? '充值' : '提现'}}</view>
-            <view class="detail">
-                <view class="order-code">订单号：{{item.out_trade_no}}</view>
-                <view class="order-time">{{item.createime}}</view>
-            </view>
-            <view class="amount">{{item.type === '0' ? '+' : '-'}}{{item.total_fee}}元</view>
-        </view>
-        <view class="no-more">——  没有更多数据了  ——</view>
     </view>
     <view class="nodata-wrap" wx:else>
         <view class="img-wrap">
-            <image class="img-inner" src="https://www.byjiedian.com/static/img/nodata.png" alt="" mode="aspectFill"></image>image>
+            <image class="img-inner" src="https://www.byjiedian.com/static/img/nodata.png" alt="" mode="aspectFill"></image>
         </view>
     </view>
 </view>

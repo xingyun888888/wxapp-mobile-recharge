@@ -52,12 +52,11 @@
   vux
 */
 .vux-divider{
-  margin: 8px auto 0;
-  padding-left: 16px;
-  padding-right: 16px;
-  margin-bottom: 8px;
+  margin: 24rpx auto 0;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
   font-size: 14px;
-  width: 86%;
+  width: 75%;
 }
 
 
@@ -72,7 +71,7 @@
   color: #666;
 }
 
-..-divider:after,.vux-divider:before {
+.vux-divider:after,.vux-divider:before {
   content: '';
   display: table-cell;
   position: relative;

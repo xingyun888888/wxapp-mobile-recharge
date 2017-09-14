@@ -38,19 +38,12 @@ Page({
           success: function(d) {
             console.log(d); 
             // if()
-            if(data.errcode === 0) {
+            if(data.errcode === 0 || data.retCode === 0) {
               wx.showToast({
                 title: '恭喜您购买充电宝成功！',
                 icon: 'success',
                 duration: 3000,
-                mask: true,
-                complete: function() {
-                  setTimeout(()=>{
-                    wx.navigateTo({
-                      url: `../borrowlist/borrowlist`
-                    })                    
-                  }, 3000)
-                }
+                mask: true
               })             
             } else {
               wx.showToast({

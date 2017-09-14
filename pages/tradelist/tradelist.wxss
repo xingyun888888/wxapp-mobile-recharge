@@ -16,7 +16,7 @@
     line-height: 96rpx;
     background-color: #f6f6f6;
     padding: 0 44rpx;
-    font-size: 30rpx;
+    font-size: 26rpx;
     /*border-bottom: 1rpx solid #e6e6e6;*/
 }
 
@@ -103,29 +103,47 @@
 
 /* 提现条目 */
 .trade-list-view {
-    border-top: 10rpx solid #ececec;
+    border-top: 20rpx solid #ececec;
+    background: #fff;
+    position: relative;
+}
+
+.trade-list-view .display-btn {
+    position: absolute;
+    bottom: 32rpx;
+    font-size: 12px;
+    color: #212121;
+    line-height: 32rpx;
+    height: 32rpx;
+    right: 44rpx;
+}
+
+.trade-list-view .display-btn .iconfont {
+    vertical-align: middle;
 }
 /* 提现条目结束 */
 
 /* 提现详情 */
 .deposit-result-area {
     overflow: hidden;
-    padding: 12px 15px;
+    margin: 0 44rpx;
+    padding: 44rpx 0 12rpx;
+    border-bottom: 1px solid #ececec;
 }
 .deposit-result-area .image-area {
     float: left;
-    width: 14px;
-    height: 112px;
+    width: 30rpx;
+    height: 254rpx;
 }
 
 .deposit-result-area .word-area {
     float: left;
-    margin-left: 20px;
-    margin-top: -4px;
+    margin-left: 20rpx;
+    margin-top: -8rpx;
 }
 
 .word-process {
-    padding-bottom: 10px;
+    padding-bottom: 35rpx;
 }
 
 .word-process-first {
@@ -145,3 +163,59 @@
 }
 
 /* 提现详情结束 */
+
+.trade-info {
+    padding: 40rpx 44rpx 0rpx;
+    overflow: hidden;
+}
+
+.trade-info .trade-amount {
+    color: #0085ee;
+    font-size: 16px;
+    line-height: 22px;
+    float: left;
+}
+
+.trade-info .status {
+    float: right;
+    color: #FC2464;
+    font-size: 15px;
+    line-height: 21px;
+    float: right;
+    font-weight: bold;
+}
+
+.trade-info .status-recharge {
+    color: #ff9800;
+}
+
+.trade-info .status-processing {
+    color: #fc2464;
+}
+
+.trade-info .status-success {
+    color: #0085ee;
+}
+
+.trade-info .status-close {
+    color: #999;
+}
+
+.trade-info .status-error {
+    color: #ff0000;
+}
+
+.deposit-status {
+    font-size: 12px;
+    line-height: 20px;
+    color: #757575;
+    padding: 28rpx 44rpx;
+}
+
+.trade-info .recharge-style {
+    color: #ff9800;
+}
+
+.trade-info .deposit-style {
+    color: #0085ee;
+}

@@ -207,33 +207,108 @@ Page({
       console.log(this.data.controls, "After controls...")
     }
   },
+  scanBorrow: function () {
+    let self = this;
+    const uid = app.globalData.unionid;
+    const openid = app.globalData.openid;
+    wx.scanCode({
+      success: function(res) {
+        console.log(res);
+        let result = res.result;
+        if(app.globalData.userInfo.amount < 0.0) {
+          wx.navigateTo({
+            url: '/pages/recharge/recharge'
+          })
+        } else {
+          wx.request({
+            url: `https://www.byjiedian.com/index.php/byjie/borrow?shopid=${result}&uid=${uid}&from=v`,
+            success: function(d) {
+              let data = d.data;
+              console.log(data);
+              if(data.retCode === 0) {
+                wx.showToast({
+                  title: '恭喜您借充电宝成功！',
+                  icon: 'success',
+                  duration: 3000,
+                  mask: true,
+                  complete: function() {
+  
+                  }
+                })             
+              } else {
+                wx.showToast({
+                  title: data.msg,
+                  icon: 'error',
+                  duration: 3000,
+                  mask: true
+                })                           
+              }
+            } 
+          })          
+        }
+      }
+    })
+  },
+  scanBuy: function () {
+    let self = this;
+    const uid = app.globalData.unionid;
+    const openid = app.globalData.openid;
+    wx.scanCode({
+      success: function(res) {
+        console.log(res);
+        let result = res.result;
+        if(app.globalData.userInfo.amount < 80.0) {
+          wx.navigateTo({
+            url: '/pages/recharge/recharge'
+          })          
+        } else {
+          wx.request({
+            url: `https://www.byjiedian.com/index.php/byjie/buy?shopid=${result}&uid=${uid}&from=v`,
+            success: function(d) {
+              console.log(d); 
+              // if()
+              if(data.errcode === 0) {
+                wx.showToast({
+                  title: '恭喜您购买充电宝成功！',
+                  icon: 'success',
+                  duration: 3000,
+                  mask: true,
+                  complete: function() {
+                    // setTimeout(()=>{
+                    //   wx.navigateTo({
+                    //     url: `../borrowlist/borrowlist`
+                    //   })                    
+                    // }, 3000)
+                  }
+                })             
+              } else {
+                wx.showToast({
+                  title: data.msg,
+                  icon: 'error',
+                  duration: 3000,
+                  mask: true
+                })                           
+              }
+            } 
+          })           
+        }
+      }
+    })
+  },
   // 点击控件
   clickControl (e) {
     const self =  this
     if (e.controlId === 1) {
-      // wx.scanCode()
-      if(app.globalData.userInfo.amount < 80.00) {
-        wx.navigateTo({
-          url: '/pages/recharge/recharge'
-        })
-      } else {
-        wx.navigateTo({
-          url: '/pages/scanborrow/scanborrow'
-        })      
-      }
-     }
+      // this.scanBorrow();
+      wx.navigateTo({
+        url: '../scanborrow/scanborrow'
+      })
+    }
     if (e.controlId === 2) {
-      //如果余额不足，则直接进入充值页面
-      if(app.globalData.userInfo.amount < 80.00) {
-        wx.navigateTo({
-          url: '/pages/recharge/recharge'
-        })
-      } else {
-        // wx.scanCode()
-        wx.navigateTo({
-          url: '/pages/scanbuy/scanbuy'
-        })        
-      }
+      // this.scanBuy();
+      wx.navigateTo({
+        url: '../scanbuy/scanbuy'
+      })
     }
     if (e.controlId === 3) {
       self.mapCtx.moveToLocation()

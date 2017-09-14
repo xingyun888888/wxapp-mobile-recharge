@@ -49,7 +49,7 @@
     <view class="bottom-btn bottom-btn__borrow" bindtap="scanBorrow">
       借充电宝
     </view>
-    <view class="bottom-btn bottom-btn__buy" bindtap="scanBorrow">
+    <view class="bottom-btn bottom-btn__buy" bindtap="scanBuy">
       买充电宝
     </view>
   </view>
