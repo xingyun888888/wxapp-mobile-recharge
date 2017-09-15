@@ -148,8 +148,8 @@
 
 .word-process-first {
     color: #212121;
-    font-size: 15px;
-    line-height: 21px;
+    font-size: 30rpx;
+    line-height: 42rpx;
 }
 
 .active {
@@ -157,9 +157,9 @@
 }
 
 .word-process-second {
-    font-size: 12px;
+    font-size: 24rpx;
     color: #616161;
-    margin-top: 6px;
+    margin-top: 12rpx;
 }
 
 /* 提现详情结束 */
@@ -171,16 +171,16 @@
 
 .trade-info .trade-amount {
     color: #0085ee;
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 32rpx;
+    line-height: 44rpx;
     float: left;
 }
 
 .trade-info .status {
     float: right;
     color: #FC2464;
-    font-size: 15px;
-    line-height: 21px;
+    font-size: 30rpx;
+    line-height: 42rpx;
     float: right;
     font-weight: bold;
 }
@@ -206,8 +206,8 @@
 }
 
 .deposit-status {
-    font-size: 12px;
-    line-height: 20px;
+    font-size: 24rpx;
+    line-height: 40rpx;
     color: #757575;
     padding: 28rpx 44rpx;
 }
