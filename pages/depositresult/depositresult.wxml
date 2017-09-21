@@ -7,7 +7,7 @@
 	</view>
 	<view class="deposit-order">提现单号：{{orderno}}</view>
 	<view class="deposit-result-area">
-		<image class="image-area" src="http://7xpceu.com1.z0.glb.clouddn.com/process.png" class="image-area" mode="aspectFill"></image>
+		<image class="image-area" src="http://7xpceu.com1.z0.glb.clouddn.com/process.png" class="image-area" mode="scaleToFill"></image>
 		<view class="word-area">
 			<view class="word-process">
 				<view class="word-process-first active">提交成功{{amount}}元</view>

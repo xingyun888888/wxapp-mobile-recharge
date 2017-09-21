@@ -11,6 +11,7 @@
 
 .trade-list-wrap .header {
     position: fixed;
+    z-index: 100;
     width: 100%;
     height: 96rpx;
     line-height: 96rpx;
@@ -143,12 +144,13 @@
 }
 
 .word-process {
-    padding-bottom: 35rpx;
+    padding-bottom: 36rpx;
 }
 
 .word-process-first {
     color: #212121;
     font-size: 30rpx;
+    height: 42rpx;
     line-height: 42rpx;
 }
 
@@ -158,8 +160,10 @@
 
 .word-process-second {
     font-size: 24rpx;
+    line-height: 32rpx;
+    height: 32rpx;
     color: #616161;
-    margin-top: 12rpx;
+    margin-top: 4rpx;
 }
 
 /* 提现详情结束 */

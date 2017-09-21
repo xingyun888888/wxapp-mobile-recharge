@@ -8,7 +8,9 @@ Page({
    */
   data: {
     orderNo: '',
-    needpay: 0.00
+    needpay: 0.00,
+    showRechargeProtocol: false,
+    showUseProtocol: false
   },
 
   /**
@@ -50,6 +52,32 @@ Page({
     }
     this.setData({
       needpay: needpay
+    })
+  },
+
+  openUseProtocol() {
+    this.setData({
+      showUseProtocol: true
+    })
+  },
+
+  closeUseProtocol() {
+    console.log("关闭充值协议");
+    this.setData({
+      showUseProtocol: false
+    })
+  },
+
+  openRechargeProtocol() {
+    this.setData({
+      showRechargeProtocol: true
+    })
+  },
+
+  closeRechargeProtocol() {
+    console.log("关闭充值协议");
+    this.setData({
+      showRechargeProtocol: false
     })
   },
 

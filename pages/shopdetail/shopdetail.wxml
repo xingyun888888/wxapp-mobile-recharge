@@ -1,14 +1,14 @@
 <!--pages/shopdetail/shopdetail.wxml-->
 <view class="shop-detail-wrap"> 
   <!--image src="http://7xpceu.com1.z0.glb.clouddn.com/default.png" class="header-img"></image-->
-  <image src="{{shopInfo.img||'http://7xpceu.com1.z0.glb.clouddn.com/shopdetail.png'}}" class="header-img"></image>
+  <image src="{{shopInfo.img}}" class="header-img"></image>
   <view class="borrow-back">
     <image src="http://7xpceu.com1.z0.glb.clouddn.com/_chongdian.png"></image>
     <view class="borrow">
       <i class="icon-borrow">借</i>可借 <b>{{shopInfo.borrow}}</b>
     </view>
     <view class="back">
-      <i class="icon-return">还</i>已还 <b>{{shopInfo.back}}</b>
+      <i class="icon-return">还</i>可还 <b>{{shopInfo.back}}</b>
     </view>
   </view>
   <view class="name-section">

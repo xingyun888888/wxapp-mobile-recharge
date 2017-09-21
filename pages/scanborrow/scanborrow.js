@@ -33,7 +33,7 @@ Page({
       success: function(res) {
         console.log(res);
         let result = res.result;
-        if(app.globalData.userInfo.amount < 0.0) {
+        if(app.globalData.userInfo.amount < 80.0) {
           wx.navigateTo({
             url: '/pages/recharge/recharge'
           })

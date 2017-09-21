@@ -55,26 +55,26 @@ Page({
       return false;
     }
 
-    wx.showModal({
-      title: "您确定要提现吗？",
-      content: "提现后如需继续使用BY街电服务请重新充值押金",
-      confirmText: "提现",
+    //查询是否有未归还的充电宝
+    wx.request({
+      url: `https://www.byjiedian.com/index.php/byjie/scan_lending?uid=${uid}&from=v`,
       success: function(res) {
-        if(res.confirm) {
-          //查询是否有未归还的充电宝
-          wx.request({
-            url: `https://www.byjiedian.com/index.php/byjie/scan_lending?uid=${uid}&from=v`,
-            success: function(res) {
-              console.log(res,"记录查询")
-              if(res.data.errcode === 0 && res.data.data.status === true) {
-                wx.showModal({
-                  title: '您有尚未归还的充电宝',
-                  content: '请先归还充电宝后再提现',
-                  confirmText: "我了解了",
-                  showCancel: false
-                })
-                return false;
-              }
+        console.log(res,"记录查询")
+        if(res.data.errcode === 0 && res.data.data.status === true) {
+          wx.showModal({
+            title: '您有尚未归还的充电宝',
+            content: '请先归还充电宝后再提现',
+            confirmText: "我了解了",
+            showCancel: false
+          })
+          return false;
+        }
+        wx.showModal({
+          title: "您确定要提现吗？",
+          content: "提现后如需继续使用BY街电服务请重新充值押金",
+          confirmText: "提现",
+          success: function(res) {
+            if(res.confirm) {
               //确定提现
               wx.request({
                 url: `https://www.byjiedian.com/index.php/byjie/refund?uid=${uid}&openid=${openid}&from=v&amount=${amount}`,
@@ -86,14 +86,14 @@ Page({
                   var data = res.data;
                   console.log(data)
                   if(data.errcode == 0) {
+                    self.setData({
+                      amount: 0,
+                      balance: 0
+                    });
                     //进入提现结果页
                     wx.navigateTo({
                       url: '/pages/depositresult/depositresult?amount=' + amount + '&orderno=' + data.data.out_trade_no + '&time=' + self.getTime(res.data.create_time)
                     }) 
-                    // self.setData({
-                    //   amount: 0,
-                    //   balance: 0
-                    // });
                   } else {
                     //显示出错原因
                     wx.showToast({
@@ -104,12 +104,10 @@ Page({
                 }
               }) 
             }
-          })
-        }
+          }
+        })
       }
     })
-
-
   },
 
   /**

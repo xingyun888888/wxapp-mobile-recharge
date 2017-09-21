@@ -70,9 +70,10 @@
   position: absolute;
   bottom: 44rpx;
   z-index: 9999;
-  width: 100%;
+  width: 70%;
+  left: 15%;
   height: 1px;
-  background: #a6a6a6;
+  background: #dbdbdb;
   z-index: 1;
 }
 

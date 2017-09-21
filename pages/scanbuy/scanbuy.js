@@ -22,7 +22,7 @@ Page({
     }
 
     wx.setNavigationBarTitle({
-      title: '还充电宝'
+      title: '买充电宝'
     });    
   },
   scanBuy: function () {

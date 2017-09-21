@@ -32,7 +32,7 @@ Page({
         lng
       },
       success (res) {
-        console.log(res)
+        console.log(res,"get_posi返回值")
         if (res.statusCode === 200) {
           const shopList = res.data.data
           console.log(shopList, 'shopList')
@@ -50,6 +50,7 @@ Page({
             title: '附近网点'
           })
           wx.hideNavigationBarLoading()
+          console.log("网点信息" + JSON.stringify(markers));
           self.setData({
             markers: markers,
             shopList: shopList

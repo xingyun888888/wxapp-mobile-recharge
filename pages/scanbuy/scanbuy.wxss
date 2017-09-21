@@ -56,7 +56,7 @@
   padding-left: 40rpx;
   padding-right: 40rpx;
   font-size: 14px;
-  width: 75%;
+  width: 50%;
 }
 
 
