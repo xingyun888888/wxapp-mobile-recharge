@@ -216,6 +216,11 @@ Page({
       success: function(res) {
         console.log(res);
         let result = res.result;
+                let index = result.indexOf('shopid=');
+        if(index > -1) {
+          result = result.slice(index + 'shopid='.length);
+        }
+
         if(app.globalData.userInfo.amount < 0.0) {
           wx.navigateTo({
             url: '/pages/recharge/recharge'
@@ -258,6 +263,11 @@ Page({
       success: function(res) {
         console.log(res);
         let result = res.result;
+                let index = result.indexOf('shopid=');
+        if(index > -1) {
+          result = result.slice(index + 'shopid='.length);
+        }
+
         if(app.globalData.userInfo.amount < 80.0) {
           wx.navigateTo({
             url: '/pages/recharge/recharge'
