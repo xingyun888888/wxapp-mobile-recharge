@@ -216,6 +216,11 @@ Page({
       success: function(res) {
         console.log(res);
         let result = res.result;
+        let index = res.result.indexOf('shopid=');
+        if(index > -1) {
+          result = res.result.slice(index + 'shopid='.length);
+          console.log(result);
+        }
         if(app.globalData.userInfo.amount < 0.0) {
           wx.navigateTo({
             url: '/pages/recharge/recharge'
@@ -258,6 +263,13 @@ Page({
       success: function(res) {
         console.log(res);
         let result = res.result;
+        let index = res.result.indexOf('shopid=');
+        alert(result)
+        if(index > -1) {
+          result = res.result.slice(index + 'shopid='.length);
+          console.log(result);
+          alert(result)
+        }
         if(app.globalData.userInfo.amount < 80.0) {
           wx.navigateTo({
             url: '/pages/recharge/recharge'
@@ -300,16 +312,16 @@ Page({
   clickControl (e) {
     const self =  this
     if (e.controlId === 1) {
-      // this.scanBorrow();
-      wx.navigateTo({
-        url: '../scanborrow/scanborrow'
-      })
+      this.scanBorrow();
+      // wx.navigateTo({
+      //   url: '../scanborrow/scanborrow'
+      // })
     }
     if (e.controlId === 2) {
-      // this.scanBuy();
-      wx.navigateTo({
-        url: '../scanbuy/scanbuy'
-      })
+      this.scanBuy();
+      // wx.navigateTo({
+      //   url: '../scanbuy/scanbuy'
+      // })
     }
     if (e.controlId === 3) {
       self.mapCtx.moveToLocation()

@@ -33,6 +33,11 @@ Page({
       success: function(res) {
         console.log(res);
         let result = res.result;
+                let index = res.result.indexOf('shopid=');
+        if(index > -1) {
+          result = res.result.slice(index + 'shopid='.length);
+          console.log(result);
+        }
         if(app.globalData.userInfo.amount < 80.0) {
           wx.navigateTo({
             url: '/pages/recharge/recharge'

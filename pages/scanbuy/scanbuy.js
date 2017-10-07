@@ -33,6 +33,11 @@ Page({
       success: function(res) {
         console.log(res);
         let result = res.result;
+        let index = res.result.indexOf('shopid=');
+        if(index > -1) {
+          result = res.result.slice(index + 'shopid='.length);
+          console.log(result);
+        }
         wx.request({
           url: `https://www.byjiedian.com/index.php/byjie/buy?shopid=${result}&uid=${uid}&from=v`,
           success: function(d) {
