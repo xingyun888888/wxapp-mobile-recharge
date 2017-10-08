@@ -138,6 +138,10 @@ Page({
         console.log(res, "支付成功回调");
         var data = res.data;
         if(data.errcode == 0) {
+            wx.showToast({
+              title: "恭喜您充值成功！",
+              duration: 2000
+            })
           self.setData({
             needpay: 0.00
           });          
