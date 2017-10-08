@@ -41,6 +41,7 @@ Page({
               id: item.id,
               latitude: item.lat,
               longitude: item.lng,
+              title: item.name,
               iconPath: '../../assets/dingwei.png',
               width: 32,
               height: 36
@@ -215,12 +216,7 @@ Page({
     wx.scanCode({
       success: function(res) {
         console.log(res);
-        let result = res.result;
-        let index = res.result.indexOf('shopid=');
-        if(index > -1) {
-          result = res.result.slice(index + 'shopid='.length);
-          console.log(result);
-        }
+        let result = encodeURIComponent(res.result);
         if(app.globalData.userInfo.amount < 0.0) {
           wx.navigateTo({
             url: '/pages/recharge/recharge'
@@ -262,14 +258,8 @@ Page({
     wx.scanCode({
       success: function(res) {
         console.log(res);
-        let result = res.result;
-        let index = res.result.indexOf('shopid=');
-        alert(result)
-        if(index > -1) {
-          result = res.result.slice(index + 'shopid='.length);
-          console.log(result);
-          alert(result)
-        }
+        let result = encodeURIComponent(res.result);
+
         if(app.globalData.userInfo.amount < 80.0) {
           wx.navigateTo({
             url: '/pages/recharge/recharge'
@@ -335,6 +325,7 @@ Page({
             lat: res.latitude,
             lng: res.longitude,
           })
+          console.log("按钮复位", latitude, longitude);
           self.getNearShop(latitude, longitude)
         }
       })
@@ -362,9 +353,10 @@ Page({
     // 进入附近门店
     if (e.controlId === 9) {
       console.log('点到我了')
-      wx.navigateTo({
-        url: '/pages/list/list'
-      })
+      let lat = this.data.lat,
+          lng = this.data.lng;
+      console.log("进入附近门店", lat, lng);
+      this.navigateTo(null);
     }    
 
 
@@ -391,7 +383,7 @@ Page({
   clickMarker (e) {
     const self = this
     const id = e.markerId
-    const shopInfo = self.data.shopList.find(shop => shop.id = id)
+    const shopInfo = self.data.shopList.find(shop => shop.id == id)
     wx.showActionSheet({
       itemList: [shopInfo.name],
       success (res) {
@@ -408,6 +400,7 @@ Page({
     if (e.type === 'end') {
       self.mapCtx.getCenterLocation({
         success (res) {
+          console.log("区域变更", res.latitude, res.longitude);
           self.getNearShop(res.latitude, res.longitude)
         }
       })
@@ -447,6 +440,7 @@ Page({
           lat: res.latitude,
           lng: res.longitude,
         })
+        console.log("获取位置",latitude,longitude);
         self.getNearShop(latitude, longitude)
       }
     });

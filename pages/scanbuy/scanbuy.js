@@ -32,12 +32,8 @@ Page({
     wx.scanCode({
       success: function(res) {
         console.log(res);
-        let result = res.result;
-        let index = res.result.indexOf('shopid=');
-        if(index > -1) {
-          result = res.result.slice(index + 'shopid='.length);
-          console.log(result);
-        }
+        let result = encodeURIComponent(res.result);
+
         wx.request({
           url: `https://www.byjiedian.com/index.php/byjie/buy?shopid=${result}&uid=${uid}&from=v`,
           success: function(d) {

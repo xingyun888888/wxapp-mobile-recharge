@@ -90,11 +90,9 @@ image{
 
 .deposit-btn {
   background: #0085EE;
-  color: #61b2f3;
+  color: #fff;
   margin-bottom: 20rpx;
 }
-
-
 
 .tip-title {
   color: #a6a6a6;
