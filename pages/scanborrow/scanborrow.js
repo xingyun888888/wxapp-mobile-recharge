@@ -64,7 +64,7 @@ Page({
                       duration: 3000,
                       mask: true,
                       complete: function() {
-      
+                        
                       }
                     })             
                   } else {
