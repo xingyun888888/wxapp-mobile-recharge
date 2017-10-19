@@ -37,6 +37,7 @@ Page({
         wx.request({
           url: `https://www.byjiedian.com/index.php/byjie/buy?shopid=${result}&uid=${uid}&from=v`,
           success: function(d) {
+            var data = d.data
             console.log(d); 
             // if()
             if(data.errcode === 0 || data.retCode === 0) {

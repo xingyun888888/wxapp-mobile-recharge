@@ -9,7 +9,7 @@
   <view class="shop-list">
     <view class="shop-item" wx:for="{{shopList}}" wx:for-item="shop" bindtap="goDetail" data-id="{{shop.id}}">
       <view class="logo">
-        <image src="http://7xpceu.com1.z0.glb.clouddn.com/logo.png" alt=""></image>
+        <image src="{{shop.img || 'http://7xpceu.com1.z0.glb.clouddn.com/logo.png'}}" alt=""></image>
       </view>
       <view class="detail">
         <view class="shop-name">

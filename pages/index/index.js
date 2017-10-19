@@ -186,7 +186,7 @@ Page({
       clickable: true
     },
     flag = true;
-    if(app.globalData.userInfo.amount > 80.0) {
+    if(app.globalData.userInfo.amount > 79.999) {
       flag = false;
     } else {
       if(app.globalData.userInfo.amount < 0.001) {
@@ -267,11 +267,12 @@ Page({
           })          
         } else {
           wx.request({
-            url: `https://www.byjiedian.com/index.php/byjie/buy?shopid=${result}&uid=${uid}&from=v`,
+            url: `https://www.byjiedian.com/index.php/byjie/buy_imei?shopid=${result}&uid=${uid}&from=v`,
             success: function(d) {
+              var data = d.data
               console.log(d); 
               // if()
-              if(data.errcode === 0) {
+              if(data.errcode === 0 || data.retCode === 0) {
                 wx.showToast({
                   title: '恭喜您购买充电宝成功！',
                   icon: 'success',
@@ -381,10 +382,15 @@ Page({
     // }
   },
   // 点击标注
-  clickMarker (e) {
+  markertap (e) {
+    // console.log('((((((((__)))))aaasdfsdfsdfsdf');
     const self = this
     const id = e.markerId
-    const shopInfo = self.data.shopList.find(shop => shop.id == id)
+    const shopInfo = self.data.shopList.find((shop) => {
+      console.log(shop.name)
+      return shop.id == id;
+    })
+    console.log("====================过滤到店铺信息" + shopInfo.name);
     wx.showActionSheet({
       itemList: [shopInfo.name],
       success (res) {
