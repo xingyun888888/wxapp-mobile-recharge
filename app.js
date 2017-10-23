@@ -38,17 +38,17 @@ App({
         self.globalData.userInfo.amount = data.amount;
         // console.log(self.globalData.userinfoCallback)
         //数据更新
-        for(let i = 0, callbackList = self.globalData.userinfoCallback, len = self.globalData.userinfoCallback.length; i < len; i++) {
-          (typeof callbackList[i] === 'function') && callbackList[i]();
-        }
+        // for(let i = 0, callbackList = self.globalData.userinfoCallback, len = self.globalData.userinfoCallback.length; i < len; i++) {
+        //   (typeof callbackList[i] === 'function') && callbackList[i]();
+        // }
         callback && callback();
-        console.log(self.globalData.userinfoCallback.length)
+        // console.log(self.globalData.userinfoCallback.length)
       }
     })
   },
 
   userinfoChanged(callback) {
-    this.globalData.userinfoCallback.push(callback);
+    // this.globalData.userinfoCallback.push(callback);
   },
 
   getUserInfo:function(cb){
@@ -71,13 +71,14 @@ App({
               }
               self.getLogin({
                 code: r.code,
-                from: "v"
+                // from: "v",
+                cb: cb
                 // iv: res.iv,
                 // encryptedData: encodeURIComponent(res.encryptedData)
               })
               console.log(res.userInfo, self.globalData.userInfo, "userinfo in app.js");
               // console.log(res, "res in wx login");
-              typeof cb == "function" && cb(this.globalData.userInfo)
+              // typeof cb == "function" && cb(this.globalData.userInfo)
             }
           })
         }
@@ -88,7 +89,9 @@ App({
     const self = this
     wx.request({
       url: 'https://www.byjiedian.com/index.php/byjie/wx_login?from=v',
-      data: param,
+      data: {
+        code: param.code,
+      },
       header: {
         'Content-type': 'application/json'
       },
@@ -96,7 +99,7 @@ App({
         console.log(res, "login info in app.js");
         self.globalData.openid = res.data.data.openid;
         self.globalData.unionid = res.data.data.unionid;
-        self.getUserInfoByApi();
+        self.getUserInfoByApi(param.cb);
       }
     })
   },
@@ -135,7 +138,7 @@ App({
   },
   globalData:{
     rootUrl: 'https://www.byjiedian.com/index.php/byjie/',
-    userinfoCallback: [],
+    // userinfoCallback: [],
     userInfo:null,
     systemInfo: null,
     shopList: [],

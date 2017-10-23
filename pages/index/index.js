@@ -82,6 +82,14 @@ Page({
   // 初始化控件
   initControls () {
     const self = this
+    // this.setControls(controls);
+    let controls = this.getControls()
+    this.setData({
+      controls: controls
+    })    
+  },
+  getControls() {
+    const self = this
     const wWidth = self.data.systemInfo.windowWidth
     const mapHeight = self.data.mapHeight
     const intval = (wWidth - 242) / 3
@@ -166,12 +174,9 @@ Page({
     }
 
     let controls = [scanBorrow, scanBuy, origin, neighbor, menu, logo, avatar];
-    // this.setControls(controls);
-    this.setData({
-      controls: controls
-    })    
+    return controls;
   },
-  setControls(controls) {
+  setControls() {
     console.log(app.globalData.userInfo.amount, "amount")
     const wWidth = this.data.systemInfo.windowWidth
     let recharge = {
@@ -195,19 +200,22 @@ Page({
         recharge.iconPath = '../../assets/notenoughmoney@3x.png';
       }
     }
-
+    let controls = [];
     if(flag) {
       console.log(this.data.controls, '--------')
       // let controls = this.data.controls.push(recharge);
       // this.setData({
       //   controls: this.data.controls.push(recharge)
       // })
-      let controls = this.data.controls.concat(recharge);
-      this.setData({
-        controls: controls
-      })
-      console.log(this.data.controls, "After controls...")
+      controls = this.getControls().concat(recharge);
+    } else {
+      controls = this.getControls()
     }
+    this.setData({
+      controls: controls
+    })
+    console.log(this.data.controls, "After controls...")
+
   },
   scanBorrow: function () {
     let self = this;
@@ -305,7 +313,9 @@ Page({
                       content: '您已成功购得BY街电充电宝一个，系统已从您余额中扣除80元',
                       confirmText: "我了解了",
                       showCancel: false
-                    })           
+                    });
+                    //更新余额           
+                    self.updateInfo();
                   } else {
                     wx.showModal({
                       title: '购买失败',
@@ -491,9 +501,18 @@ Page({
    */
   onShow: function () {
     let self = this
+    this.updateInfo()
     // app.getUserInfo()
     console.log("触发了onShow!");
-    if(app.globalData.userInfo && app.globalData.userInfo.already) {
+  
+  },
+
+  updateInfo() {
+    var self = this
+    console.log("更新用户信息")
+    var amount = app.globalData.userInfo && app.globalData.userInfo.amount || -1;
+    console.log(app.globalData.userInfo && app.globalData.userInfo.already)
+     if(app.globalData.userInfo && app.globalData.userInfo.already) {
         console.log("You have user info already");
         //重新拉取amount
         app.getUserInfoByApi(()=>{
@@ -501,20 +520,25 @@ Page({
               logo: app.globalData.userInfo.avatarUrl,
               amount: app.globalData.userInfo.amount
           }); 
-          console.log(self.data.amount)
-          self.setControls();         
+          console.log(self.data.amount, amount, Math.abs(amount - app.globalData.userInfo.amount) > .001, "金钱是否变化1");
+          if(Math.abs(amount - app.globalData.userInfo.amount) > .001) {
+            console.log("因为余额变化1，重新刷新controls")
+            self.setControls();         
+          }
         })
     } else {
-      app.userinfoChanged(() => {
-        console.log("user info changed");
-        console.log(app.globalData.userInfo)
-        self.setData({
-            logo: app.globalData.userInfo.avatarUrl,
-            amount: app.globalData.userInfo.amount
-        });
-        self.setControls();
-      });      
-    }    
+      app.getUserInfo(()=>{
+          self.setData({
+              logo: app.globalData.userInfo.avatarUrl,
+              amount: app.globalData.userInfo.amount
+          }); 
+          console.log(self.data.amount, amount, Math.abs(amount - app.globalData.userInfo.amount) > .001, "金钱是否变化2");
+          if(Math.abs(amount - app.globalData.userInfo.amount) > .001) {
+            console.log("因为余额变化2，重新刷新controls")
+            self.setControls();         
+          }
+      });     
+    }     
   },
 
   /**

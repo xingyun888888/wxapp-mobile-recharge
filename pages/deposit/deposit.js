@@ -43,7 +43,7 @@ Page({
     const uid = app.globalData.unionid;
     const openid = app.globalData.openid;
     const amount = app.globalData.userInfo.amount;
-    // const amount = .01;
+    // const amount = 3;
 
     if(amount < .001) {
       wx.showModal({
@@ -96,9 +96,11 @@ Page({
                     }) 
                   } else {
                     //显示出错原因
-                    wx.showToast({
-                      title: data.msg,
-                      duration: 2000
+                    wx.showModal({
+                      title: "提现失败",
+                      content: data.msg || "网络错误，请稍候再试",
+                      confirmText: "确定",
+                      showCancel: false
                     })
                   }
                 }

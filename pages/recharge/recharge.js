@@ -51,7 +51,7 @@ Page({
       needpay = 0.00;
     }
     this.setData({
-      needpay: needpay
+      needpay: needpay.toFixed(2)
     })
   },
 
@@ -138,18 +138,27 @@ Page({
         console.log(res, "支付成功回调");
         var data = res.data;
         if(data.errcode == 0) {
-            wx.showToast({
-              title: "恭喜您充值成功！",
-              duration: 2000
+            // wx.showToast({
+            //   title: "恭喜您充值成功！",
+            //   duration: 2000
+            // })
+            wx.showModal({
+              title: "恭喜您充值成功",
+              content: "您可以借/买充电宝了",
+              confirmText: "确定",
+              showCancel: false
             })
+
           self.setData({
             needpay: 0.00
           });          
         } else {
             //显示出错原因
-            wx.showToast({
-              title: data.msg,
-              duration: 2000
+            wx.showModal({
+              title: "充值失败",
+              content: data.msg || "网络错误，请稍候再试",
+              confirmText: "确定",
+              showCancel: false
             })
         }
       }

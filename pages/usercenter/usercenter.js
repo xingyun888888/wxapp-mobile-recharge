@@ -17,20 +17,34 @@ Page({
       title: '个人中心'
     })
     console.log("Enter page usercenter");
-    //app中数据更新后，执行此函数
-    if(app.globalData.userInfo.already) {
-        this.setData({
-            user: app.globalData.userInfo
-        });    
-    } else {
-      app.userinfoChanged(() => {
-          this.setData({
-              user: app.globalData.userInfo
-          });
-      });      
-    }
-
   },
+
+  onShow() {
+    this.updateInfo();
+  },
+
+  updateInfo() {
+    var self = this
+    console.log("更新用户信息")
+    var amount = app.globalData.userInfo && app.globalData.userInfo.amount || -1;
+    console.log(app.globalData.userInfo && app.globalData.userInfo.already)
+     if(app.globalData.userInfo && app.globalData.userInfo.already) {
+        console.log("You have user info already");
+        //重新拉取amount
+        app.getUserInfoByApi(()=>{
+          self.setData({
+              user: app.globalData.userInfo
+          }); 
+        })
+    } else {
+      app.getUserInfo(()=>{
+          self.setData({
+              user: app.globalData.userInfo
+          }); 
+      });     
+    }     
+  },
+
 
   call: function() {
     wx.makePhoneCall({

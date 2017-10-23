@@ -3,7 +3,7 @@
     <view class="header">
         <div class="bg-header"></div> 
         <!-- <image class="bg-header" mode="aspectFit" src="http://7xpceu.com1.z0.glb.clouddn.com/artboard.png"></image> -->
-        <image src="{{user.avatarUrl}}" class="avatar"></image>
+        <image src="{{user.avatarUrl || 'http://about:blank'}}" class="avatar"></image>
         <text class="user-name">{{user.nickName}}</text>
         <view class="remainder">余额 <span class="money">￥{{user.amount}}</span></view>
     </view>
