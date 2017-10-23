@@ -186,7 +186,7 @@ Page({
       clickable: true
     },
     flag = true;
-    if(app.globalData.userInfo.amount > 80.0) {
+    if(app.globalData.userInfo.amount > 79.999) {
       flag = false;
     } else {
       if(app.globalData.userInfo.amount < 0.001) {
@@ -404,10 +404,15 @@ Page({
     // }
   },
   // 点击标注
-  clickMarker (e) {
+  markertap (e) {
+    // console.log('((((((((__)))))aaasdfsdfsdfsdf');
     const self = this
     const id = e.markerId
-    const shopInfo = self.data.shopList.find(shop => shop.id == id)
+    const shopInfo = self.data.shopList.find((shop) => {
+      console.log(shop.name)
+      return shop.id == id;
+    })
+    console.log("====================过滤到店铺信息" + shopInfo.name);
     wx.showActionSheet({
       itemList: [shopInfo.name],
       success (res) {
@@ -471,24 +476,6 @@ Page({
 
     console.log("start setting map info")
 
-    if(app.globalData.userInfo && app.globalData.userInfo.already) {
-        self.setData({
-            logo: app.globalData.userInfo.avatarUrl,
-            amount: app.globalData.userInfo.amount
-        });
-        console.log("You have user info already");
-        self.setControls();
-    } else {
-      app.userinfoChanged(() => {
-        console.log("user info changed");
-        console.log(app.globalData.userInfo)
-        self.setData({
-            logo: app.globalData.userInfo.avatarUrl,
-            amount: app.globalData.userInfo.amount
-        });
-        self.setControls();
-      });      
-    }
 
   },
 
@@ -503,7 +490,31 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let self = this
     // app.getUserInfo()
+    console.log("触发了onShow!");
+    if(app.globalData.userInfo && app.globalData.userInfo.already) {
+        console.log("You have user info already");
+        //重新拉取amount
+        app.getUserInfoByApi(()=>{
+          self.setData({
+              logo: app.globalData.userInfo.avatarUrl,
+              amount: app.globalData.userInfo.amount
+          }); 
+          console.log(self.data.amount)
+          self.setControls();         
+        })
+    } else {
+      app.userinfoChanged(() => {
+        console.log("user info changed");
+        console.log(app.globalData.userInfo)
+        self.setData({
+            logo: app.globalData.userInfo.avatarUrl,
+            amount: app.globalData.userInfo.amount
+        });
+        self.setControls();
+      });      
+    }    
   },
 
   /**

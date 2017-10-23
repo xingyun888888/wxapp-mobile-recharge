@@ -10,7 +10,7 @@
     style="height: {{mapHeight}}px"
     show-location
     bindcontroltap="clickControl"
-    bindmarkertap="clickMarker"
+    bindmarkertap="markertap"
     bindregionchange="regionchange"
     bindtap="clickMap"
   ></map>
