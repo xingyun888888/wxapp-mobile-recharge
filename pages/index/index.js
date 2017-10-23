@@ -454,24 +454,6 @@ Page({
 
     console.log("start setting map info")
 
-    if(app.globalData.userInfo && app.globalData.userInfo.already) {
-        self.setData({
-            logo: app.globalData.userInfo.avatarUrl,
-            amount: app.globalData.userInfo.amount
-        });
-        console.log("You have user info already");
-        self.setControls();
-    } else {
-      app.userinfoChanged(() => {
-        console.log("user info changed");
-        console.log(app.globalData.userInfo)
-        self.setData({
-            logo: app.globalData.userInfo.avatarUrl,
-            amount: app.globalData.userInfo.amount
-        });
-        self.setControls();
-      });      
-    }
 
   },
 
@@ -486,7 +468,31 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let self = this
     // app.getUserInfo()
+    console.log("触发了onShow!");
+    if(app.globalData.userInfo && app.globalData.userInfo.already) {
+        console.log("You have user info already");
+        //重新拉取amount
+        app.getUserInfoByApi(()=>{
+          self.setData({
+              logo: app.globalData.userInfo.avatarUrl,
+              amount: app.globalData.userInfo.amount
+          }); 
+          console.log(self.data.amount)
+          self.setControls();         
+        })
+    } else {
+      app.userinfoChanged(() => {
+        console.log("user info changed");
+        console.log(app.globalData.userInfo)
+        self.setData({
+            logo: app.globalData.userInfo.avatarUrl,
+            amount: app.globalData.userInfo.amount
+        });
+        self.setControls();
+      });      
+    }    
   },
 
   /**
