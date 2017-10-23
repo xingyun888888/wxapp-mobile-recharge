@@ -223,31 +223,45 @@ Page({
             url: '/pages/recharge/recharge'
           })
         } else {
+          //查询用户当前是否在借的状态
           wx.request({
-            url: `https://www.byjiedian.com/index.php/byjie/borrow?shopid=${result}&uid=${uid}&from=v`,
-            success: function(d) {
-              let data = d.data;
-              console.log(data);
-              if(data.retCode === 0) {
-                wx.showToast({
-                  title: '恭喜您借充电宝成功！',
-                  icon: 'success',
-                  duration: 3000,
-                  mask: true,
-                  complete: function() {
-  
-                  }
-                })             
-              } else {
-                wx.showToast({
-                  title: data.msg,
-                  icon: 'error',
-                  duration: 3000,
-                  mask: true
-                })                           
+            url: `https://www.byjiedian.com/index.php/byjie/scan_lending?uid=${uid}&from=v`,
+            success: function(res) {
+              if(res.data.errcode === 0 && res.data.data.status === true) {
+                wx.showModal({
+                  title: '您有尚未归还的充电宝',
+                  content: '请先归还充电宝后，重新扫码借充电宝',
+                  confirmText: "我了解了",
+                  showCancel: false
+                })
+                return false;
               }
-            } 
-          })          
+              wx.request({
+                url: `https://www.byjiedian.com/index.php/byjie/borrow?shopid=${result}&uid=${uid}&from=v`,
+                success: function(d) {
+                  let data = d.data;
+                  console.log(data);
+                  if(data.retCode === 0) {
+                    wx.showModal({
+                      title: '恭喜您成功借到充电宝',
+                      content: "请在使用完毕后及时归还充电宝，系统将停止计费",
+                      confirmText: "我了解了",
+                      showCancel: false
+                    })  
+            
+                  } else {
+                   wx.showModal({
+                      title: '借充电宝失败',
+                      content: data.msg || "网络错误，请稍后再试",
+                      confirmText: "我了解了",
+                      showCancel: false
+                    })  
+                         
+                  }
+                } 
+              }) 
+            }
+          })         
         }
       }
     })
@@ -266,35 +280,44 @@ Page({
             url: '/pages/recharge/recharge'
           })          
         } else {
+          //查询用户当前是否在借的状态
           wx.request({
-            url: `https://www.byjiedian.com/index.php/byjie/buy?shopid=${result}&uid=${uid}&from=v`,
-            success: function(d) {
-              console.log(d); 
-              // if()
-              if(data.errcode === 0) {
-                wx.showToast({
-                  title: '恭喜您购买充电宝成功！',
-                  icon: 'success',
-                  duration: 3000,
-                  mask: true,
-                  complete: function() {
-                    // setTimeout(()=>{
-                    //   wx.navigateTo({
-                    //     url: `../borrowlist/borrowlist`
-                    //   })                    
-                    // }, 3000)
-                  }
-                })             
-              } else {
-                wx.showToast({
-                  title: data.msg,
-                  icon: 'error',
-                  duration: 3000,
-                  mask: true
-                })                           
+            url: `https://www.byjiedian.com/index.php/byjie/scan_lending?uid=${uid}&from=v`,
+            success: function(res) {
+              if(res.data.errcode === 0 && res.data.data.status === true) {
+                wx.showModal({
+                  title: '您有尚未归还的充电宝',
+                  content: '请先归还充电宝后，重新扫码借充电宝',
+                  confirmText: "我了解了",
+                  showCancel: false
+                })
+                return false;
               }
-            } 
-          })           
+              wx.request({
+                url: `https://www.byjiedian.com/index.php/byjie/buy_imei?shopid=${result}&uid=${uid}&from=v`,
+                success: function(d) {
+                  console.log(d); 
+                  let data = d.data
+                  // if()
+                  if(data.errcode === 0 || data.retCode === 0) {
+                    wx.showModal({
+                      title: '恭喜您购买成功',
+                      content: '您已成功购得BY街电充电宝一个，系统已从您余额中扣除80元',
+                      confirmText: "我了解了",
+                      showCancel: false
+                    })           
+                  } else {
+                    wx.showModal({
+                      title: '购买失败',
+                      content: data.msg || "网络错误，请稍后再试",
+                      confirmText: "我了解了",
+                      showCancel: false
+                    })  
+                  }
+                } 
+              }) 
+            }
+          })          
         }
       }
     })

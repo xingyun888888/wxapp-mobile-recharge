@@ -34,7 +34,7 @@ Page({
         console.log(res);
         let result = encodeURIComponent(res.result);
 
-        if(app.globalData.userInfo.amount < 80.0) {
+        if(app.globalData.userInfo.amount < 0.0) {
           wx.navigateTo({
             url: '/pages/recharge/recharge'
           })
@@ -57,33 +57,32 @@ Page({
                 success: function(d) {
                   let data = d.data;
                   console.log(data);
-                  if(data.retCode === 0 || data.errcode === 0) {
-                    wx.showToast({
-                      title: '恭喜您借充电宝成功！',
-                      icon: 'success',
-                      duration: 3000,
-                      mask: true,
-                      complete: function() {
-                        
-                      }
-                    })             
+                  if(data.retCode === 0) {
+                    wx.showModal({
+                      title: '恭喜您成功借到充电宝',
+                      content: "请在使用完毕后及时归还充电宝，系统将停止计费",
+                      confirmText: "我了解了",
+                      showCancel: false
+                    })  
+            
                   } else {
-                    wx.showToast({
-                      title: data.msg,
-                      icon: 'error',
-                      duration: 3000,
-                      mask: true
-                    })                           
+                   wx.showModal({
+                      title: '借充电宝失败',
+                      content: data.msg || "网络错误，请稍后再试",
+                      confirmText: "我了解了",
+                      showCancel: false
+                    })  
+                         
                   }
                 } 
-              })                        
+              }) 
             }
-          })
-
+          })         
         }
       }
     })
-  },  /**
+  },
+  /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
