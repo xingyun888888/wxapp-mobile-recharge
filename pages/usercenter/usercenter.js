@@ -16,10 +16,12 @@ Page({
     wx.setNavigationBarTitle({
       title: '个人中心'
     })
+    // this.updateInfo()
     console.log("Enter page usercenter");
   },
 
   onShow() {
+    console.log("用户中心显示")
     this.updateInfo();
   },
 
@@ -44,6 +46,28 @@ Page({
       });     
     }     
   },
+
+
+  updateInfo() {
+    var self = this
+    console.log("更新用户信息")
+    var amount = app.globalData.userInfo && app.globalData.userInfo.amount || -1;
+    console.log(amount, "余额")
+   if(app.globalData.userInfo && app.globalData.unionid) {
+      console.log("You have user info already");
+      //重新拉取amount
+      app.getUserInfoByApi(()=>{
+          self.setData({
+              user: app.globalData.userInfo
+          });         
+      })
+    } else {
+      setTimeout(()=>{
+        this.updateInfo();
+      }, 100);
+    }
+  },
+
 
 
   call: function() {

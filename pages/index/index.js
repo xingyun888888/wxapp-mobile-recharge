@@ -226,7 +226,7 @@ Page({
         console.log(res);
         let result = encodeURIComponent(res.result);
 
-        if(app.globalData.userInfo.amount < 0.0) {
+        if(app.globalData.userInfo.amount < 80.0) {
           wx.navigateTo({
             url: '/pages/recharge/recharge'
           })
@@ -509,39 +509,29 @@ Page({
 
   updateInfo() {
     var self = this
-    console.log("更新用户信息")
-    var amount = app.globalData.userInfo && app.globalData.userInfo.amount || -1;
-    console.log(app.globalData.userInfo && app.globalData.userInfo.already)
-     if(app.globalData.userInfo && app.globalData.userInfo.already) {
-        console.log("You have user info already");
-        //重新拉取amount
-        app.getUserInfoByApi(()=>{
-          self.setData({
-              logo: app.globalData.userInfo.avatarUrl,
-              amount: app.globalData.userInfo.amount
-          }); 
-          console.log(self.data.amount, amount, Math.abs(amount - app.globalData.userInfo.amount) > .001, "金钱是否变化1");
-          if(Math.abs(amount - app.globalData.userInfo.amount) > .001) {
-            console.log("因为余额变化1，重新刷新controls")
-            self.setControls();         
-          }
-        })
+    // console.log("更新用户信息")
+    // var amount = app.globalData.userInfo && app.globalData.userInfo.amount || -1;
+    // console.log("刷新")
+   if(app.globalData.userInfo && app.globalData.unionid) {
+      console.log("You have user info already");
+      //重新拉取amount
+      app.getUserInfoByApi(()=>{
+        self.setData({
+            logo: app.globalData.userInfo.avatarUrl,
+            amount: app.globalData.userInfo.amount
+        }); 
+
+          console.log("因为余额变化1，重新刷新controls")
+          self.setControls();         
+      })
     } else {
-      app.getUserInfo(()=>{
-          self.setData({
-              logo: app.globalData.userInfo.avatarUrl,
-              amount: app.globalData.userInfo.amount
-          }); 
-          console.log(self.data.amount, amount, Math.abs(amount - app.globalData.userInfo.amount) > .001, "金钱是否变化2");
-          if(Math.abs(amount - app.globalData.userInfo.amount) > .001) {
-            console.log("因为余额变化2，重新刷新controls")
-            self.setControls();         
-          }
-      });     
-    }     
+      setTimeout(()=>{
+        this.updateInfo();
+      }, 100);
+    }
   },
 
-  /**
+/**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {

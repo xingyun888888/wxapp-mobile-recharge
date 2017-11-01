@@ -43,7 +43,7 @@ Page({
     const uid = app.globalData.unionid;
     const openid = app.globalData.openid;
     const amount = app.globalData.userInfo.amount;
-    // const amount = 3;
+    // const amount = 71;
 
     if(amount < .001) {
       wx.showModal({
@@ -59,16 +59,16 @@ Page({
     wx.request({
       url: `https://www.byjiedian.com/index.php/byjie/scan_lending?uid=${uid}&from=v`,
       success: function(res) {
-        console.log(res,"记录查询")
-        if(res.data.errcode === 0 && res.data.data.status === true) {
-          wx.showModal({
-            title: '您有尚未归还的充电宝',
-            content: '请先归还充电宝后再提现',
-            confirmText: "我了解了",
-            showCancel: false
-          })
-          return false;
-        }
+        // console.log(res,"记录查询")
+        // if(res.data.errcode === 0 && res.data.data.status === true) {
+        //   wx.showModal({
+        //     title: '您有尚未归还的充电宝',
+        //     content: '请先归还充电宝后再提现',
+        //     confirmText: "我了解了",
+        //     showCancel: false
+        //   })
+        //   return false;
+        // }
         wx.showModal({
           title: "您确定要提现吗？",
           content: "提现后如需继续使用BY街电服务请重新充值押金",

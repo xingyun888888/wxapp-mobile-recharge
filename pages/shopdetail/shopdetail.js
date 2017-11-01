@@ -40,9 +40,12 @@ Page({
         id: options.id
       },
       success (res) {
-        self.setData({
-          shopInfo: res.data
-        })
+        if(res.data.errcode === 0) {
+           self.setData({
+            shopInfo: res.data.data
+          })
+         
+        }
       }
     })
   },
