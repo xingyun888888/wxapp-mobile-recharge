@@ -149,6 +149,7 @@ Page({
               showCancel: false
             })
 
+            app.globalData.userInfo.amount = 100;
           self.setData({
             needpay: 0.00
           });          

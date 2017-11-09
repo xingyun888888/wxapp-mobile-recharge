@@ -14,12 +14,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if(!app.globalData.openid) {
-      wx.navigateBack({
-        delta: 1
-      });
-      return false;
-    }
+    // if(!app.globalData.openid) {
+    //   wx.navigateBack({
+    //     delta: 1
+    //   });
+    //   return false;
+    // }
 
     wx.setNavigationBarTitle({
       title: '买充电宝'
@@ -46,7 +46,7 @@ Page({
               if(res.data.errcode === 0 && res.data.data.status === true) {
                 wx.showModal({
                   title: '您有尚未归还的充电宝',
-                  content: '请先归还充电宝后，重新扫码借充电宝',
+                  content: '请先归还充电宝后，重新扫码买充电宝',
                   confirmText: "我了解了",
                   showCancel: false
                 })

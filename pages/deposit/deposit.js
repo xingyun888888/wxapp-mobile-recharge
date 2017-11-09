@@ -90,6 +90,7 @@ Page({
                       amount: 0,
                       balance: 0
                     });
+                    app.globalData.userInfo.amount = 0;
                     //进入提现结果页
                     wx.navigateTo({
                       url: '/pages/depositresult/depositresult?amount=' + amount + '&orderno=' + data.data.out_trade_no + '&time=' + self.getTime(res.data.create_time)

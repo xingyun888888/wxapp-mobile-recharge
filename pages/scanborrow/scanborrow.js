@@ -14,12 +14,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if(!app.globalData.openid) {
-      wx.navigateBack({
-        delta: 1
-      });
-      return false;
-    }
+    // if(!app.globalData.openid) {
+    //   wx.navigateBack({
+    //     delta: 1
+    //   });
+    //   return false;
+    // }
 
     wx.setNavigationBarTitle({
       title: '借充电宝'
@@ -34,7 +34,7 @@ Page({
         console.log(res);
         let result = encodeURIComponent(res.result);
 
-        if(app.globalData.userInfo.amount < 0.0) {
+        if(app.globalData.userInfo.amount < 80.0) {
           wx.navigateTo({
             url: '/pages/recharge/recharge'
           })

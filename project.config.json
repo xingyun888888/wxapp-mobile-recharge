@@ -1,0 +1,47 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.5.4",
+	"appid": "wxfee37c6ec17c9077",
+	"projectname": "wxapp-jiedian",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/usercenter/usercenter",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "\b扫码借",
+					"pathName": "pages/scanborrow/scanborrow",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "扫码买",
+					"pathName": "pages/scanbuy/scanbuy",
+					"query": ""
+				}
+			]
+		}
+	}
+}
