@@ -361,7 +361,7 @@ Page({
           })
           console.log("按钮复位", latitude, longitude);
           self.getNearShop(latitude, longitude)
-        }
+        },
       })
     }
     // recharge
@@ -470,6 +470,13 @@ Page({
     }
     self.initControls()
 
+    this.getLocation();
+
+    console.log("start setting map info")
+  },
+
+  getLocation() {
+    let self = this
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
       success: function (res) {
@@ -481,12 +488,30 @@ Page({
         })
         console.log("获取位置",latitude,longitude);
         self.getNearShop(latitude, longitude)
+      },
+      fail: function(e) {
+        console.log('获取位置失败');
+        wx.showModal({
+          title: '获取地理位置失败',
+          content: '请允许BY街电+使用您的位置信息',
+          confirmText: "设置",
+          showCancel: false,
+          success: function(res) {
+            if (res.confirm) {
+              console.log('用户点击确定');
+              wx.openSetting({
+                success: function() {
+                  console.log(12345);
+                  self.getLocation();
+                }
+              })              
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
       }
-    });
-
-    console.log("start setting map info")
-
-
+    });    
   },
 
   /**

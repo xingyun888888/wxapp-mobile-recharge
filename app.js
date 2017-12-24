@@ -53,6 +53,40 @@ App({
     // this.globalData.userinfoCallback.push(callback);
   },
 
+  getWxUserInfo(code, cb) {
+    let self = this
+    wx.getUserInfo({
+      success: function (res) {
+        console.log("Success");
+        self.globalData.userInfo = {
+          avatarUrl: res.userInfo.avatarUrl,
+          nickName: res.userInfo.nickName,
+          amount: 0.00,
+          already: false
+        }
+        console.log("根据code登录")
+        self.getLogin({
+          code: code,
+          // from: "v",
+          cb: cb
+          // iv: res.iv,
+          // encryptedData: encodeURIComponent(res.encryptedData)
+        })
+        console.log(res.userInfo, self.globalData.userInfo, "userinfo in app.js");
+        // console.log(res, "res in wx login");
+        // typeof cb == "function" && cb(this.globalData.userInfo)
+      },
+      fail: function() {
+        console.error("Get login info error!");
+        wx.openSetting({
+          success: function() {
+            self.getWxUserInfo(code, cb);
+          }
+        })  
+      }
+    })    
+  },
+
   getUserInfo:function(cb){
     console.log('==========全局拉取用户信息========');
     var self = this
@@ -62,31 +96,11 @@ App({
     wx.login({
       success: function (r) {
         // console.log(r, "wx login return")
-        console.log("从后台拉取头像信息")
-        wx.getUserInfo({
-          success: function (res) {
-            self.globalData.userInfo = {
-              avatarUrl: res.userInfo.avatarUrl,
-              nickName: res.userInfo.nickName,
-              amount: 0.00,
-              already: false
-            }
-            console.log("根据code登录")
-            self.getLogin({
-              code: r.code,
-              // from: "v",
-              cb: cb
-              // iv: res.iv,
-              // encryptedData: encodeURIComponent(res.encryptedData)
-            })
-            console.log(res.userInfo, self.globalData.userInfo, "userinfo in app.js");
-            // console.log(res, "res in wx login");
-            // typeof cb == "function" && cb(this.globalData.userInfo)
-          }
-        })
+        console.log("从后台拉取头像信息123")
+        self.getWxUserInfo(r.code, cb)
       },
       failed: function() {
-        console.log("error")
+        console.log("error to login")
       }
     })
   },
