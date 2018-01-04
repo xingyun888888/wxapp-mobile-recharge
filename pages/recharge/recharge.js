@@ -8,6 +8,7 @@ Page({
    */
   data: {
     orderNo: '',
+    action: null,
     needpay: 0.00,
     showRechargeProtocol: false,
     showUseProtocol: false
@@ -18,6 +19,7 @@ Page({
    */
   onLoad: function (options) {
     console.log("recharge");
+    this.action = options.action
     if(!app.globalData.openid) {
       wx.navigateBack({
         delta: 1
@@ -142,12 +144,18 @@ Page({
             //   title: "恭喜您充值成功！",
             //   duration: 2000
             // })
-            wx.showModal({
-              title: "恭喜您充值成功",
-              content: "您可以借/买充电宝了",
-              confirmText: "确定",
-              showCancel: false
-            })
+            if(!this.action) {
+              wx.showModal({
+                title: "恭喜您充值成功",
+                content: "您可以借/买充电宝了",
+                confirmText: "确定",
+                showCancel: false
+              })
+            } else if(this.action === 'borrow') {
+              app.scanBorrow();
+            } else  if(this.action === 'buy') {
+              app.scanBuy()
+            }
 
             app.globalData.userInfo.amount = 100;
           self.setData({

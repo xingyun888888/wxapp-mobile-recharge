@@ -225,10 +225,9 @@ Page({
       success: function(res) {
         console.log(res);
         let result = encodeURIComponent(res.result);
-
         if(app.globalData.userInfo.amount < 80.0) {
           wx.navigateTo({
-            url: '/pages/recharge/recharge'
+            url: '/pages/recharge/recharge?action=borrow'
           })
         } else {
           //查询用户当前是否在借的状态
@@ -285,7 +284,7 @@ Page({
 
         if(app.globalData.userInfo.amount < 80.0) {
           wx.navigateTo({
-            url: '/pages/recharge/recharge'
+            url: '/pages/recharge/recharge?action=buy'
           })          
         } else {
           //查询用户当前是否在借的状态

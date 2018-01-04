@@ -26,7 +26,7 @@
 
     <view class="tips">
       <view class="text">1. 归还充电宝之后，用户可以查看支付押金和使用扣费后剩余押金的信息；</view>
-      <view class="text">2. 充电宝借出后，15分钟后开始扣费，1小时收费1元，每天最高收费8元。</view>
+      <view class="text">2. 充电宝借出后，15分钟后开始扣费。</view>
     </view>   
   </view>
 
