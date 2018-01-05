@@ -9,6 +9,7 @@ Page({
   data: {
     orderNo: '',
     action: null,
+    shopid: '',
     needpay: 0.00,
     showRechargeProtocol: false,
     showUseProtocol: false
@@ -20,6 +21,9 @@ Page({
   onLoad: function (options) {
     console.log("recharge");
     this.action = options.action
+    this.shopid = options.shopid
+
+    console.log(this.action, this.shopid)
     if(!app.globalData.openid) {
       wx.navigateBack({
         delta: 1
@@ -128,7 +132,6 @@ Page({
             }
           })          
         }
-
       }
     })
   },
@@ -140,27 +143,23 @@ Page({
         console.log(res, "支付成功回调");
         var data = res.data;
         if(data.errcode == 0) {
-            // wx.showToast({
-            //   title: "恭喜您充值成功！",
-            //   duration: 2000
-            // })
-            if(!this.action) {
+           app.globalData.userInfo.amount = 100;
+            self.setData({
+              needpay: 0.00
+            });             
+
+            if(!self.action) {
               wx.showModal({
                 title: "恭喜您充值成功",
                 content: "您可以借/买充电宝了",
                 confirmText: "确定",
                 showCancel: false
               })
-            } else if(this.action === 'borrow') {
-              app.scanBorrow();
-            } else  if(this.action === 'buy') {
-              app.scanBuy()
+            } else if(self.action === 'borrow') {
+              app.scanBorrow(self.shopid);
+            } else  if(self.action === 'buy') {
+              app.scanBuy(self.shopid)
             }
-
-            app.globalData.userInfo.amount = 100;
-          self.setData({
-            needpay: 0.00
-          });          
         } else {
             //显示出错原因
             wx.showModal({

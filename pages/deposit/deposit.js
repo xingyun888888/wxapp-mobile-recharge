@@ -43,7 +43,7 @@ Page({
     const uid = app.globalData.unionid;
     const openid = app.globalData.openid;
     const amount = app.globalData.userInfo.amount;
-    // const amount = 71;
+    // const amount = 63;
 
     if(amount < .001) {
       wx.showModal({

@@ -227,7 +227,7 @@ Page({
         let result = encodeURIComponent(res.result);
         if(app.globalData.userInfo.amount < 80.0) {
           wx.navigateTo({
-            url: '/pages/recharge/recharge?action=borrow'
+            url: `/pages/recharge/recharge?action=borrow&shopid=${result}`
           })
         } else {
           //查询用户当前是否在借的状态
@@ -284,7 +284,7 @@ Page({
 
         if(app.globalData.userInfo.amount < 80.0) {
           wx.navigateTo({
-            url: '/pages/recharge/recharge?action=buy'
+            url: `/pages/recharge/recharge?action=buy&shopid=${result}`
           })          
         } else {
           //查询用户当前是否在借的状态

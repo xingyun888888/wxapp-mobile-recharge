@@ -13,6 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('欢迎进入用户个人中心')
     wx.setNavigationBarTitle({
       title: '个人中心'
     })
