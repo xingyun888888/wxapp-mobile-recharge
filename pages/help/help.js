@@ -7,14 +7,14 @@ Page({
   data: {
     links: [
       {
-        title: "1.BY街电支持哪些接口类型手机充电?",
+        title: "1.爽电支持哪些接口类型手机充电?",
         link: 'https://mp.weixin.qq.com/s?__biz=MzI5NTY4ODMwNQ==&mid=2247483660&idx=1&sn=30fa2ce6f36529015d778142ee5ce3a8&chksm=ec4e8012db39090439dd1e4f2c0ddaa74ad0e899b6417071b1cef1f1c4f15e2ffcb17c5a1d75&scene=0&key=a3337ab81c300e24ee051b00c956cc453007cbe5ac4284be0c36490b67fc95aeba3a63358e7b83ccdf8d8a5aea58437bce3a1a16b76f74dc18b5f2db4192da9105c0e4be27980460792380f98962080b&ascene=0&uin=MTM4MTgwNDc2MA%3D%3D&devicetype=iMac+MacBookPro12%2C1+OSX+OSX+10.12.5+build(16F73)&version=12020810&nettype=WIFI&fontScale=100&pass_ticket=7CaeTY7Pz3JecHCmfMTLLOiZDemAedvXQh3DhTz9Gsm2hn%2BKjbwsJYZ6fFAwhhw6',
         switch: false,
         contents: [
           {
             title: "",
             content: [
-              "BY街电为您提供同时支持Android, Type-C和Apple接口充电的充电宝，为用户提供全方位服务。"
+              "爽电为您提供同时支持Android, Type-C和Apple接口充电的充电宝，为用户提供全方位服务。"
             ]
           }
         ]
@@ -27,9 +27,9 @@ Page({
           {
             title: "关注微信公众号：",
             content: [
-              "1. 使用微信\"扫一扫\"功能，扫描终端机箱屏幕的二维码，关注\"BY街电\"微信服务号；",
-              "2. 通过好友推荐，长按识别推荐二维码，关注\"BY街电\"微信服务号；",
-              "3. 在微信公众号里面搜索\"BY街电\"并关注",
+              "1. 使用微信\"扫一扫\"功能，扫描终端机箱屏幕的二维码，关注\"爽电\"微信服务号；",
+              "2. 通过好友推荐，长按识别推荐二维码，关注\"爽电\"微信服务号；",
+              "3. 在微信公众号里面搜索\"爽电\"并关注",
             ]
           },
           {
@@ -42,7 +42,7 @@ Page({
           {
             title: "再次使用：",
             content: [
-              "1. 查询\"附近网点\"选择最近的BY街电网点。",
+              "1. 查询\"附近网点\"选择最近的爽电网点。",
               "2. 打开微信公众号菜单栏的\"借\"选项，点击\"扫码借充电宝\"扫描终端机箱上的二维码，如果押金金额超过80元，扫码识别成功之后，系统会自动弹出充电宝。若账户余额不足80元，将提示再次充值押金到100元.",
             ]
           }
@@ -113,7 +113,7 @@ Page({
           {
             title: "",
             content: [
-              "提现操作后，BY街电系统会自动审核通过，将押金退回给第三方支付平台，支付平台将金额按支付路径退回支付的银行卡，1-5个工作日是不同银行的处理进度流程时间。"
+              "提现操作后，爽电系统会自动审核通过，将押金退回给第三方支付平台，支付平台将金额按支付路径退回支付的银行卡，1-5个工作日是不同银行的处理进度流程时间。"
             ]
           }
         ]

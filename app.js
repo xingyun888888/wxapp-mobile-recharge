@@ -236,7 +236,7 @@ console.log("即将借充电宝:" + shopid);
               if(data.errcode === 0 || data.retCode === 0) {
                 wx.showModal({
                   title: '恭喜您购买成功',
-                  content: '您已成功购得BY街电充电宝一个，系统已从您余额中扣除80元',
+                  content: '您已成功购得爽电充电宝一个，系统已从您余额中扣除80元',
                   confirmText: "我了解了",
                   showCancel: false
                 });

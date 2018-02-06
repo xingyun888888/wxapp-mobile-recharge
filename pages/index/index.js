@@ -141,9 +141,9 @@ Page({
       id: 8,
       position: {
         left: 56,
-        top: 26,
+        top: 21.5,
         width: 147 / 3,
-        height: 45 / 3
+        height: 75 / 3
       },
       iconPath: '../../assets/logo@3x.png',
       clickable: true
@@ -309,7 +309,7 @@ Page({
                   if(data.errcode === 0 || data.retCode === 0) {
                     wx.showModal({
                       title: '恭喜您购买成功',
-                      content: '您已成功购得BY街电充电宝一个，系统已从您余额中扣除80元',
+                      content: '您已成功购得爽电充电宝一个，系统已从您余额中扣除80元',
                       confirmText: "我了解了",
                       showCancel: false
                     });
@@ -492,7 +492,7 @@ Page({
         console.log('获取位置失败');
         wx.showModal({
           title: '获取地理位置失败',
-          content: '请允许BY街电+使用您的位置信息',
+          content: '请允许爽电使用您的位置信息',
           confirmText: "设置",
           showCancel: false,
           success: function(res) {

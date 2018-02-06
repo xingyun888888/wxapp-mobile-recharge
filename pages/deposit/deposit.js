@@ -71,7 +71,7 @@ Page({
         // }
         wx.showModal({
           title: "您确定要提现吗？",
-          content: "提现后如需继续使用BY街电服务请重新充值押金",
+          content: "提现后如需继续使用爽电服务请重新充值押金",
           confirmText: "提现",
           success: function(res) {
             if(res.confirm) {

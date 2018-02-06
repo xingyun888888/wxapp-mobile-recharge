@@ -1,0 +1,137 @@
+Searching 77 files for "街电"
+
+/Users/fatzhou/Desktop/workspace/wxapp-jiedian/app.js:
+  237                  wx.showModal({
+  238                    title: '恭喜您购买成功',
+  239:                   content: '您已成功购得BY街电充电宝一个，系统已从您余额中扣除80元',
+  240                    confirmText: "我了解了",
+  241                    showCancel: false
+
+/Users/fatzhou/Desktop/workspace/wxapp-jiedian/pages/deposit/deposit.js:
+   72          wx.showModal({
+   73            title: "您确定要提现吗？",
+   74:           content: "提现后如需继续使用BY街电服务请重新充值押金",
+   75            confirmText: "提现",
+   76            success: function(res) {
+
+/Users/fatzhou/Desktop/workspace/wxapp-jiedian/pages/help/help.js:
+    8      links: [
+    9        {
+   10:         title: "1.BY街电支持哪些接口类型手机充电?",
+   11          link: 'https://mp.weixin.qq.com/s?__biz=MzI5NTY4ODMwNQ==&mid=2247483660&idx=1&sn=30fa2ce6f36529015d778142ee5ce3a8&chksm=ec4e8012db39090439dd1e4f2c0ddaa74ad0e899b6417071b1cef1f1c4f15e2ffcb17c5a1d75&scene=0&key=a3337ab81c300e24ee051b00c956cc453007cbe5ac4284be0c36490b67fc95aeba3a63358e7b83ccdf8d8a5aea58437bce3a1a16b76f74dc18b5f2db4192da9105c0e4be27980460792380f98962080b&ascene=0&uin=MTM4MTgwNDc2MA%3D%3D&devicetype=iMac+MacBookPro12%2C1+OSX+OSX+10.12.5+build(16F73)&version=12020810&nettype=WIFI&fontScale=100&pass_ticket=7CaeTY7Pz3JecHCmfMTLLOiZDemAedvXQh3DhTz9Gsm2hn%2BKjbwsJYZ6fFAwhhw6',
+   12          switch: false,
+   ..
+   15              title: "",
+   16              content: [
+   17:               "BY街电为您提供同时支持Android, Type-C和Apple接口充电的充电宝，为用户提供全方位服务。"
+   18              ]
+   19            }
+   ..
+   28              title: "关注微信公众号：",
+   29              content: [
+   30:               "1. 使用微信\"扫一扫\"功能，扫描终端机箱屏幕的二维码，关注\"BY街电\"微信服务号；",
+   31:               "2. 通过好友推荐，长按识别推荐二维码，关注\"BY街电\"微信服务号；",
+   32:               "3. 在微信公众号里面搜索\"BY街电\"并关注",
+   33              ]
+   34            },
+   ..
+   43              title: "再次使用：",
+   44              content: [
+   45:               "1. 查询\"附近网点\"选择最近的BY街电网点。",
+   46                "2. 打开微信公众号菜单栏的\"借\"选项，点击\"扫码借充电宝\"扫描终端机箱上的二维码，如果押金金额超过80元，扫码识别成功之后，系统会自动弹出充电宝。若账户余额不足80元，将提示再次充值押金到100元.",
+   47              ]
+   ..
+  114              title: "",
+  115              content: [
+  116:               "提现操作后，BY街电系统会自动审核通过，将押金退回给第三方支付平台，支付平台将金额按支付路径退回支付的银行卡，1-5个工作日是不同银行的处理进度流程时间。"
+  117              ]
+  118            }
+
+/Users/fatzhou/Desktop/workspace/wxapp-jiedian/pages/index/index.js:
+  310                      wx.showModal({
+  311                        title: '恭喜您购买成功',
+  312:                       content: '您已成功购得BY街电充电宝一个，系统已从您余额中扣除80元',
+  313                        confirmText: "我了解了",
+  314                        showCancel: false
+  ...
+  493          wx.showModal({
+  494            title: '获取地理位置失败',
+  495:           content: '请允许BY街电+使用您的位置信息',
+  496            confirmText: "设置",
+  497            showCancel: false,
+
+/Users/fatzhou/Desktop/workspace/wxapp-jiedian/pages/protocol/protocol.wxml:
+    4  		<view class="close-wrap"><image src="http://7xpceu.com1.z0.glb.clouddn.com/close.png" mode="aspectFill"></image></view>
+    5  		<scroll-view class="scroll-content" scroll-y="true">
+    6: 			<view class="sub-content">尊敬的用户，为保障您的合法权益，请您在充值前仔细阅读本《充值协议》（“本协议”）以了解BY街电的充值及余额使用规则并避免产生任何误解。当您点击“确认支付”按钮，即视为您已阅读、理解本协议，并同意按照本协议约定的规则进行充值或使用账户余额。</view>
+    7  			<view class="sub-title">1. 定义：</view>
+    8: 			<view class="sub-content">充值本金：您通过“BY街电”公众号账号实际支付的金额。</view>
+    9  			<view class="sub-content">账户余额：您的用户帐号中显示的金额。</view>
+   10  			<view class="sub-title">2. 账户余额有效期：</view>
+   ..
+   16  				<view class="sub-content">(2) 如您充值本金为100元，且您已消费40元，则您可申请退还60元。</view>
+   17  			<view class="sub-title">4. 保证与承诺：</view>
+   18: 			<view class="sub-content">您完全理解并同意，BY街电所提供的推荐好友赚提成仅适用于正当、合法按照《用户协议》使用我们服务的用户。一旦发现您的用户帐号存在任何利用前述规则从事作弊行为以获取不正当经济利益的情形，BY街电有权追回因作弊行为取得的所有不正当的经济利益，并且BY街电保留停止向您提供服务以及根据作弊行为的严重程度进一步追究法律责任的权利。</view>
+   19  			<view class="sub-title">5. 特别说明：</view>
+   20: 			<view class="sub-content">您完全理解并同意，BY街电有权随时修改本协议内容，届时将通过本软件上公布修改后的协议，该公布将被视为BY街电已通知用户；同时，BY街电也可通过其他适当方式通知用户。如果您选择继续充值即表示您同意并接受修改后的协议并受其约束；如果您不同意本公司对本协议的修改，请立即放弃充值或停止使用本服务。在适用法律法规允许的范围内，本协议下充值账户余额的使用规则的最终解释权归BY街电所有。</view>	
+   21  		</scroll-view>	
+   22  	</view>
+
+/Users/fatzhou/Desktop/workspace/wxapp-jiedian/pages/recharge/recharge.wxml:
+   36        <view class="close-wrap" bindtap="closeRechargeProtocol"><image src="http://7xpceu.com1.z0.glb.clouddn.com/close.png" mode="aspectFill"></image></view>
+   37        <scroll-view class="scroll-content" scroll-y="true">
+   38:         <view class="sub-content">尊敬的用户，为保障您的合法权益，请您在充值前仔细阅读本《充值协议》（“本协议”）以了解BY街电的充值及余额使用规则并避免产生任何误解。当您点击“确认支付”按钮，即视为您已阅读、理解本协议，并同意按照本协议约定的规则进行充值或使用账户余额。</view>
+   39          <view class="sub-title">1. 定义：</view>
+   40:         <view class="sub-content">充值本金：您通过“BY街电”公众号账号实际支付的金额。</view>
+   41          <view class="sub-content">账户余额：您的用户帐号中显示的金额。</view>
+   42          <view class="sub-title">2. 账户余额有效期：</view>
+   ..
+   48            <view class="sub-content">(2) 如您充值本金为100元，且您已消费40元，则您可申请退还60元。</view>
+   49          <view class="sub-title">4. 保证与承诺：</view>
+   50:         <view class="sub-content">您完全理解并同意，BY街电所提供的推荐好友赚提成仅适用于正当、合法按照《用户协议》使用我们服务的用户。一旦发现您的用户帐号存在任何利用前述规则从事作弊行为以获取不正当经济利益的情形，BY街电有权追回因作弊行为取得的所有不正当的经济利益，并且BY街电保留停止向您提供服务以及根据作弊行为的严重程度进一步追究法律责任的权利。</view>
+   51          <view class="sub-title">5. 特别说明：</view>
+   52:         <view class="sub-content">您完全理解并同意，BY街电有权随时修改本协议内容，届时将通过本软件上公布修改后的协议，该公布将被视为BY街电已通知用户；同时，BY街电也可通过其他适当方式通知用户。如果您选择继续充值即表示您同意并接受修改后的协议并受其约束；如果您不同意本公司对本协议的修改，请立即放弃充值或停止使用本服务。在适用法律法规允许的范围内，本协议下充值账户余额的使用规则的最终解释权归BY街电所有。</view> 
+   53        </scroll-view>  
+   54      </view>
+   ..
+   60          <scroll-view class="scroll-content" scroll-y="true">
+   61            <view class="sub-title">1.特别提示</view>
+   62:           <view class="sub-content">1.1本《搏壹科技-共享充电宝租赁服务协议》（以下简称《协议》）是服务使用人（以下简称“用户”）与深圳市搏壹科技有限公司（以下简称“本公司”）之间关于用户关注、使用、管理“BY街电”公众服务号和“BY街电+”小程序软件账号，以及使用本公司提供的相关服务所订立的协议。“BY街电”公众服务号和“BY街电+”小程序软件（以下简称“本软件”）。</view>
+   63            <view class="sub-content">1.2 本软件由深圳市搏壹科技有限公司研发，并将按照本协议的规定及不时发布的操作规则提供基于互联网以及移动网的相关服务（包括充电宝租用软件的网络服务和充电宝使用服务，以下也称“本服务”或“搏壹科技-共享充电宝租赁服务”）。为获得本服务，用户应认真阅读、充分理解本《协议》中条款，特别涉及免除或者限制本公司责任的免责条款、限制用户权利的条款、约定争议解决方式、司法管辖、法律适用的条款。请您审慎阅读，一经点击“确认”按键，即表示同意接受本《协议》；如您不接受本《协议》的部分或全部内容，请您不要点击“确认”按键。（无民事行为能力人谢绝使用本服务、限制民事行为能力人应在法定监护人监护下阅读、理解及使用本服务）。除非您接受本《协议》所有条款，否则您无权使用本软件及其相关服务。您的账号获取、登录和使用本服务等行为将视为对本《协议》的接受以及接受本《协议》各项条款的约束。</view>
+   64            <view class="sub-title">2.知识产权声明</view>
+   ..
+   90            <view class="sub-content">5.5 本公司有权对用户使用本软件服务，包括但不限于收费及免费服务（其中包括基于广告商业模式的免费服务）的情况进行审查和监督(包括但不限于对用户存储在本公司的内容进行审核，如用户在使用本服务时违反任何上述规定，本公司有权要求用户改正或直接采取一切必要的措施（包括但不限于更改或删除用户张贴的内容等、暂停或终止用户使用本服务的权利）以减轻用户不当行为造成的影响。因用户自身行为需向第三人承担责任的，由用户自行承担，与本公司无关。</view> 
+   91            <view class="sub-content">5.6 本公司有权基于其独立判断，在经本公司合理判断其认为可能发生危害本软件或本公司等的情形时（包括但不限于用户违反本协议第6.4条项下的原则），本公司保留在不另行通知的情况下不经事前通知用户而先行暂停、中断或终止向用户提供本协议项下的全部或部分用户服务的权利，且无需对用户或任何第三方承担法律相关任何责任。当用户因本条原因被暂停、中断或终止服务时，用户应按照本公司指示行事，否则将被视为违约并应承担本协议第10.2条项下的违约责任，并且本公司保留追究用户法律责任的权利。</view> 
+   92:           <view class="sub-title">“BY街电+”服务使用及管理规定</view>
+   93            <view class="sub-content">6.1 本公司拥有本软件充电宝的所有权、使用权、以及许可用户使用该充电宝的权利，并负责日常投放、保养、维修。同时，本软件服务系统的所有权及一切知识产权归本公司所有。</view> 
+   94            <view class="sub-content">6.2 用户所预订并提取的充电宝仅限该用户自己使用，严禁转租或转借于他人使用。</view> 
+   ..
+   99            <view class="sub-title">7. 隐私保护</view>
+  100            <view class="sub-content">7.1 本软件可能会与第三方合作向用户提供相关的服务，在此情况下，如该第三方同意承担与本公司同等的保护用户隐私的责任，则本公司有权将用户的注册资料等提供给该第三方。</view> 
+  101:           <view class="sub-content">7.2 在不透露单个用户隐私资料的前提下，本公司有权对整个用户数据库进行分析并对用户数据库进行商业上的使用。本公司《BY街电隐私政策》作为本协议的有效组成部分，且用户同意并接受本公司不定时的更新隐私政策，如用户不接受现行的或更新后的隐私政策，则应立即停止使用本服务。</view> 
+  102            <view class="sub-title">8. 免责声明</view>
+  103            <view class="sub-content">8.1 用户已明确知晓本协议的内容，用户不按本协议约定同意其使用本服务所存在的风险，风险将完全由其自己承担；及因不按本协议说明及提示，使用因其使用本服务所而产生的不利一切后果均也由其本人自己承担，除本协议另有约定外，本公司对用户上述行为不承担法律相关任何责任。</view> 
+
+/Users/fatzhou/Desktop/workspace/wxapp-jiedian/pages/recommend/recommend.wxml:
+   12        </view>
+   13        <view class="content">
+   14:         <view class="content-word">1. 推荐好友扫一扫，关注“BY街电”</view>
+   15:         <view class="content-word">2. 通过推荐路径关注BY街电公共号的所有好友，可以提成10%租借消费金额</view>
+   16        </view>
+   17      </view>
+
+/Users/fatzhou/Desktop/workspace/wxapp-jiedian/pages/scanbuy/scanbuy.js:
+   62                      wx.showModal({
+   63                        title: '恭喜您购买成功',
+   64:                       content: '您已成功购得BY街电充电宝一个，系统已从您余额中扣除80元',
+   65                        confirmText: "我了解了",
+   66                        showCancel: false
+
+/Users/fatzhou/Desktop/workspace/wxapp-jiedian/pages/shopdetail/shopdetail.js:
+  164                      wx.showModal({
+  165                        title: '恭喜您购买成功',
+  166:                       content: '您已成功购得BY街电充电宝一个，系统已从您余额中扣除80元',
+  167                        confirmText: "我了解了",
+  168                        showCancel: false
+
+39 matches across 9 files
