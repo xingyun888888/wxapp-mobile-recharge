@@ -176,9 +176,30 @@ console.log("即将借充电宝:" + shopid);
               wx.navigateBack();
 
               if(data.retCode === 0) {
+                let fee = {
+                  "1": {
+                    per: 1,
+                    most: 8,
+                  },
+                  "2": {
+                    per: 2,
+                    most: 14
+                  },
+                  "3": {
+                    per: 3,
+                    most: 18,
+                  },
+                  "4": {
+                    per: 5,
+                    most: 25
+                  }
+                }
+                let rule = fee[data.rule]
+                let str = "该充电宝每小时收费" + rule.per + "元，每天最多收费" + rule.most + "元。"
+
                 wx.showModal({
                   title: '恭喜您成功借到充电宝',
-                  content: "请在使用完毕后及时归还充电宝，系统将停止计费",
+                  content: str + "请在使用完毕后及时归还充电宝，系统将停止计费",
                   confirmText: "我了解了",
                   showCancel: false
                 })  
