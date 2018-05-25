@@ -5,7 +5,7 @@
         <!-- <image class="bg-header" mode="aspectFit" src="http://7xpceu.com1.z0.glb.clouddn.com/artboard.png"></image> -->
         <image src="{{user.avatarUrl || 'http://about:blank'}}" class="avatar"></image>
         <text class="user-name">{{user.nickName}}</text>
-        <view class="remainder">余额 <span class="money">￥{{user.amount}}</span></view>
+        <view class="remainder">{{lending?"押金":"余额"}} <span class="money">￥{{user.amount}}</span></view>
     </view>
     <view class="ctrl-money border">
         <navigator hover-class="none" url="/pages/deposit/deposit" class="item deposit" tag="div">

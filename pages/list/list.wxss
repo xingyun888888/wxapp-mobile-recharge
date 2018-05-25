@@ -59,6 +59,7 @@ image{
 .detail{
   margin-left: 32rpx;
   flex: 1;
+  min-width: 0;
 }
 .shop-name{
   font-size: 14px;

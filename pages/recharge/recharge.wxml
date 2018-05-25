@@ -15,7 +15,7 @@
   </view>
 
   <view class="desc-area">
-    <button class="deposit-btn" bindtap="recharge">确认支付</button>
+    <button class="deposit-btn" bindtap="recharge" disabled="{{payDisabled}}">确认支付</button>
     <view class="recharge-tips">点击支付表示已阅读并同意<span bindtap="openUseProtocol">使用条款</span>和<span bindtap="openRechargeProtocol">充值协议</span></view>
 
     
@@ -26,8 +26,8 @@
 
     <view class="tips">
       <view class="text">1. 归还充电宝之后，用户可以查看支付押金和使用扣费后剩余押金的信息；</view>
-      <view class="text">2. 充电宝借出后，15分钟后开始扣费；</view>
-      <view class="text">3. 系统有四种计费规则，分别有1元/2元/3元/5元每小时，不同场合不同计费规则，在借出充电宝时有提示。</view>
+      <view class="text">2. 充电宝借出后，免费时长详见弹框提示。</view>
+      <view class="text">3. 不同场合不同计费规则，在借出充电宝时有提示。</view>
     </view>   
   </view>
 

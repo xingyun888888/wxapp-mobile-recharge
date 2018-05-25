@@ -23,6 +23,9 @@ App({
   //     }
   //   })
   // },
+  updateInfo(callback) {
+    this.getUserInfoByApi(callback)
+  },
   getUserInfoByApi(callback) {
     const self = this
     wx.request({
@@ -137,18 +140,35 @@ App({
       }
     })
   },
-  scanBorrow: function (shopid) {
+  scanBorrow: function(action) {
+    let self = this
+    wx.scanCode({
+      success: function(res) {
+        console.log(res);
+        let result = encodeURIComponent(res.result)
+        self.scanBorrowNow(result, action)
+      }
+    })
+  },
+  scanBorrowNow: function (shopid, action) {
     let self = this;
     const uid = this.globalData.unionid;
     const openid = this.globalData.openid;
-console.log("即将借充电宝:" + shopid);
+    console.log("即将借充电宝:" + shopid);
+    console.log(self.globalData.userInfo.amount)
     if(self.globalData.userInfo.amount < 80.0) {
-        wx.showModal({
-          title: "您的余额不足",
-          content: "请先充值后再借充电宝",
-          confirmText: "确定",
-          showCancel: true
-        })
+        if(!action) {
+          wx.showModal({
+            title: "您的余额不足",
+            content: "请先充值后再借充电宝",
+            confirmText: "确定",
+            showCancel: true
+          })          
+        } else {
+          wx.navigateTo({
+            url: `/pages/recharge/recharge?action=borrow&shopid=${shopid}`
+          })   
+        }
         return false;
     } else {
       //查询用户当前是否在借的状态
@@ -195,7 +215,7 @@ console.log("即将借充电宝:" + shopid);
                   }
                 }
                 let rule = fee[data.rule]
-                let str = "该充电宝每小时收费" + rule.per + "元，每天最多收费" + rule.most + "元。"
+                let str = "请在槽位" + data.slot_id + "取走充电宝。该充电宝免费使用时长为" + data.free_time + "分钟，之后每小时收费" + rule.per + "元，每天最多收费" + rule.most + "元。"
 
                 wx.showModal({
                   title: '恭喜您成功借到充电宝',
@@ -217,18 +237,44 @@ console.log("即将借充电宝:" + shopid);
       })         
     }
   },
-  scanBuy: function (shopid) {
+  scanBuy: function(action) {
+    let self = this
+    wx.showModal({
+      title: '您确定要购买充电宝吗',
+      content: '充电宝售价为80元/个，系统一次性从您的账户余额中扣除',
+      success: function(res) {
+        if(res.confirm) {
+          wx.scanCode({
+            success: function(res) {
+              console.log(res);
+              let result = encodeURIComponent(res.result);
+              self.scanBuyNow(result, action)
+            }
+          })  
+        }
+      },
+      confirmText: "确定",
+      showCancel: true
+    })   
+  },
+  scanBuyNow: function (shopid, action) {
     let self = this;
     const uid = this.globalData.unionid;
     const openid = this.globalData.openid;
 
     if(self.globalData.userInfo.amount < 80.0) {
-        wx.showModal({
-          title: "您的余额不足",
-          content: "请先充值后再买充电宝",
-          confirmText: "确定",
-          showCancel: true
-        })         
+        if(!action) {
+          wx.showModal({
+            title: "您的余额不足",
+            content: "请先充值后再买充电宝",
+            confirmText: "确定",
+            showCancel: true
+          })                
+        } else {
+          wx.navigateTo({
+            url: `/pages/recharge/recharge?action=buy&shopid=${shopid}`
+          }) 
+        }
     } else {
       //查询用户当前是否在借的状态
       wx.request({
@@ -257,7 +303,7 @@ console.log("即将借充电宝:" + shopid);
               if(data.errcode === 0 || data.retCode === 0) {
                 wx.showModal({
                   title: '恭喜您购买成功',
-                  content: '您已成功购得爽电充电宝一个，系统已从您余额中扣除80元',
+                  content: '请在槽位' + data.slot_id + '取走充电宝。系统已从您余额中扣除80元',
                   confirmText: "我了解了",
                   showCancel: false
                 });

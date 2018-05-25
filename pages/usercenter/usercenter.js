@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    user: {}
+    user: {},
+    lending: false,
   },
 
   /**
@@ -40,6 +41,21 @@ Page({
           self.setData({
               user: app.globalData.userInfo
           });         
+      })
+
+      var self = this;
+      const uid = app.globalData.unionid;
+      const openid = app.globalData.openid;
+      console.log("查询是否借充电宝");
+      wx.request({
+        url: `https://www.byjiedian.com/index.php/byjie/scan_lending?uid=${uid}&from=v`,
+        success: function(res) {
+          if(res.data.errcode === 0) {
+            self.setData({
+              lending: res.data.data.status
+            })
+          }
+        }
       })
     } else {
       setTimeout(()=>{
